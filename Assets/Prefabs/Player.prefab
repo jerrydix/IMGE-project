@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aca085fec6224c4b8112d313c381540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpSpeed: 5
+  moveSpeed: 7
+  jumpSpeed: 7
   cam: {fileID: 0}
   xSensi: 15
   ySensi: 15
@@ -133,10 +133,10 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  orientation: {fileID: 0}
-  drag: 0
-  airMult: 0
-  jumpCooldown: 0
+  orientation: {fileID: 7145766092567688590}
+  drag: 5
+  airMult: 0.4
+  jumpCooldown: 0.25
 --- !u!114 &7145766092266295042
 MonoBehaviour:
   m_ObjectHideFlags: 0
