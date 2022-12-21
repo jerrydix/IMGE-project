@@ -53,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, height * 0.5f + 0.3f, ground);
+        grounded = Physics.Raycast(transform.position, Vector3.down, height * 0.5f + 0.2f, ground);
+        Debug.Log(grounded);
         SpeedLimit();
         if (grounded)
             _rigidbody.drag = drag;
@@ -72,21 +73,15 @@ public class PlayerMovement : MonoBehaviour
         
         cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
-        //Debug.Log(transform.rotation.y);
-        //Debug.Log(cam.transform.rotation.y);
-        // xRotation = (lookInput.y * Time.deltaTime) * ySensi;
-        //xRotation = Mathf.Clamp(xRotation, -80f, 80f);
-        //cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        //gameObject.transform.Rotate(Vector3.up * (lookInput.x * Time.deltaTime * xSensi));
     }
 
     private void Move(Vector2 input)
     {
         Vector3 dir = orientation.forward * input.y + orientation.right * input.x;
-        //if(grounded)
+        if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);
             
-        //else if(!grounded)
+        else if(!grounded)
             _rigidbody.AddForce(dir * 10f * airMult, ForceMode.Force);
     }
     
@@ -94,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && grounded && jump)
         {
-            _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            //_rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
             _rigidbody.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
             
