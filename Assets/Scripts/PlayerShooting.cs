@@ -1,33 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
+    private PlayerInput input;
     public Camera FPSCamera; 
     // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            shoot();
+        input = new PlayerInput();
+        input.Moving.Enable();
+        input.Moving.Fire.performed += Shoot;
+    }
 
+    private void Shoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit))
+            {
+                Target target = hit.transform.GetComponent<Target>();
+                if (target != null)
+                {
+                    target.changeGravity();
+                }
+            }
         }
     }
 
-    void shoot()
+    void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit))
+       /* if (Input.GetButtonDown("Fire1"))
         {
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                target.changeGravity();
-            }
-        }
-        
+            Shoot();
 
+        }*/
     }
 }
