@@ -11,12 +11,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed = 2f;
     private PlayerInput inputActions;
 
-    [Header("Camera")]
+    /*[Header("Camera")]
     [SerializeField] private Camera cam;
     private float xRotation;
     private float yRotation;
     [SerializeField] private float xSensi;
-    [SerializeField] private float ySensi;
+    [SerializeField] private float ySensi;*/
 
     [Header("Ground")]
     [SerializeField] private float height;
@@ -64,15 +64,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        float x = inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
-        float y = inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
+       // float x = inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
+       // float y = inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
 
-        yRotation += x;
-        xRotation -= y;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+       // yRotation += x;
+        //xRotation -= y;
+        //xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         
-        cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        //cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        //transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
     private void Move(Vector2 input)
@@ -105,8 +105,7 @@ public class PlayerMovement : MonoBehaviour
     private void SpeedLimit()
     {
         Vector3 vel = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
-
-        // limit velocity if needed
+        
         if(vel.magnitude > moveSpeed)
         {
             Vector3 lim = vel.normalized * moveSpeed;
