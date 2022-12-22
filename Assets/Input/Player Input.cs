@@ -53,6 +53,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e76d44e-5657-4a6b-9074-464b643e31e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32759a20-0405-4b6b-aad3-d0a1a549adc8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b8478f6-54f3-4e1d-8156-fa233455f6e3"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +251,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Moving_Move = m_Moving.FindAction("Move", throwIfNotFound: true);
         m_Moving_Jump = m_Moving.FindAction("Jump", throwIfNotFound: true);
         m_Moving_Look = m_Moving.FindAction("Look", throwIfNotFound: true);
+        m_Moving_Fire = m_Moving.FindAction("Fire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +314,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Moving_Move;
     private readonly InputAction m_Moving_Jump;
     private readonly InputAction m_Moving_Look;
+    private readonly InputAction m_Moving_Fire;
     public struct MovingActions
     {
         private @PlayerInput m_Wrapper;
@@ -289,6 +322,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Moving_Move;
         public InputAction @Jump => m_Wrapper.m_Moving_Jump;
         public InputAction @Look => m_Wrapper.m_Moving_Look;
+        public InputAction @Fire => m_Wrapper.m_Moving_Fire;
         public InputActionMap Get() { return m_Wrapper.m_Moving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -307,6 +341,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnLook;
+                @Fire.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnFire;
             }
             m_Wrapper.m_MovingActionsCallbackInterface = instance;
             if (instance != null)
@@ -320,6 +357,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
             }
         }
     }
@@ -329,5 +369,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
 }
