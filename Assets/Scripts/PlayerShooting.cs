@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
 {
     private PlayerInput input;
     public Camera FPSCamera; 
-    // Update is called once per frame
+    
     private void Start()
     {
         input = new PlayerInput();
@@ -31,14 +31,5 @@ public class PlayerShooting : MonoBehaviour
                 }
             }
         }
-    }
-
-    void Update()
-    {
-       /* if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-
-        }*/
     }
 }

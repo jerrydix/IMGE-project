@@ -37,7 +37,5 @@ public class Target : MonoBehaviour
             antigravitybool = false;
             constantForce.enabled = antigravitybool;
         }
-        
-        
     }
 }
