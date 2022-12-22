@@ -124,14 +124,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpSpeed: 7
+  jumpSpeed: 5
   height: 2
   ground:
     serializedVersion: 2
     m_Bits: 64
   orientation: {fileID: 7145766092567688590}
   drag: 5
-  airMult: 0.4
+  airMult: 0.7
   jumpCooldown: 0.25
 --- !u!54 &7145766092266295043
 Rigidbody:
