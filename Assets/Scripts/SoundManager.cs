@@ -5,8 +5,15 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    public enum Sounds
+    {
+        Damage,
+        Heal,
+        //...
+    }
     public static SoundManager Instance { get; set; }
     private AudioSource source;
+    [SerializeField] private AudioClip[] audioClips;
 
     [SerializeField] private AudioMixer mixer;
 
@@ -17,8 +24,15 @@ public class SoundManager : MonoBehaviour
         mixer.SetFloat("Volume", GameManager.Instance.currentVolume);
     }
 
-    public void PlaySound(AudioClip sound)
+    public void PlaySound(Sounds sound)
     {
-        source.PlayOneShot(sound);
+        switch (sound)
+        {
+            case Sounds.Damage:
+            { source.PlayOneShot(audioClips[0]); break; }
+            case Sounds.Heal:
+            { source.PlayOneShot(audioClips[1]); break; }
+            //...
+        }
     }
 }
