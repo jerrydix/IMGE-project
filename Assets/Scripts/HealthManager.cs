@@ -10,9 +10,9 @@ public class HealthManager : MonoBehaviour
         Normal
     }
     public static HealthManager Instance { get; set; }
-    public int health;
-    public int armor;
-    public bool dead;
+    [HideInInspector] public int health;
+    [HideInInspector] public int armor;
+    [HideInInspector] public bool dead;
 
     // Start is called before the first frame update
     void Awake()
