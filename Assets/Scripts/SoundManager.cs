@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour
     {
         Instance = this;
         source = GetComponent<AudioSource>();
-        mixer.SetFloat("Volume", GameManager.Instance.currentVolume);
+        //mixer.SetFloat("Volume", GameManager.Instance.currentVolume);
     }
 
     public void PlaySound(Sounds sound)
@@ -29,9 +29,9 @@ public class SoundManager : MonoBehaviour
         switch (sound)
         {
             case Sounds.Damage:
-            { source.PlayOneShot(audioClips[0]); break; }
-            case Sounds.Heal:
-            { source.PlayOneShot(audioClips[1]); break; }
+            //{ source.PlayOneShot(audioClips[0]); break; }
+            case Sounds.Heal: break;
+            //{ source.PlayOneShot(audioClips[1]); break; }
             //...
         }
     }
