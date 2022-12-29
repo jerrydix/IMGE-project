@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerShooting : MonoBehaviour
 {
     private PlayerInput input;
-    public Camera FPSCamera; 
+    [FormerlySerializedAs("FPSCamera")] public Camera fpsCamera; 
     
     private void Start()
     {
@@ -21,13 +22,12 @@ public class PlayerShooting : MonoBehaviour
     {
         if (context.performed)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, 100))
+            if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out var hit, 100))
             {
                 Target target = hit.transform.GetComponent<Target>();
                 if (target != null)
                 {
-                    target.changeGravity();
+                    target.ChangeGravity();
                 }
             }
         }

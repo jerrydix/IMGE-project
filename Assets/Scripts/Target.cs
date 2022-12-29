@@ -6,7 +6,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private bool floating = false;
-    private bool antigravitybool = false;
+    private bool antiGravityBool = false;
     [SerializeField] private float antiGravForce;
     private ConstantForce constantForce;
     private Rigidbody rigidbody;
@@ -18,24 +18,24 @@ public class Target : MonoBehaviour
         constantForce.enabled = false;
     }
 
-    public void changeGravity()
+    public void ChangeGravity()
     {
-        if (!floating && !antigravitybool)
+        if (!floating && !antiGravityBool)
         {
             floating = true;
             rigidbody.useGravity = false;
         }
-        else if (floating && !antigravitybool)
+        else if (floating && !antiGravityBool)
         {
             floating = false;
-            antigravitybool = true;
+            antiGravityBool = true;
             rigidbody.useGravity = true;
-            constantForce.enabled = antigravitybool;
+            constantForce.enabled = antiGravityBool;
         }
-        else if (!floating && antigravitybool)
+        else if (!floating && antiGravityBool)
         {
-            antigravitybool = false;
-            constantForce.enabled = antigravitybool;
+            antiGravityBool = false;
+            constantForce.enabled = antiGravityBool;
         }
     }
 }
