@@ -22,7 +22,7 @@ public class PlayerShooting : MonoBehaviour
         if (context.performed)
         {
             RaycastHit hit;
-            if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit))
+            if (Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, 100))
             {
                 Target target = hit.transform.GetComponent<Target>();
                 if (target != null)
