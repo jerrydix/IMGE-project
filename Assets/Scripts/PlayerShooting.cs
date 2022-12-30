@@ -6,13 +6,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+
 public class PlayerShooting : MonoBehaviour
 {
     private PlayerInput input;
     [FormerlySerializedAs("FPSCamera")] public Camera fpsCamera;
-    [SerializeField] private float gravity;
+    [SerializeField] public float gravity;
     private float mouseScrollY;
     GameObject manipulatedObject;
+    
 
     private void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerShooting : MonoBehaviour
             if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out var hit, 100))
             {
                 manipulatedObject = hit.transform.GameObject();
+                
                 Target target = manipulatedObject.GetComponent<Target>();
                 if (target != null)
                 {
