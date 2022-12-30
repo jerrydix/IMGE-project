@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     
     [SerializeField] private float xSensi = 15f;
     [SerializeField] private float ySensi = 15f;
+    public bool flipped;
     
     // Start is called before the first frame update
     void Start()
@@ -20,19 +21,35 @@ public class CameraMovement : MonoBehaviour
         inputActions.Moving.Enable();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        flipped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
-        float y = inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
+        if (!flipped)
+        {
+            float x = inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
+            float y = inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
 
-        yRotation += x;
-        xRotation -= y;
-        xRotation = Mathf.Clamp(xRotation, -80f, 58f);
+            yRotation += x;
+            xRotation -= y;
+            xRotation = Mathf.Clamp(xRotation, -80f, 58f);
         
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
+        else
+        {
+            float x = -inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
+            float y = -inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
+
+            yRotation += x;
+            xRotation -= y;
+            xRotation = Mathf.Clamp(xRotation, -80f, 58f);
+        
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 180);
+            player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
     }
 }
