@@ -19,7 +19,7 @@ public class PlayerShooting : MonoBehaviour
         input = new PlayerInput();
         input.Moving.Enable();
         input.Moving.Fire.performed += Shoot;
-        input.Moving.Scrolled.performed += GravitiyChange;
+        input.Moving.Scrolled.performed += ScrollToGravityValue;
         input.Moving.Scrolled.performed += x => mouseScrollY = x.ReadValue<float>();
 
         gravity = 9.81f;
@@ -42,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    private void GravitiyChange(InputAction.CallbackContext context)
+    private void ScrollToGravityValue(InputAction.CallbackContext context)
     {
         if (mouseScrollY > 0)
         {
