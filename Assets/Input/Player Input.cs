@@ -62,6 +62,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scrolled"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""fc571462-4914-4f51-8c49-b5ccde7e9ff8"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,6 +249,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5981b4bb-3cea-4aad-a8d2-518b257c7f36"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scrolled"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -252,6 +272,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Moving_Jump = m_Moving.FindAction("Jump", throwIfNotFound: true);
         m_Moving_Look = m_Moving.FindAction("Look", throwIfNotFound: true);
         m_Moving_Fire = m_Moving.FindAction("Fire", throwIfNotFound: true);
+        m_Moving_Scrolled = m_Moving.FindAction("Scrolled", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -315,6 +336,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Moving_Jump;
     private readonly InputAction m_Moving_Look;
     private readonly InputAction m_Moving_Fire;
+    private readonly InputAction m_Moving_Scrolled;
     public struct MovingActions
     {
         private @PlayerInput m_Wrapper;
@@ -323,6 +345,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Moving_Jump;
         public InputAction @Look => m_Wrapper.m_Moving_Look;
         public InputAction @Fire => m_Wrapper.m_Moving_Fire;
+        public InputAction @Scrolled => m_Wrapper.m_Moving_Scrolled;
         public InputActionMap Get() { return m_Wrapper.m_Moving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -344,6 +367,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnFire;
+                @Scrolled.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
+                @Scrolled.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
+                @Scrolled.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
             }
             m_Wrapper.m_MovingActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +386,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Scrolled.started += instance.OnScrolled;
+                @Scrolled.performed += instance.OnScrolled;
+                @Scrolled.canceled += instance.OnScrolled;
             }
         }
     }
@@ -370,5 +399,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnScrolled(InputAction.CallbackContext context);
     }
 }

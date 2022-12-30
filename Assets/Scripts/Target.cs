@@ -10,6 +10,7 @@ public class Target : MonoBehaviour
     [SerializeField] private float antiGravForce;
     private ConstantForce constantForce;
     private Rigidbody rigidbody;
+    private bool modifying;
 
     private void Start()
     {
@@ -20,20 +21,21 @@ public class Target : MonoBehaviour
 
     public void ChangeGravity()
     {
-        if (!floating && !antiGravityBool)
+       /* if (!floating && !antiGravityBool)
         {
             floating = true;
             rigidbody.useGravity = false;
         }
-        else if (floating && !antiGravityBool)
+        else*/ 
+        if (!modifying)
         {
-            floating = false;
+            modifying = true;
             antiGravityBool = true;
-            rigidbody.useGravity = true;
             constantForce.enabled = antiGravityBool;
         }
-        else if (!floating && antiGravityBool)
+        else if (modifying)
         {
+            modifying = false;
             antiGravityBool = false;
             constantForce.enabled = antiGravityBool;
         }
