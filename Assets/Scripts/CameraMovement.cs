@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     
     [SerializeField] private float xSensi = 15f;
     [SerializeField] private float ySensi = 15f;
+    [SerializeField] private float turnSpeed = .01f;
     public bool flipped;
     
     // Start is called before the first frame update
@@ -36,7 +37,8 @@ public class CameraMovement : MonoBehaviour
             xRotation -= y;
             xRotation = Mathf.Clamp(xRotation, -80f, 58f);
         
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
+            //transform.rotation = Quaternion.Euler(xRotation, yRotation, transform.rotation.z);
             player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
         else
@@ -48,8 +50,10 @@ public class CameraMovement : MonoBehaviour
             xRotation -= y;
             xRotation = Mathf.Clamp(xRotation, -80f, 58f);
         
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 180);
+           // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 180), turnSpeed);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, 180, turnSpeed));
             player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
+        Debug.Log(transform.rotation);
     }
 }

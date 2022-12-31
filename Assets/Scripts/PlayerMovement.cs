@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpSpeed = 2f;
     private PlayerInput inputActions;
+    [SerializeField] private Vector3 localGravity;
 
     [Header("Ground")]
     [SerializeField] private float height;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Awake()
     {
+        //_rigidbody.AddForce(0, 9.81f,0);
         jumpSpeed = Mathf.Sqrt(Physics.gravity.magnitude * jumpSpeed);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -44,17 +46,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _rigidbody.AddForce(0, -9.81f,0);
         Vector2 moveInput = inputActions.Moving.Move.ReadValue<Vector2>();
         upAxis = -Physics.gravity.normalized;
 
         if (upAxis.Equals(Vector3.up))
         {
             transform.rotation = Quaternion.Euler(0,0,0);
-            Debug.Log(transform.rotation);
+            //Debug.Log(transform.rotation);
             cam.flipped = false;
         } else if (upAxis.Equals(-Vector3.up)) {
             transform.rotation = Quaternion.Euler(180,0,0);
-            Debug.Log(transform.rotation);
+            //Debug.Log(transform.rotation);
             cam.flipped = true;
         }
         Move(moveInput);
