@@ -35,7 +35,7 @@ public class CameraMovement : MonoBehaviour
 
             yRotation += x;
             xRotation -= y;
-            xRotation = Mathf.Clamp(xRotation, -80f, 58f);
+            xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         
             transform.rotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
             //transform.rotation = Quaternion.Euler(xRotation, yRotation, transform.rotation.z);
@@ -48,7 +48,7 @@ public class CameraMovement : MonoBehaviour
 
             yRotation += x;
             xRotation -= y;
-            xRotation = Mathf.Clamp(xRotation, -80f, 58f);
+            xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         
            // transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 180), turnSpeed);
             transform.rotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, 180, turnSpeed));

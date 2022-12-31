@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Awake()
     {
+        localGravity = new Vector3(0, -9.81f, 0);
         //_rigidbody.AddForce(0, 9.81f,0);
         jumpSpeed = Mathf.Sqrt(Physics.gravity.magnitude * jumpSpeed);
         Cursor.lockState = CursorLockMode.Locked;
@@ -42,13 +43,14 @@ public class PlayerMovement : MonoBehaviour
         inputActions = new PlayerInput();
         inputActions.Moving.Enable();
         inputActions.Moving.Jump.performed += Jump;
+        inputActions.Moving.ChangeGravity.performed += ChangeGravityUpDown;
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.AddForce(0, -9.81f,0);
+        _rigidbody.AddForce(localGravity);
         Vector2 moveInput = inputActions.Moving.Move.ReadValue<Vector2>();
-        upAxis = -Physics.gravity.normalized;
+        upAxis = -localGravity.normalized;
 
         if (upAxis.Equals(Vector3.up))
         {
@@ -80,6 +82,14 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.drag = drag;
         else
             _rigidbody.drag = 0;
+    }
+
+    private void ChangeGravityUpDown(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            localGravity.y *= -1;
+        }
     }
     
     private void Move(Vector2 input)
