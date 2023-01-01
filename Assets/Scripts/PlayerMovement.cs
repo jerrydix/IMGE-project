@@ -43,7 +43,9 @@ public class PlayerMovement : MonoBehaviour
         inputActions = new PlayerInput();
         inputActions.Moving.Enable();
         inputActions.Moving.Jump.performed += Jump;
-        inputActions.Moving.ChangeGravity.performed += ChangeGravityUpDown;
+        inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
+        inputActions.Moving.ChangeGravityX.performed += ChangeGravityX;
+        inputActions.Moving.ChangeGravityZ.performed += ChangeGravityZ;
     }
 
     private void FixedUpdate()
@@ -52,15 +54,34 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveInput = inputActions.Moving.Move.ReadValue<Vector2>();
         upAxis = -localGravity.normalized;
 
+        //todo slerp rotation
         if (upAxis.Equals(Vector3.up))
         {
             transform.rotation = Quaternion.Euler(0,0,0);
-            //Debug.Log(transform.rotation);
-            cam.flipped = false;
+            cam.flippedY = false;
         } else if (upAxis.Equals(-Vector3.up)) {
             transform.rotation = Quaternion.Euler(180,0,0);
-            //Debug.Log(transform.rotation);
-            cam.flipped = true;
+            cam.flippedY = true;
+        }
+
+        if (upAxis.Equals(Vector3.right))
+        {
+            transform.rotation = Quaternion.Euler(0,0,-90);
+            cam.flippedX = false;
+        } else if (upAxis.Equals(-Vector3.right))
+        {
+            transform.rotation = Quaternion.Euler(0,0,90);
+            cam.flippedX = true;
+        }
+        
+        if (upAxis.Equals(Vector3.forward))
+        {
+            transform.rotation = Quaternion.Euler(-90,0,0);
+            cam.flippedX = false;
+        } else if (upAxis.Equals(-Vector3.forward))
+        {
+            transform.rotation = Quaternion.Euler(90,0,0);
+            cam.flippedX = true;
         }
         Move(moveInput);
     }
@@ -84,19 +105,76 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.drag = 0;
     }
 
-    private void ChangeGravityUpDown(InputAction.CallbackContext context)
+    private void ChangeGravityY(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            localGravity.y *= -1;
+            cam.status = CameraMovement.FlipStatus.Y;
+            if (localGravity.y < 0)
+            {
+                localGravity.y *= -1;
+            } else
+                localGravity = new Vector3(0, -9.81f, 0);
+        }
+    }
+
+    private void ChangeGravityX(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            cam.status = CameraMovement.FlipStatus.X;
+            if (localGravity.x < 0)
+            {
+                localGravity.x *= -1;
+            } else
+                localGravity = new Vector3(-9.81f, 0, 0);
+        }
+    }
+    
+    private void ChangeGravityZ(InputAction.CallbackContext context)
+    {
+        cam.status = CameraMovement.FlipStatus.Z;
+        if (context.performed)
+        {
+            if (localGravity.z < 0)
+            {
+                localGravity.z *= -1;
+            } else
+                localGravity = new Vector3(0, 0, -9.81f);
         }
     }
     
     private void Move(Vector2 input)
     {
-        Vector3 dir = /*ProjectDirectionOnPlane( */orientation.forward/*, upAxis)*/ * input.y + /*ProjectDirectionOnPlane(*/orientation.right/*, upAxis)*/ * input.x;
-        if (cam.flipped)
-            dir = /*ProjectDirectionOnPlane( */orientation.forward/*, upAxis)*/ * input.y + /*ProjectDirectionOnPlane(*/-orientation.right/*, upAxis)*/ * input.x; 
+
+        Vector3 dir = new Vector3();
+
+        switch (cam.status)
+        {
+            case CameraMovement.FlipStatus.Y:
+            {
+                dir = orientation.forward * input.y + orientation.right * input.x;
+                if (cam.flippedY)
+                    dir = orientation.forward * input.y + -orientation.right * input.x; 
+                break;
+            }
+            case CameraMovement.FlipStatus.X:
+            {
+                dir = orientation.forward * input.y + orientation.up * input.x;
+                if (cam.flippedY)
+                    dir = orientation.forward * input.y + -orientation.up * input.x; 
+                break;
+            }
+            case CameraMovement.FlipStatus.Z:
+            {
+                dir = orientation.forward * input.y + orientation.right * input.x;
+                if (cam.flippedY)
+                    dir = orientation.forward * input.y + -orientation.right * input.x; 
+                break;
+            }
+        }
+
+
         if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);
             

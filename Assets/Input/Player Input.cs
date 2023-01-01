@@ -73,9 +73,27 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ChangeGravity"",
+                    ""name"": ""ChangeGravityY"",
                     ""type"": ""Button"",
                     ""id"": ""e20ffecd-3deb-44d3-b46b-fc471f8177fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeGravityX"",
+                    ""type"": ""Button"",
+                    ""id"": ""bee9ea95-b895-4d9b-9f4c-14c61ac2d318"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeGravityZ"",
+                    ""type"": ""Button"",
+                    ""id"": ""4cec3ba1-bf32-45b0-9d76-1caffb2e297e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -273,11 +291,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""23273e48-8a6c-4978-b5a4-19e79945c108"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeGravity"",
+                    ""action"": ""ChangeGravityY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -288,7 +306,51 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeGravity"",
+                    ""action"": ""ChangeGravityY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdbc1a7d-ed59-4914-875e-19f2599624c0"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeGravityX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e29a34e5-cae6-4d87-aae7-c39eba145100"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeGravityX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78e95523-dabb-44d7-89bb-ff871f458b12"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeGravityZ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2514e69f-4633-49ff-9165-1ebeb58792e6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeGravityZ"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -304,7 +366,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Moving_Look = m_Moving.FindAction("Look", throwIfNotFound: true);
         m_Moving_Fire = m_Moving.FindAction("Fire", throwIfNotFound: true);
         m_Moving_Scrolled = m_Moving.FindAction("Scrolled", throwIfNotFound: true);
-        m_Moving_ChangeGravity = m_Moving.FindAction("ChangeGravity", throwIfNotFound: true);
+        m_Moving_ChangeGravityY = m_Moving.FindAction("ChangeGravityY", throwIfNotFound: true);
+        m_Moving_ChangeGravityX = m_Moving.FindAction("ChangeGravityX", throwIfNotFound: true);
+        m_Moving_ChangeGravityZ = m_Moving.FindAction("ChangeGravityZ", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,7 +433,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Moving_Look;
     private readonly InputAction m_Moving_Fire;
     private readonly InputAction m_Moving_Scrolled;
-    private readonly InputAction m_Moving_ChangeGravity;
+    private readonly InputAction m_Moving_ChangeGravityY;
+    private readonly InputAction m_Moving_ChangeGravityX;
+    private readonly InputAction m_Moving_ChangeGravityZ;
     public struct MovingActions
     {
         private @PlayerInput m_Wrapper;
@@ -379,7 +445,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Moving_Look;
         public InputAction @Fire => m_Wrapper.m_Moving_Fire;
         public InputAction @Scrolled => m_Wrapper.m_Moving_Scrolled;
-        public InputAction @ChangeGravity => m_Wrapper.m_Moving_ChangeGravity;
+        public InputAction @ChangeGravityY => m_Wrapper.m_Moving_ChangeGravityY;
+        public InputAction @ChangeGravityX => m_Wrapper.m_Moving_ChangeGravityX;
+        public InputAction @ChangeGravityZ => m_Wrapper.m_Moving_ChangeGravityZ;
         public InputActionMap Get() { return m_Wrapper.m_Moving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -404,9 +472,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Scrolled.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
                 @Scrolled.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
                 @Scrolled.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
-                @ChangeGravity.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravity;
-                @ChangeGravity.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravity;
-                @ChangeGravity.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravity;
+                @ChangeGravityY.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityY;
+                @ChangeGravityY.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityY;
+                @ChangeGravityY.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityY;
+                @ChangeGravityX.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityX;
+                @ChangeGravityX.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityX;
+                @ChangeGravityX.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityX;
+                @ChangeGravityZ.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
+                @ChangeGravityZ.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
+                @ChangeGravityZ.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
             }
             m_Wrapper.m_MovingActionsCallbackInterface = instance;
             if (instance != null)
@@ -426,9 +500,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Scrolled.started += instance.OnScrolled;
                 @Scrolled.performed += instance.OnScrolled;
                 @Scrolled.canceled += instance.OnScrolled;
-                @ChangeGravity.started += instance.OnChangeGravity;
-                @ChangeGravity.performed += instance.OnChangeGravity;
-                @ChangeGravity.canceled += instance.OnChangeGravity;
+                @ChangeGravityY.started += instance.OnChangeGravityY;
+                @ChangeGravityY.performed += instance.OnChangeGravityY;
+                @ChangeGravityY.canceled += instance.OnChangeGravityY;
+                @ChangeGravityX.started += instance.OnChangeGravityX;
+                @ChangeGravityX.performed += instance.OnChangeGravityX;
+                @ChangeGravityX.canceled += instance.OnChangeGravityX;
+                @ChangeGravityZ.started += instance.OnChangeGravityZ;
+                @ChangeGravityZ.performed += instance.OnChangeGravityZ;
+                @ChangeGravityZ.canceled += instance.OnChangeGravityZ;
             }
         }
     }
@@ -440,6 +520,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnScrolled(InputAction.CallbackContext context);
-        void OnChangeGravity(InputAction.CallbackContext context);
+        void OnChangeGravityY(InputAction.CallbackContext context);
+        void OnChangeGravityX(InputAction.CallbackContext context);
+        void OnChangeGravityZ(InputAction.CallbackContext context);
     }
 }

@@ -51,9 +51,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeGravity",
+                    "name": "ChangeGravityY",
                     "type": "Button",
                     "id": "e20ffecd-3deb-44d3-b46b-fc471f8177fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeGravityX",
+                    "type": "Button",
+                    "id": "bee9ea95-b895-4d9b-9f4c-14c61ac2d318",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeGravityZ",
+                    "type": "Button",
+                    "id": "4cec3ba1-bf32-45b0-9d76-1caffb2e297e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -251,11 +269,11 @@
                 {
                     "name": "",
                     "id": "23273e48-8a6c-4978-b5a4-19e79945c108",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeGravity",
+                    "action": "ChangeGravityY",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -266,7 +284,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeGravity",
+                    "action": "ChangeGravityY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fdbc1a7d-ed59-4914-875e-19f2599624c0",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeGravityX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e29a34e5-cae6-4d87-aae7-c39eba145100",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeGravityX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78e95523-dabb-44d7-89bb-ff871f458b12",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeGravityZ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2514e69f-4633-49ff-9165-1ebeb58792e6",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeGravityZ",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
