@@ -211,11 +211,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b85c27939ef5841a35050a1b2ed9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  status: 0
+  orientation: {fileID: 0}
   xSensi: 15
   ySensi: 15
-  turnSpeed: 0.01
-  flipped: 0
+  turnSpeed: 0.02
+  flippedY: 0
+  flippedX: 0
+  flippedZ: 0
 --- !u!1 &2283046422035226896
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +245,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2283046422035226896}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

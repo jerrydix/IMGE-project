@@ -6,11 +6,11 @@ using UnityEngine;
 public class CameraHolder : MonoBehaviour
 {
     [SerializeField] private Transform camPos;
-    private CameraMovement _movement;
+    //private CameraHolderMove _movement;
 
     private void Awake()
     {
-        _movement = GetComponentInChildren<CameraMovement>();
+        //_movement = GetComponentInChildren<CameraHolderMove>();
     }
 
     // Update is called once per frame

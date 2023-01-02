@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     private bool jump;
 
-    [SerializeField] private CameraMovement cam;
+    [SerializeField] private CameraHolderMove cam;
 
     Vector3 upAxis, rightAxis, forwardAxis;
     
@@ -76,12 +76,12 @@ public class PlayerMovement : MonoBehaviour
         
         if (upAxis.Equals(Vector3.forward))
         {
-            transform.rotation = Quaternion.Euler(-90,0,0);
-            cam.flippedX = false;
+            transform.rotation = Quaternion.Euler(90,0,0);
+            cam.flippedZ = false;
         } else if (upAxis.Equals(-Vector3.forward))
         {
-            transform.rotation = Quaternion.Euler(90,0,0);
-            cam.flippedX = true;
+            transform.rotation = Quaternion.Euler(-90,0,0);
+            cam.flippedZ = true;
         }
         Move(moveInput);
     }
@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            cam.status = CameraMovement.FlipStatus.Y;
+            cam.status = CameraHolderMove.FlipStatus.Y;
             if (localGravity.y < 0)
             {
                 localGravity.y *= -1;
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            cam.status = CameraMovement.FlipStatus.X;
+            cam.status = CameraHolderMove.FlipStatus.X;
             if (localGravity.x < 0)
             {
                 localGravity.x *= -1;
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void ChangeGravityZ(InputAction.CallbackContext context)
     {
-        cam.status = CameraMovement.FlipStatus.Z;
+        cam.status = CameraHolderMove.FlipStatus.Z;
         if (context.performed)
         {
             if (localGravity.z < 0)
@@ -151,21 +151,21 @@ public class PlayerMovement : MonoBehaviour
 
         switch (cam.status)
         {
-            case CameraMovement.FlipStatus.Y:
+            case CameraHolderMove.FlipStatus.Y:
             {
                 dir = orientation.forward * input.y + orientation.right * input.x;
                 if (cam.flippedY)
-                    dir = orientation.forward * input.y + -orientation.right * input.x; 
+                    dir = orientation.forward * input.y + orientation.right * input.x; 
                 break;
             }
-            case CameraMovement.FlipStatus.X:
+            case CameraHolderMove.FlipStatus.X:
             {
                 dir = orientation.forward * input.y + orientation.up * input.x;
                 if (cam.flippedY)
                     dir = orientation.forward * input.y + -orientation.up * input.x; 
                 break;
             }
-            case CameraMovement.FlipStatus.Z:
+            case CameraHolderMove.FlipStatus.Z:
             {
                 dir = orientation.forward * input.y + orientation.right * input.x;
                 if (cam.flippedY)
