@@ -150,7 +150,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 dir = new Vector3();
 
-        switch (cam.status)
+        dir = cameraLookAt.forward  * input.y + cameraLookAt.right * input.x;
+        if (cam.flippedY)
+            dir = cameraLookAt.forward * input.y +cameraLookAt.right * input.x; 
+        
+        /*switch (cam.status)
         {
             case CameraHolderMove.FlipStatus.Y:
             {
@@ -173,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
                     dir = orientation.forward * input.y + -orientation.right * input.x; 
                 break;
             }
-        }
+        }*/
 
 
         if(grounded)
