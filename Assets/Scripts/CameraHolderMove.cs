@@ -123,7 +123,7 @@ public class CameraHolderMove : MonoBehaviour
                         xRotation -= y;
                         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
                         */
-                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 90, turnSpeed), transform.eulerAngles.y, Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
+                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 270, turnSpeed), transform.eulerAngles.y, 0);
                         //orientation.transform.rotation = Quaternion.Euler(0, xRotation, 0);
                         break;
                     }
@@ -137,7 +137,7 @@ public class CameraHolderMove : MonoBehaviour
                         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
                         */
                         Debug.Log("test");
-                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, -90, turnSpeed), transform.eulerAngles.y, transform.eulerAngles.z);
+                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 90, turnSpeed), transform.eulerAngles.y, 0);
                         //orientation.transform.rotation = Quaternion.Euler(0, xRotation, 0);
                         break;
                     }
