@@ -45,7 +45,7 @@ public class CameraMove : MonoBehaviour
         //orientation.transform.rotation = Quaternion.Euler(orientation.eulerAngles.x, yRotation, orientation.eulerAngles.z);
         //if (flippedY)
         //{
-            orientation.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);//Quaternion.Euler(transform.localRotation.eulerAngles.x, -transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
+            orientation.rotation = Quaternion.Euler(orientation.rotation.x, transform.rotation.eulerAngles.y, orientation.rotation.y);//Quaternion.Euler(transform.localRotation.eulerAngles.x, -transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
         //}
         /*switch (status)
         {

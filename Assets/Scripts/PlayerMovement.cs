@@ -155,14 +155,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 dir = orientation.forward * input.y + orientation.right * input.x;
                 if (cam.flippedY)
-                    dir = orientation.forward * input.y + orientation.right * input.x; 
+                    dir = orientation.forward * input.y + -orientation.right * input.x; 
                 break;
             }
             case CameraHolderMove.FlipStatus.X:
             {
-                dir = orientation.forward * input.y + orientation.up * input.x;
+                dir = orientation.forward * input.y + orientation.right * input.x;
                 if (cam.flippedY)
-                    dir = orientation.forward * input.y + -orientation.up * input.x; 
+                    dir = orientation.forward * input.y + orientation.right * input.x; 
                 break;
             }
             case CameraHolderMove.FlipStatus.Z:
