@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jump;
 
     [SerializeField] private CameraHolderMove cam;
+    [SerializeField] private Transform cameraLookAt;
 
     Vector3 upAxis, rightAxis, forwardAxis;
     
@@ -153,16 +154,16 @@ public class PlayerMovement : MonoBehaviour
         {
             case CameraHolderMove.FlipStatus.Y:
             {
-                dir = orientation.forward * input.y + orientation.right * input.x;
+                dir = cameraLookAt.forward * input.y + cameraLookAt.right * input.x;
                 if (cam.flippedY)
-                    dir = orientation.forward * input.y + -orientation.right * input.x; 
+                    dir = cameraLookAt.forward * input.y + cameraLookAt.right * input.x; 
                 break;
             }
             case CameraHolderMove.FlipStatus.X:
             {
-                dir = orientation.forward * input.y + orientation.right * input.x;
+                dir = cameraLookAt.forward  * input.y + cameraLookAt.right * input.x;
                 if (cam.flippedY)
-                    dir = orientation.forward * input.y + orientation.right * input.x; 
+                    dir = cameraLookAt.forward * input.y +cameraLookAt.right * input.x; 
                 break;
             }
             case CameraHolderMove.FlipStatus.Z:
