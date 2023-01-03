@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class HealthManager : MonoBehaviour
 {
@@ -9,13 +12,16 @@ public class HealthManager : MonoBehaviour
         Armor,
         Normal
     }
-    public static HealthManager Instance { get; set; }
+    //public static HealthManager Instance { get; set; }
     [HideInInspector] public int health;
     [HideInInspector] public int armor;
     [HideInInspector] public bool dead;
 
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private Slider armorSlider;
+
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         health = 100;
         armor = 100;
@@ -25,7 +31,8 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthSlider.value = health;
+        armorSlider.value = armor;
     }
 
     public void Damage(int amount, DamageType type)
