@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     private bool jump;
 
+    [SerializeField] private float gravity;
+
     [SerializeField] private CameraHolderMove cam;
     [SerializeField] private Transform cameraLookAt;
 
@@ -31,8 +33,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Awake()
     {
-        localGravity = new Vector3(0, -9.81f, 0);
-        //_rigidbody.AddForce(0, 9.81f,0);
+        localGravity = new Vector3(0, -gravity, 0);
         jumpSpeed = Mathf.Sqrt(Physics.gravity.magnitude * jumpSpeed);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -87,15 +88,6 @@ public class PlayerMovement : MonoBehaviour
         Move(moveInput);
     }
     
-    Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
-        return (direction - normal * Vector3.Dot(direction, normal)).normalized;
-    }
-    
-    /*void AdjustVelocity () {
-        Vector3 xAxis = ProjectDirectionOnPlane(rightAxis, contactNormal);
-        Vector3 zAxis = ProjectDirectionOnPlane(forwardAxis, contactNormal);
-    }*/
-
     private void Update()
     {
         grounded = Physics.Raycast(transform.position, -upAxis, height * 0.5f + 0.2f, ground);
@@ -115,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 localGravity.y *= -1;
             } else
-                localGravity = new Vector3(0, -9.81f, 0);
+                localGravity = new Vector3(0, -gravity, 0);
         }
     }
 
@@ -128,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 localGravity.x *= -1;
             } else
-                localGravity = new Vector3(-9.81f, 0, 0);
+                localGravity = new Vector3(-gravity, 0, 0);
         }
     }
     
@@ -141,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 localGravity.z *= -1;
             } else
-                localGravity = new Vector3(0, 0, -9.81f);
+                localGravity = new Vector3(0, 0, -gravity);
         }
     }
     
@@ -154,32 +146,6 @@ public class PlayerMovement : MonoBehaviour
         if (cam.flippedY)
             dir = cameraLookAt.forward * input.y +cameraLookAt.right * input.x; 
         
-        /*switch (cam.status)
-        {
-            case CameraHolderMove.FlipStatus.Y:
-            {
-                dir = cameraLookAt.forward * input.y + cameraLookAt.right * input.x;
-                if (cam.flippedY)
-                    dir = cameraLookAt.forward * input.y + cameraLookAt.right * input.x; 
-                break;
-            }
-            case CameraHolderMove.FlipStatus.X:
-            {
-                dir = cameraLookAt.forward  * input.y + cameraLookAt.right * input.x;
-                if (cam.flippedY)
-                    dir = cameraLookAt.forward * input.y +cameraLookAt.right * input.x; 
-                break;
-            }
-            case CameraHolderMove.FlipStatus.Z:
-            {
-                dir = orientation.forward * input.y + orientation.right * input.x;
-                if (cam.flippedY)
-                    dir = orientation.forward * input.y + -orientation.right * input.x; 
-                break;
-            }
-        }*/
-
-
         if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);
             

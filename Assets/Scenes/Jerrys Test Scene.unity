@@ -432,6 +432,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1777308801}
     - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
+      propertyPath: gravity
+      value: 9.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 1777308801}
