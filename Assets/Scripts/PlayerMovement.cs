@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Transform spawn;
+
     [Header("Movement")]
     private Rigidbody _rigidbody;
     [SerializeField] private float moveSpeed = 1f;
@@ -24,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
 
     [Header("Camera")]
-    [SerializeField] private CameraHolderMove cam;
+    [SerializeField] public CameraHolderMove cam;
     [SerializeField] private Transform cameraLookAt;
 
     private Vector3 upAxis;
@@ -46,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
         inputActions.Moving.ChangeGravityX.performed += ChangeGravityX;
         inputActions.Moving.ChangeGravityZ.performed += ChangeGravityZ;
+
+        transform.position = spawn.position;
     }
 
     private void FixedUpdate()
