@@ -6,30 +6,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     private Rigidbody _rigidbody;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpSpeed = 2f;
     private PlayerInput inputActions;
-    [SerializeField] private Vector3 localGravity;
+    private Vector3 localGravity;
+    [SerializeField] float drag;
+    [SerializeField] private float airMult;
+    public float jumpCooldown;
+    private bool jump;
+    [SerializeField] private float gravity;
 
     [Header("Ground")]
     [SerializeField] private float height;
     [SerializeField] private LayerMask ground;
     bool grounded;
 
-    [Header("Movement")] 
-    [SerializeField] private Transform orientation;
-    [SerializeField] float drag;
-    [SerializeField] private float airMult;
-    public float jumpCooldown;
-    private bool jump;
-
-    [SerializeField] private float gravity;
-
+    [Header("Camera")]
     [SerializeField] private CameraHolderMove cam;
     [SerializeField] private Transform cameraLookAt;
 
-    Vector3 upAxis, rightAxis, forwardAxis;
+    private Vector3 upAxis;
     
     void Awake()
     {

@@ -8,9 +8,9 @@ public class CameraMove : MonoBehaviour
     private CameraHolderMove.FlipStatus status;
     [SerializeField] private Transform orientation;
     private PlayerInput inputActions;
-    public bool flippedY;
-    public bool flippedX;
-    public bool flippedZ;
+    [HideInInspector] public bool flippedY;
+    [HideInInspector] public bool flippedX;
+    [HideInInspector] public bool flippedZ;
     
     private float xRotation = 0;
     private float yRotation = 0;
