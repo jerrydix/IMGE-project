@@ -143,11 +143,10 @@ public class PlayerMovement : MonoBehaviour
     {
 
         Vector3 dir = new Vector3();
-
-        dir = cameraLookAt.forward  * input.y + cameraLookAt.right * input.x;
-        if (cam.flippedY)
-            dir = cameraLookAt.forward * input.y +cameraLookAt.right * input.x; 
+        Debug.Log(cameraLookAt.forward);
         
+        dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z) * input.y + cameraLookAt.right * input.x;
+
         if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);
             
