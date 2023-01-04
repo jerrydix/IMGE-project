@@ -72,12 +72,14 @@ public class CameraHolderMove : MonoBehaviour
                 {
                     case false:
                     {
-                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 270, turnSpeed), transform.eulerAngles.y, 0);
+                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 90, turnSpeed), Mathf.Lerp(transform.eulerAngles.y, 0, turnSpeed), Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
+                        //transform.rotation = Quaternion.Euler(Vector3.Slerp(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), new Vector3(90,0,0), turnSpeed));
                         break;
                     }
                     case true:
                     {
-                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 90, turnSpeed), transform.eulerAngles.y, 0);
+                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, -90, turnSpeed), Mathf.Lerp(transform.eulerAngles.y, 0, turnSpeed), Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
+                        //transform.rotation = Quaternion.Euler(Vector3.Slerp(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), new Vector3(270,0,0), turnSpeed)); 
                         break;
                     }
                 }
