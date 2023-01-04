@@ -141,11 +141,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Move(Vector2 input)
     {
-
-        Vector3 dir = new Vector3();
-        Debug.Log(cameraLookAt.forward);
-        
-        dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z) * input.y + cameraLookAt.right * input.x;
+        Vector3 dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z) * input.y + cameraLookAt.right * input.x;
 
         if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);
