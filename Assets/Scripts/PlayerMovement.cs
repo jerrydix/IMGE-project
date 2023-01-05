@@ -141,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Move(Vector2 input)
     {
+        //todo cases for two axis
         Vector3 dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z) * input.y + cameraLookAt.right * input.x;
 
         if(grounded)
