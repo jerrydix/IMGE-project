@@ -18,15 +18,25 @@ public class Projectile : MonoBehaviour
         TryGetComponent(out rb);
     }
     
-    void Start()
+    private void Start()
     {
         //var muzzleEffect = Instantiate(muzzlePrefab, transform.position, transform.rotation);
         //Destroy(muzzleEffect, 5f);
         velocity = transform.forward * speed;
     }
+    
     void FixedUpdate()
     {
         var displacement = velocity * Time.deltaTime;
         rb.MovePosition(rb.position + displacement);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<HealthManager>().Damage(5, HealthManager.DamageType.Armor);
+        }
+        Destroy(gameObject);
     }
 }
