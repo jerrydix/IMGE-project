@@ -19,6 +19,7 @@ public class TurretLogic : MonoBehaviour
         {
             while (fireTimer >= 1 / fireRate)
             {
+                //todo shoot only when aligned
                 SpawnProjectile();
                 fireTimer -= 1 / fireRate;
             }
@@ -46,6 +47,8 @@ public class TurretLogic : MonoBehaviour
 
     public void Shoot()
     {
-        firing = true;
+        //RaycastHit hit;
+        //if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, Mathf.Infinity) && hit.collider.CompareTag("Player"))
+            firing = true;
     }
 }
