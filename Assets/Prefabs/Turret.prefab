@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limit: 360
   tolerance: 360
-  turnSpeed: 90
+  turnSpeed: 52
 --- !u!1 &6569449401103810267
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limit: 90
   tolerance: 1
-  turnSpeed: 90
+  turnSpeed: 45
 --- !u!1 &6569449401303110992
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,9 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251096b10c5fc294aa5ad56a5f88510b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 4789392908153681305, guid: 7c8081bfdf37ce14c9eb349a4884b59b, type: 3}
   firePoint: {fileID: 6569449402360672169}
-  fireRate: 3
+  fireRate: 8
 --- !u!1 &6569449401303110994
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,14 +536,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6569449402360672170}
-  m_LocalRotation: {x: -0, y: 0.42261824, z: -0, w: 0.90630776}
-  m_LocalPosition: {x: -0.14070794, y: 0, z: 0.18073653}
-  m_LocalScale: {x: 0.19570035, y: 0.13218266, z: 0.1957003}
+  m_LocalRotation: {x: -0.000000014487981, y: 0.000000059604645, z: -0.000000014487981, w: 1}
+  m_LocalPosition: {x: 0.0125, y: 0, z: 0.1636}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6569449401537143849}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 50, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6569449402927375662
 GameObject:
   m_ObjectHideFlags: 0

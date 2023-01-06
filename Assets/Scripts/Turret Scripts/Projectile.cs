@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
+        //transform.rotation = Quaternion.Euler(90,90,0);
         TryGetComponent(out rb);
     }
     

@@ -41,7 +41,7 @@ public class TurretLogic : MonoBehaviour
 
     void SpawnProjectile()
     {
-        //Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 
     public void Shoot()
