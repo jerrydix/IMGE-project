@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private TurretLogic logic;
     [SerializeField] private Mount[] mounts;
     [SerializeField] private Transform target;
+    [SerializeField] private float range;
 
     void OnDrawGizmos()
     {
@@ -44,16 +45,20 @@ public class Turret : MonoBehaviour
     {
         
         if (!target) return;
-            
-        bool aimed = true;
-        foreach (var mountPoint in mounts)
+
+        bool aimed = Physics.Linecast(transform.position, target.position, out var hit) &&
+                     hit.collider.CompareTag("Player");
+        if (aimed)
         {
-            if (!mountPoint.Aim(target.position))
+            foreach (var mountPoint in mounts)
             {
-                aimed = false;
+                if (!mountPoint.Aim(target.position))
+                {
+                    aimed = false;
+                }
             }
         }
-
+        
         if (aimed)
             logic.Shoot();
     }
