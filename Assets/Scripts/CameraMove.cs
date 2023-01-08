@@ -17,7 +17,7 @@ public class CameraMove : MonoBehaviour
     
     [SerializeField] private float xSensi = 15f;
     [SerializeField] private float ySensi = 15f;
-    [SerializeField] private float turnSpeed = 15f;
+    [SerializeField] private float turnSpeed;
 
     private void Start()
     {
@@ -33,15 +33,31 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
-
-        float x = inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
-        float y = inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
+        float x = 0;
+        float y = 0;
+        float rotZ = GetComponentInParent<CameraHolderMove>().zRotation;
+        switch (rotZ)
+        {
+            case 0:
+            {
+                x = inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
+                y = inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
+                break;
+            }
+            case 180:
+            {
+                x = -inputActions.Moving.Look.ReadValue<Vector2>().x * Time.deltaTime * xSensi;
+                y = -inputActions.Moving.Look.ReadValue<Vector2>().y * Time.deltaTime * ySensi;
+                break;
+            }
+        }
+        
         
         yRotation += x;
         xRotation -= y;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
-                        
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, GetComponentInParent<CameraHolderMove>().zRotation, turnSpeed));
         
         orientation.rotation = Quaternion.Euler(orientation.rotation.x, transform.rotation.eulerAngles.y, orientation.rotation.y);
     }

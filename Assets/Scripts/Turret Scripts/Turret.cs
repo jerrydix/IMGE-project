@@ -9,6 +9,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private Mount[] mounts;
     [SerializeField] private Transform target;
     [SerializeField] private float range;
+    [SerializeField] private Transform lookingPoint;
 
     void OnDrawGizmos()
     {
@@ -46,7 +47,7 @@ public class Turret : MonoBehaviour
         
         if (!target) return;
 
-        bool aimed = Physics.Linecast(transform.position, target.position, out var hit) &&
+        bool aimed = Physics.Linecast(lookingPoint.transform.position, target.position, out var hit) &&
                      hit.collider.CompareTag("Player");
         if (aimed)
         {

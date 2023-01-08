@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraHolderMove : MonoBehaviour
 {
+    public float zRotation;
     public enum FlipStatus
     {
         X,
@@ -25,6 +26,7 @@ public class CameraHolderMove : MonoBehaviour
         flippedY = false;
         flippedX = false;
         flippedZ = false;
+        zRotation = 0;
     }
 
     // Update is called once per frame
@@ -38,12 +40,14 @@ public class CameraHolderMove : MonoBehaviour
                 {
                     case false:
                     {
-                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 0, turnSpeed), Mathf.Lerp(transform.eulerAngles.y, 0, turnSpeed), Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
+                        //transform.rotation = Quaternion.Euler(childTransform.rotation.x,childTransform.rotation.y, Mathf.Lerp(transform.eulerAngles.z, 0, turnSpeed));
+                        zRotation = 0;
                         break;
                     }
                     case true:
                     {
-                        transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.eulerAngles.x, 0, turnSpeed), Mathf.Lerp(transform.eulerAngles.y, 0, turnSpeed), Mathf.Lerp(transform.eulerAngles.z, 180, turnSpeed));
+                        //transform.rotation = Quaternion.Euler(childTransform.rotation.x,childTransform.rotation.y, Mathf.Lerp(transform.eulerAngles.z, 180, turnSpeed));
+                        zRotation = 180;
                         break;
                     }
                 }

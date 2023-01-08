@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 6569449401103810265}
   target: {fileID: 0}
   range: 0
+  lookingPoint: {fileID: 6569449402360672169}
 --- !u!114 &6569449401293629078
 MonoBehaviour:
   m_ObjectHideFlags: 0
