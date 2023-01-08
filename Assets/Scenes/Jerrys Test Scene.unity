@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,18 +402,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1578110669}
     m_Modifications:
-    - target: {fileID: 635047661, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
-      propertyPath: turnSpeed
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 635047661, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
-      propertyPath: childTransform
-      value: 
-      objectReference: {fileID: 620393562}
-    - target: {fileID: 1372232560, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
-      propertyPath: turnSpeed
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 1372232560, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
       propertyPath: orientation
       value: 
@@ -426,10 +414,6 @@ PrefabInstance:
       propertyPath: camPos
       value: 
       objectReference: {fileID: 5620978}
-    - target: {fileID: 2283046420487656714, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2283046420487656715, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -639,19 +623,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 148278337}
     - target: {fileID: 1228130799, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
-      propertyPath: _armorSlider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1228130799, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 874014760}
     - target: {fileID: 7145766092266295066, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7145766092266295066, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
@@ -662,14 +638,6 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 250167251}
-    - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
-      propertyPath: gravity
-      value: 9.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
-      propertyPath: cameraHolder
-      value: 
-      objectReference: {fileID: 1777308801}
     - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
       propertyPath: cameraLookAt
       value: 
