@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1228130799}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,18 +124,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aca085fec6224c4b8112d313c381540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: {fileID: 0}
   moveSpeed: 7
   jumpSpeed: 5
-  localGravity: {x: 0, y: 0, z: 0}
+  drag: 5
+  airMult: 0.7
+  jumpCooldown: 0.25
+  gravity: 9.81
   height: 2
   ground:
     serializedVersion: 2
     m_Bits: 64
-  orientation: {fileID: 7145766092567688590}
-  drag: 5
-  airMult: 0.7
-  jumpCooldown: 0.25
   cam: {fileID: 0}
+  cameraLookAt: {fileID: 0}
 --- !u!54 &7145766092266295043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -178,6 +179,8 @@ MonoBehaviour:
   health: 0
   armor: 0
   dead: 0
+  healthSlider: {fileID: 0}
+  armorSlider: {fileID: 0}
 --- !u!1 &7145766092556403701
 GameObject:
   m_ObjectHideFlags: 0

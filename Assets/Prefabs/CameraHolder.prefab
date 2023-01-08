@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b85c27939ef5841a35050a1b2ed9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zRotation: 0
   status: 0
   turnSpeed: 0.02
   flippedY: 0
@@ -365,4 +366,4 @@ MonoBehaviour:
   flippedZ: 0
   xSensi: 15
   ySensi: 15
-  turnSpeed: 15
+  turnSpeed: 0.02
