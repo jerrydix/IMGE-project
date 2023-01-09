@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rigidbody;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpSpeed = 2f;
-    private PlayerInput inputActions;
+    public PlayerInput inputActions;
     private Vector3 localGravity;
     [SerializeField] float drag;
     [SerializeField] private float airMult;
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move(Vector2 input)
     {
         //todo cases for two axis
-        Vector3 dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z) * input.y + cameraLookAt.right * input.x;
+        Vector3 dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z).normalized * input.y + cameraLookAt.right.normalized * input.x;
 
         if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);

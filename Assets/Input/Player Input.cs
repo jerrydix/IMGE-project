@@ -98,6 +98,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Equip"",
+                    ""type"": ""Button"",
+                    ""id"": ""566a2ff0-0214-4a80-992c-055261427ddd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6a5496d-c468-43ec-96cc-00a11d4a90b6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -302,7 +320,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1100c5c3-342f-4461-b4d4-7e35e37d2120"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -324,7 +342,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e29a34e5-cae6-4d87-aae7-c39eba145100"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -346,11 +364,55 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2514e69f-4633-49ff-9165-1ebeb58792e6"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChangeGravityZ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7601c114-a3c6-4eb9-87e0-1fbf743873aa"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3571680-466d-40fa-9b8d-31bebd799296"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66f44b26-0bf6-44f8-91a5-724b7ad4b19b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1db1b9f-83ea-4464-b2d7-4f043b990c5f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -369,6 +431,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Moving_ChangeGravityY = m_Moving.FindAction("ChangeGravityY", throwIfNotFound: true);
         m_Moving_ChangeGravityX = m_Moving.FindAction("ChangeGravityX", throwIfNotFound: true);
         m_Moving_ChangeGravityZ = m_Moving.FindAction("ChangeGravityZ", throwIfNotFound: true);
+        m_Moving_Equip = m_Moving.FindAction("Equip", throwIfNotFound: true);
+        m_Moving_Drop = m_Moving.FindAction("Drop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -436,6 +500,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Moving_ChangeGravityY;
     private readonly InputAction m_Moving_ChangeGravityX;
     private readonly InputAction m_Moving_ChangeGravityZ;
+    private readonly InputAction m_Moving_Equip;
+    private readonly InputAction m_Moving_Drop;
     public struct MovingActions
     {
         private @PlayerInput m_Wrapper;
@@ -448,6 +514,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @ChangeGravityY => m_Wrapper.m_Moving_ChangeGravityY;
         public InputAction @ChangeGravityX => m_Wrapper.m_Moving_ChangeGravityX;
         public InputAction @ChangeGravityZ => m_Wrapper.m_Moving_ChangeGravityZ;
+        public InputAction @Equip => m_Wrapper.m_Moving_Equip;
+        public InputAction @Drop => m_Wrapper.m_Moving_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Moving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -481,6 +549,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ChangeGravityZ.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
                 @ChangeGravityZ.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
                 @ChangeGravityZ.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
+                @Equip.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnEquip;
+                @Equip.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnEquip;
+                @Equip.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnEquip;
+                @Drop.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
             }
             m_Wrapper.m_MovingActionsCallbackInterface = instance;
             if (instance != null)
@@ -509,6 +583,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ChangeGravityZ.started += instance.OnChangeGravityZ;
                 @ChangeGravityZ.performed += instance.OnChangeGravityZ;
                 @ChangeGravityZ.canceled += instance.OnChangeGravityZ;
+                @Equip.started += instance.OnEquip;
+                @Equip.performed += instance.OnEquip;
+                @Equip.canceled += instance.OnEquip;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
             }
         }
     }
@@ -523,5 +603,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnChangeGravityY(InputAction.CallbackContext context);
         void OnChangeGravityX(InputAction.CallbackContext context);
         void OnChangeGravityZ(InputAction.CallbackContext context);
+        void OnEquip(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }
