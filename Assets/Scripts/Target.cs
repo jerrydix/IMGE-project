@@ -7,26 +7,16 @@ public class Target : MonoBehaviour
 {
     private bool floating = false;
     private bool antiGravityBool = false;
-    [SerializeField] private float antiGravForce;
     private ConstantForce constantForce;
-    private Rigidbody rigidbody;
     private bool modifying;
 
     private void Start()
     {
         constantForce = GetComponent<ConstantForce>();
-        rigidbody = GetComponent<Rigidbody>();
         constantForce.enabled = false;
     }
-
     public void ChangeGravity()
     {
-       /* if (!floating && !antiGravityBool)
-        {
-            floating = true;
-            rigidbody.useGravity = false;
-        }
-        else*/ 
         if (!modifying)
         {
             modifying = true;

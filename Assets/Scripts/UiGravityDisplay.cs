@@ -18,6 +18,6 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        objectGravity.SetText((-(gun.GetComponent<PlayerShooting>().gravity / 9.81 ) + 1).ToString("0.00") + "g");
+        objectGravity.SetText((-(gun.GetComponent<PlayerShooting>().gravity / 9.81 )).ToString("0.00") + "g");
     }
 }
