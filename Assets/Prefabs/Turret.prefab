@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6569449401082242251}
   - component: {fileID: 6569449401082242250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6569449401103810266}
   - component: {fileID: 6569449401103810265}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6569449401293629072}
   - component: {fileID: 6569449401293629079}
   - component: {fileID: 6569449401293629078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 6569449401303206258}
   - component: {fileID: 6569449401304009040}
   - component: {fileID: 6569449401305107344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 6569449401304009042}
   - component: {fileID: 6569449401305107346}
   - component: {fileID: 6569449402328179341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 6569449401304009044}
   - component: {fileID: 6569449401305107348}
   - component: {fileID: 6569449401426456733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6569449401537143849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotateHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6569449402360672169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6569449402927375661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotateHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
