@@ -35,7 +35,7 @@ public class PlayerShooting : MonoBehaviour
             if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out var hit, 100))
             {
                 manipulatedObject = hit.transform.GameObject();
-                if (manipulatedObject.GetComponent<Target>() == null)
+                if (manipulatedObject.GetComponent<Target>() != null)
                 {
                     Target target = manipulatedObject.GetComponent<Target>();
                     if (target != null)
@@ -61,7 +61,10 @@ public class PlayerShooting : MonoBehaviour
 
         if (!manipulatedObject.IsUnityNull())
         {
-            manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, gravity, 0);
+            if (manipulatedObject.GetComponent<ConstantForce>() != null)
+            {
+                manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, gravity, 0);
+            }
         }
     }
 }
