@@ -164,7 +164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1885547966}
   - component: {fileID: 1885547967}
-  - component: {fileID: 285714640133220882}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -201,25 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 2283046422035226898}
   gravity: 0
---- !u!114 &285714640133220882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885547965}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0f9bd6a814fac4a861f042210ac367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  holder: {fileID: 9146874263896038571}
-  orientation: {fileID: 0}
-  pickupRange: 4
-  dropForceFront: 15
-  dropForceUp: 7
-  equipped: 1
 --- !u!1 &2283046420487656713
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +232,7 @@ Transform:
   m_Children:
   - {fileID: 2283046422035226899}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2283046420487656714
 MonoBehaviour:
@@ -434,7 +414,7 @@ MonoBehaviour:
   flippedZ: 0
   xSensi: 15
   ySensi: 15
-  turnSpeed: 0.02
+  turnSpeed: 0.04
 --- !u!1 &3207497374508290543
 GameObject:
   m_ObjectHideFlags: 0
