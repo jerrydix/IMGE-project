@@ -14,7 +14,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] public float gravity;
     private float mouseScrollY;
     GameObject manipulatedObject;
-    
+
 
     private void Start()
     {
@@ -35,11 +35,13 @@ public class PlayerShooting : MonoBehaviour
             if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out var hit, 100))
             {
                 manipulatedObject = hit.transform.GameObject();
-                
-                Target target = manipulatedObject.GetComponent<Target>();
-                if (target != null)
+                if (manipulatedObject.GetComponent<Target>() == null)
                 {
-                    target.ChangeGravity();
+                    Target target = manipulatedObject.GetComponent<Target>();
+                    if (target != null)
+                    {
+                        target.ChangeGravity();
+                    }
                 }
             }
         }
@@ -50,7 +52,6 @@ public class PlayerShooting : MonoBehaviour
         if (mouseScrollY > 0)
         {
             gravity += 0.0981f;
-            
         }
 
         if (mouseScrollY < 0)
