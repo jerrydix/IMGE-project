@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 1399612930209832875}
   - component: {fileID: 2817697796485537603}
   - component: {fileID: 7139315373101233231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3014318051927509588
 Transform:
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_MeshFormatVersion: 2
   m_Faces:
   - m_Indexes: 000000000100000002000000010000000300000002000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 3
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 08000000090000000a000000090000000b0000000a000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -716,20 +716,20 @@ MonoBehaviour:
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
-  - {x: 0.00000006342994, y: 0, z: 1, w: -1}
-  - {x: 0.00000006342994, y: 0, z: 1, w: -1}
-  - {x: -0.6427877, y: 0, z: 0.7660444, w: -1}
-  - {x: -0.6427877, y: 0, z: 0.7660444, w: -1}
-  - {x: -0.64278764, y: 0, z: 0.7660444, w: -1}
-  - {x: -0.64278764, y: 0, z: 0.7660444, w: -1}
-  - {x: -0.9848078, y: 0, z: 0.1736481, w: -1}
-  - {x: -0.9848078, y: 0, z: 0.1736481, w: -1}
-  - {x: -0.9848078, y: 0, z: 0.17364813, w: -1}
-  - {x: -0.9848078, y: 0, z: 0.17364813, w: -1}
-  - {x: -0.86602545, y: 0, z: -0.49999994, w: -1}
-  - {x: -0.86602545, y: 0, z: -0.49999994, w: -1}
-  - {x: -0.86602545, y: 0, z: -0.49999994, w: -1}
-  - {x: -0.86602545, y: 0, z: -0.49999994, w: -1}
+  - {x: -0.34202015, y: 0, z: 0.9396927, w: -1}
+  - {x: -0.34202015, y: 0, z: 0.9396927, w: -1}
+  - {x: -0.34202015, y: 0, z: 0.9396927, w: -1}
+  - {x: -0.34202015, y: 0, z: 0.9396927, w: -1}
+  - {x: -0.8660255, y: 0, z: 0.4999999, w: -1}
+  - {x: -0.8660255, y: 0, z: 0.4999999, w: -1}
+  - {x: -0.8660255, y: 0, z: 0.4999999, w: -1}
+  - {x: -0.8660255, y: 0, z: 0.4999999, w: -1}
+  - {x: -0.9848078, y: 0, z: -0.1736482, w: -1}
+  - {x: -0.9848078, y: 0, z: -0.1736482, w: -1}
+  - {x: -0.9848078, y: 0, z: -0.1736482, w: -1}
+  - {x: -0.9848078, y: 0, z: -0.1736482, w: -1}
+  - {x: -0.64278775, y: 0, z: -0.7660444, w: -1}
+  - {x: -0.64278775, y: 0, z: -0.7660444, w: -1}
   - {x: -0.34202018, y: 0, z: -0.9396927, w: -1}
   - {x: -0.34202018, y: 0, z: -0.9396927, w: -1}
   - {x: -0.34202018, y: 0, z: -0.9396926, w: -1}
@@ -750,8 +750,8 @@ MonoBehaviour:
   - {x: 0.64278764, y: 0, z: 0.76604444, w: -1}
   - {x: 0.64278764, y: 0, z: 0.7660444, w: -1}
   - {x: 0.64278764, y: 0, z: 0.7660444, w: -1}
-  - {x: 0.00000006342994, y: 0, z: 1, w: -1}
-  - {x: 0.00000006342994, y: 0, z: 1, w: -1}
+  - {x: 0.34202027, y: 0, z: 0.9396926, w: -1}
+  - {x: 0.34202027, y: 0, z: 0.9396926, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1634
+  m_VersionIndex: 1679
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -932,12 +932,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8872038510284059030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8872038510284059030
 Transform:
@@ -954,7 +954,7 @@ Transform:
   - {fileID: 2411039739692884967}
   - {fileID: 3014318051927509588}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6743272882827149479
 GameObject:
@@ -970,12 +970,12 @@ GameObject:
   - component: {fileID: 7918763765783475755}
   - component: {fileID: 6819015487812454216}
   - component: {fileID: 6421981333072540569}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2411039739692884967
 Transform:
@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1297
+  m_VersionIndex: 1303
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2844,7 +2844,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2cd42d322364a0d409c5d6d7567e18ca, type: 2}
+  - {fileID: 2100000, guid: e2f46f807b3b19a4491e113702211cde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
