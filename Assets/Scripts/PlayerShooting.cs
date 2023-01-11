@@ -10,8 +10,9 @@ using UnityEngine.Serialization;
 public class PlayerShooting : MonoBehaviour
 {
     private PlayerInput input;
-    [FormerlySerializedAs("FPSCamera")] public Camera fpsCamera;
+    [SerializeField] public Camera fpsCamera;
     [SerializeField] public float gravity;
+    [SerializeField] private TrailRenderer trail;
     private float mouseScrollY;
     GameObject manipulatedObject;
     private bool yForce = true;
@@ -41,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
         {
             if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out var hit, 100))
             {
-                manipulatedObject = hit.transform.GameObject();
+                manipulatedObject = hit.transform.GameObject(); 
                 if (manipulatedObject.GetComponent<Target>() != null)
                 {
                     Target target = manipulatedObject.GetComponent<Target>();
@@ -98,6 +99,15 @@ public class PlayerShooting : MonoBehaviour
         zForce = false;
 
         yForce = true;
+
+        TrailRenderer trail = Instantiate(this.trail,
+            manipulatedObject.transform.position - new Vector3(-0f, -3f, 0f), Quaternion.identity);
+        Vector3 targetPosition = manipulatedObject.transform.position - new Vector3(0f, 3f, 0f);
+        StartCoroutine(SpawnTrail(trail, targetPosition));
+        
+        gravity = 0;
+        manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
+        
         StartCoroutine(GravityBrake());
     }
 
@@ -108,6 +118,15 @@ public class PlayerShooting : MonoBehaviour
         zForce = false;
 
         yForce = false;
+        
+        TrailRenderer trail = Instantiate(this.trail,
+            manipulatedObject.transform.position - new Vector3(-3f, 0f, 0f), Quaternion.identity);
+        Vector3 targetPosition = manipulatedObject.transform.position - new Vector3(3f, 0f, 0f);
+        StartCoroutine(SpawnTrail(trail, targetPosition));
+
+        gravity = 0;
+        manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
+        
         StartCoroutine(GravityBrake());
     }
 
@@ -118,9 +137,38 @@ public class PlayerShooting : MonoBehaviour
         zForce = true;
 
         yForce = false;
+        
+        TrailRenderer trail = Instantiate(this.trail,
+            manipulatedObject.transform.position - new Vector3(0f, 0f, -3f), Quaternion.identity);
+        Vector3 targetPosition = manipulatedObject.transform.position - new Vector3(0f, 0f, 3f);
+        StartCoroutine(SpawnTrail(trail, targetPosition));
+        
+        gravity = 0;
+        manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
+        
         StartCoroutine(GravityBrake());
     }
 
+
+    /*
+     * Spawns the trail
+     */
+    private IEnumerator SpawnTrail(TrailRenderer trail, Vector3 targetPosition)
+    {
+        float time = 0;
+        Vector3 startPosition = trail.transform.position;
+
+        while (time < 1)
+        {
+            trail.transform.position = Vector3.Lerp(startPosition, targetPosition, time);
+            time += Time.deltaTime / trail.time;
+
+            yield return null;
+        }
+        
+        Destroy(trail.gameObject, trail.time);
+    }
+    
     IEnumerator GravityBrake()
     {
         manipulatedObject.GetComponent<Rigidbody>().drag = 100000;
