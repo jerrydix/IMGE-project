@@ -956,7 +956,7 @@ Transform:
   - {fileID: 2411039739692884967}
   - {fileID: 3014318051927509588}
   m_Father: {fileID: 0}
-  m_RootOrder: 122
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6163961347218766299
 BoxCollider:
@@ -992,6 +992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressed: 0
+  lit: {fileID: 2100000, guid: 3e128b6d89ce67c4097fb11203c13a37, type: 2}
+  normal: {fileID: 2100000, guid: d32112a5aa0850d499211b8001326068, type: 2}
+  buttonSide: {fileID: 73572418455023190}
 --- !u!1 &6743272882827149479
 GameObject:
   m_ObjectHideFlags: 0
