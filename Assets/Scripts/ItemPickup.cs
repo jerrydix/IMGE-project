@@ -8,8 +8,8 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private Transform player, holder, orientation;
     [SerializeField] private float pickupRange, dropForceFront, dropForceUp;
     private Rigidbody _rb;
-    private PlayerShooting _func;
-    private BoxCollider _col;
+    [SerializeField] private PlayerShooting _func;
+    [SerializeField] private BoxCollider _col;
 
     private PlayerInput _input;
     public bool equipped;
@@ -18,9 +18,7 @@ public class ItemPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _col = GetComponent<BoxCollider>();
         _rb = GetComponent<Rigidbody>();
-        _func = GetComponentInChildren<PlayerShooting>();
         _input = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
         _input.Moving.Equip.performed += Equip;
         _input.Moving.Drop.performed += Drop;
@@ -55,7 +53,7 @@ public class ItemPickup : MonoBehaviour
             transform.SetParent(holder);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.Euler(Vector3.zero);
-            transform.localScale = new Vector3(0.05f,0.05f,0.5f);
+            transform.localScale = new Vector3(0.01f,0.01f,0.01f);
             
             _rb.isKinematic = true;
             _col.isTrigger = true;
