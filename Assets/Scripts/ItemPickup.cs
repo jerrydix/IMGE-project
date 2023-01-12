@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ItemPickup : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class ItemPickup : MonoBehaviour
     void Update()
     {
         dist = player.position - transform.position;
+        if (SceneManager.GetActiveScene().name == "BackedNikkiScene" && equipped)
+        {
+            SceneManager.LoadScene("Level 1");
+        }
     }
 
     private void Equip(InputAction.CallbackContext context)
