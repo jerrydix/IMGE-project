@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44741464, g: 0.49283367, b: 0.55094314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -378,11 +378,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4466550501896053958, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
+    - target: {fileID: 8483018645411138201, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1228130800}
-    - target: {fileID: 4466550501896053958, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
+    - target: {fileID: 8483018645411138201, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 127136111}
@@ -1407,7 +1407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adee2a5570fd5414e8120afb70b60818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antiGravForce: 13
 --- !u!54 &713015616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3219,6 +3218,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901028988}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1936540029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1885547965, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
+  m_PrefabInstance: {fileID: 151156784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1983398732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +3815,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1767121385, guid: 74813ad18aa05ba408c2d54a130ac941, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1936540029}
     - target: {fileID: 5254603945290902040, guid: 74813ad18aa05ba408c2d54a130ac941, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
