@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MenuToGame : MonoBehaviour
 {
-    public GameObject loadingBar;
     public Slider slider;
 
     public void LoadLevel(int sceneIndex)
@@ -16,8 +15,6 @@ public class MenuToGame : MonoBehaviour
     IEnumerator LoadingAsync (int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        loadingBar.SetActive(true);
 
         while (!operation.isDone)
         {

@@ -521,7 +521,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121313434}
-  - component: {fileID: 121313435}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -544,23 +543,6 @@ Transform:
   m_Father: {fileID: 1202113836466393087}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &121313435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121313433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293d6f5b2f28e8c44b136cb86bd107bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: {fileID: 0}
-  gravity: 0
-  trail: {fileID: 0}
-  noOutLine: {fileID: 0}
-  outLine: {fileID: 0}
 --- !u!1 &126112666
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,7 +3753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fate of Zarya
+  m_text: Soviet Spaceporter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
   m_sharedMaterial: {fileID: -192905051130003518, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
@@ -3799,8 +3781,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15252,7 +15234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af384de6a3e054bbc87da8b690126475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBar: {fileID: 1811473329}
   slider: {fileID: 1811473331}
 --- !u!1 &900573887
 GameObject:
@@ -15312,7 +15293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fate of Zarya
+  m_text: Soviet Spaceporter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
   m_sharedMaterial: {fileID: -192905051130003518, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
@@ -15340,8 +15321,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19239,8 +19220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af384de6a3e054bbc87da8b690126475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBar: {fileID: 0}
-  slider: {fileID: 0}
+  slider: {fileID: 1811473331}
 --- !u!4 &1016049955
 Transform:
   m_ObjectHideFlags: 0
@@ -36285,7 +36265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fate of Zarya
+  m_text: Soviet Spaceporter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
   m_sharedMaterial: {fileID: -192905051130003518, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
@@ -40716,8 +40696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af384de6a3e054bbc87da8b690126475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBar: {fileID: 0}
-  slider: {fileID: 0}
+  slider: {fileID: 1811473331}
 --- !u!43 &1627635991
 Mesh:
   m_ObjectHideFlags: 0
@@ -42890,7 +42869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fate of Zarya
+  m_text: Soviet Spaceporter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
   m_sharedMaterial: {fileID: -192905051130003518, guid: e723ceb6432f54f52a9559aa324666ba, type: 2}
@@ -49667,7 +49646,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1202113836466393087}
   - component: {fileID: 3802297819652135437}
-  - component: {fileID: 8483018644524580797}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -50387,27 +50365,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!114 &8483018644524580797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010035377948661061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0f9bd6a814fac4a861f042210ac367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  holder: {fileID: 0}
-  orientation: {fileID: 0}
-  pickupRange: 4
-  dropForceFront: 2
-  dropForceUp: 0
-  _func: {fileID: 121313435}
-  _col: {fileID: 4729254941000978577}
-  equipped: 1
 --- !u!4 &8601450218889707237
 Transform:
   m_ObjectHideFlags: 0
