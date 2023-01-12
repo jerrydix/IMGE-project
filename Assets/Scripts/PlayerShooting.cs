@@ -65,10 +65,27 @@ public class PlayerShooting : MonoBehaviour
                         
                         manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
                         
-                        TrailRenderer trail = Instantiate(this.trail,
-                            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f), Quaternion.identity);
-                        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
-                        StartCoroutine(SpawnTrail(trail, targetPosition));
+                        gravity = 0f;
+
+                        if (xForce)
+                        {
+                            TrailRenderer trail = Instantiate(this.trail,
+                                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(-3f, 0f, 0f), Quaternion.identity);
+                            Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(3f, 0f, 0f);
+                            StartCoroutine(SpawnTrail(trail, targetPosition));
+                        }else if (zForce)
+                        {
+                            TrailRenderer trail = Instantiate(this.trail,
+                                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, -3f), Quaternion.identity);
+                            Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, 3f);
+                            StartCoroutine(SpawnTrail(trail, targetPosition));
+                        }else if (yForce)
+                        {
+                            TrailRenderer trail = Instantiate(this.trail,
+                                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f), Quaternion.identity);
+                            Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
+                            StartCoroutine(SpawnTrail(trail, targetPosition));
+                        }
 
                         manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
                     

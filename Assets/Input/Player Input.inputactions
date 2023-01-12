@@ -335,50 +335,6 @@
                 },
                 {
                     "name": "",
-                    "id": "fdbc1a7d-ed59-4914-875e-19f2599624c0",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeGravityX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e29a34e5-cae6-4d87-aae7-c39eba145100",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeGravityX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "78e95523-dabb-44d7-89bb-ff871f458b12",
-                    "path": "<Keyboard>/v",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeGravityZ",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2514e69f-4633-49ff-9165-1ebeb58792e6",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeGravityZ",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7601c114-a3c6-4eb9-87e0-1fbf743873aa",
                     "path": "<Keyboard>/e",
                     "interactions": "",
