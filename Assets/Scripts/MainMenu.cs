@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        //TODO: Animation + Loading Screen?
+        
     }
 
     public void QuitGame()
