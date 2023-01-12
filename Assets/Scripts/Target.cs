@@ -17,17 +17,17 @@ public class Target : MonoBehaviour
     }
     public void ChangeGravity()
     {
-        if (!modifying)
-        {
+        //if (!modifying)
+        //{
             modifying = true;
             antiGravityBool = true;
             constantForce.enabled = antiGravityBool;
-        }
-        else if (modifying)
-        {
-            modifying = false;
-            antiGravityBool = false;
-            constantForce.enabled = antiGravityBool;
-        }
+        //}
+        // else if (modifying)
+        // {
+        //     modifying = false;
+        //     antiGravityBool = false;
+        //     constantForce.enabled = antiGravityBool;
+        // }
     }
 }
