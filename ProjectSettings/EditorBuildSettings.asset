@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu Wallpaper.unity
     guid: 4de153fd01cd2dd4187bee4a9a081e40
   - enabled: 1
+    path: Assets/Scenes/BackedNikkiScene.unity
+    guid: cfa20919cdade6b40aacd479e917d38a
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 8955d481cfddf014e8d89de8bf2d67b1
   m_configObjects:
