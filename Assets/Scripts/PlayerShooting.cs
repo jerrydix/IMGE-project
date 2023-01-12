@@ -63,6 +63,8 @@ public class PlayerShooting : MonoBehaviour
                         manipulatedObject = hit.transform.GameObject();
                         manipulatedObject.GetComponent<Renderer>().material = outLine;
                         
+                        manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
+                        
                         TrailRenderer trail = Instantiate(this.trail,
                             manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f), Quaternion.identity);
                         Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
