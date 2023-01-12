@@ -29,6 +29,7 @@ public class DoorWithButton : MonoBehaviour
         if (allPressed)
         {
             _animator.SetBool("Open", true);
+            Debug.Log(_animator.GetBool("Open"));
         }
         else
         {

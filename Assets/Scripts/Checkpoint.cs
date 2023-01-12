@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-
+    
     [SerializeField] private Vector3 checkpoint;
 
     private void OnTriggerEnter(Collider other)
