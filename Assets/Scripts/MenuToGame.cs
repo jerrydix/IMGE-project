@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class MenuToGame : MonoBehaviour
 {
-    public void LoadLevel(string _levelName)
+    public GameObject loadingBar;
+    public Slider slider;
+
+    public void LoadLevel(int sceneIndex)
     {
-        StartCoroutine(LoadingAsync(_levelName));
+        StartCoroutine(LoadingAsync(sceneIndex));
     }
 
-    IEnumerator LoadingAsync (string _levelName)
+    IEnumerator LoadingAsync (int sceneIndex)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(_levelName);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        loadingBar.SetActive(true);
 
         while (!operation.isDone)
         {
