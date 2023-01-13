@@ -41658,8 +41658,8 @@ MonoBehaviour:
   quitTransform: {fileID: 1338352705}
   defaultTransform: {fileID: 1906568582}
   cam: {fileID: 1751842945}
-  positionTurnSpeed: 0.02
-  rotationTurnSpeed: 0.02
+  positionTurnSpeed: 0.01
+  rotationTurnSpeed: 2.5
 --- !u!43 &1900003177
 Mesh:
   m_ObjectHideFlags: 0
