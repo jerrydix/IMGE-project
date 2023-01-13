@@ -57,7 +57,7 @@ public class CameraMove : MonoBehaviour
         xRotation -= y;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, GetComponentInParent<CameraHolderMove>().zRotation, turnSpeed));
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, Mathf.Lerp(transform.eulerAngles.z, GetComponentInParent<CameraHolderMove>().zRotation, turnSpeed * Time.deltaTime));
         
         orientation.rotation = Quaternion.Euler(orientation.rotation.x, transform.rotation.eulerAngles.y, orientation.rotation.y);
     }

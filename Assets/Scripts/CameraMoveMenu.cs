@@ -55,32 +55,24 @@ public class CameraMoveMenu : MonoBehaviour
     {
         if (_inQuit)
         {
-            //cam.position = defaultTransform.position;
-            //cam.rotation = defaultTransform.rotation;
             cam.position = Vector3.Lerp(cam.position, quitTransform.position, positionTurnSpeed);
-            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(quitTransform.rotation.eulerAngles), rotationTurnSpeed);
+            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(quitTransform.rotation.eulerAngles), rotationTurnSpeed * Time.deltaTime);
         }
         else if (_inOptions)
         {
-            //cam.position = creditsTransform.position;
-            //cam.rotation = creditsTransform.rotation;
             cam.position = Vector3.Lerp(cam.position, optionsTransform.position, positionTurnSpeed);
-            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(optionsTransform.rotation.eulerAngles), rotationTurnSpeed);
+            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(optionsTransform.rotation.eulerAngles), rotationTurnSpeed * Time.deltaTime);
         }
         else if (_inCredits)
         {
-            //cam.position = creditsTransform.position;
-            //cam.rotation = creditsTransform.rotation;
             cam.position = Vector3.Lerp(cam.position, creditsTransform.position, positionTurnSpeed);
-            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(creditsTransform.rotation.eulerAngles), rotationTurnSpeed);
+            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(creditsTransform.rotation.eulerAngles), rotationTurnSpeed * Time.deltaTime);
 
         }
         else
         {
-            //cam.position = defaultTransform.position;
-            //cam.rotation = defaultTransform.rotation;
             cam.position = Vector3.Lerp(cam.position, defaultTransform.position, positionTurnSpeed);
-            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(defaultTransform.rotation.eulerAngles), rotationTurnSpeed);
+            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(defaultTransform.rotation.eulerAngles), rotationTurnSpeed * Time.deltaTime);
         }
     }
 }
