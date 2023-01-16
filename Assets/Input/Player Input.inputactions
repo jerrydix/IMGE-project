@@ -96,7 +96,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GunGravityY",
+                    "name": "GunGravity",
                     "type": "Button",
                     "id": "cceec949-0932-496a-bb0a-521807b5af2a",
                     "expectedControlType": "Button",
@@ -380,33 +380,22 @@
                 {
                     "name": "",
                     "id": "f1c91c3a-1100-400f-9eb8-5e7264579109",
-                    "path": "<Keyboard>/y",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GunGravityY",
+                    "action": "GunGravity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b2f02b47-ba4e-487d-b4dc-4acf1af2c81b",
-                    "path": "<Keyboard>/x",
+                    "id": "b5e2e7fc-959a-4e9b-8b89-feb2d4fe61b3",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GunGravityX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eac4a527-173e-4cfb-aac3-6c06187c7dc4",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GunGravityZ",
+                    "action": "GunGravity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

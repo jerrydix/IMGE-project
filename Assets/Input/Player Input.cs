@@ -118,7 +118,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GunGravityY"",
+                    ""name"": ""GunGravity"",
                     ""type"": ""Button"",
                     ""id"": ""cceec949-0932-496a-bb0a-521807b5af2a"",
                     ""expectedControlType"": ""Button"",
@@ -402,33 +402,22 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f1c91c3a-1100-400f-9eb8-5e7264579109"",
-                    ""path"": ""<Keyboard>/y"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GunGravityY"",
+                    ""action"": ""GunGravity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b2f02b47-ba4e-487d-b4dc-4acf1af2c81b"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""id"": ""b5e2e7fc-959a-4e9b-8b89-feb2d4fe61b3"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GunGravityX"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""eac4a527-173e-4cfb-aac3-6c06187c7dc4"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GunGravityZ"",
+                    ""action"": ""GunGravity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -449,7 +438,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Moving_ChangeGravityZ = m_Moving.FindAction("ChangeGravityZ", throwIfNotFound: true);
         m_Moving_Equip = m_Moving.FindAction("Equip", throwIfNotFound: true);
         m_Moving_Drop = m_Moving.FindAction("Drop", throwIfNotFound: true);
-        m_Moving_GunGravityY = m_Moving.FindAction("GunGravityY", throwIfNotFound: true);
+        m_Moving_GunGravity = m_Moving.FindAction("GunGravity", throwIfNotFound: true);
         m_Moving_GunGravityX = m_Moving.FindAction("GunGravityX", throwIfNotFound: true);
         m_Moving_GunGravityZ = m_Moving.FindAction("GunGravityZ", throwIfNotFound: true);
     }
@@ -521,7 +510,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Moving_ChangeGravityZ;
     private readonly InputAction m_Moving_Equip;
     private readonly InputAction m_Moving_Drop;
-    private readonly InputAction m_Moving_GunGravityY;
+    private readonly InputAction m_Moving_GunGravity;
     private readonly InputAction m_Moving_GunGravityX;
     private readonly InputAction m_Moving_GunGravityZ;
     public struct MovingActions
@@ -538,7 +527,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @ChangeGravityZ => m_Wrapper.m_Moving_ChangeGravityZ;
         public InputAction @Equip => m_Wrapper.m_Moving_Equip;
         public InputAction @Drop => m_Wrapper.m_Moving_Drop;
-        public InputAction @GunGravityY => m_Wrapper.m_Moving_GunGravityY;
+        public InputAction @GunGravity => m_Wrapper.m_Moving_GunGravity;
         public InputAction @GunGravityX => m_Wrapper.m_Moving_GunGravityX;
         public InputAction @GunGravityZ => m_Wrapper.m_Moving_GunGravityZ;
         public InputActionMap Get() { return m_Wrapper.m_Moving; }
@@ -580,9 +569,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Drop.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
-                @GunGravityY.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityY;
-                @GunGravityY.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityY;
-                @GunGravityY.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityY;
+                @GunGravity.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravity;
+                @GunGravity.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravity;
+                @GunGravity.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravity;
                 @GunGravityX.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityX;
                 @GunGravityX.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityX;
                 @GunGravityX.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityX;
@@ -623,9 +612,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
-                @GunGravityY.started += instance.OnGunGravityY;
-                @GunGravityY.performed += instance.OnGunGravityY;
-                @GunGravityY.canceled += instance.OnGunGravityY;
+                @GunGravity.started += instance.OnGunGravity;
+                @GunGravity.performed += instance.OnGunGravity;
+                @GunGravity.canceled += instance.OnGunGravity;
                 @GunGravityX.started += instance.OnGunGravityX;
                 @GunGravityX.performed += instance.OnGunGravityX;
                 @GunGravityX.canceled += instance.OnGunGravityX;
@@ -648,7 +637,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnChangeGravityZ(InputAction.CallbackContext context);
         void OnEquip(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
-        void OnGunGravityY(InputAction.CallbackContext context);
+        void OnGunGravity(InputAction.CallbackContext context);
         void OnGunGravityX(InputAction.CallbackContext context);
         void OnGunGravityZ(InputAction.CallbackContext context);
     }

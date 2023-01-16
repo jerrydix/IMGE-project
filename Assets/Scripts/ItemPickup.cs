@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] private Transform player, holder, orientation;
+    [SerializeField] private Transform genHolder;
     [SerializeField] private float pickupRange, dropForceFront, dropForceUp;
     private Rigidbody _rb;
     [SerializeField] private PlayerShooting _func;
@@ -14,11 +15,16 @@ public class ItemPickup : MonoBehaviour
 
     private PlayerInput _input;
     public bool equipped;
+    public bool genPart;
     
     private Vector3 dist;
     // Start is called before the first frame update
     void Start()
     {
+        if (GetComponent<GeneratorPiece>() != null)
+        {
+            genPart = true;
+        }
         _rb = GetComponent<Rigidbody>();
         _input = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
         _input.Moving.Equip.performed += Equip;
@@ -54,15 +60,21 @@ public class ItemPickup : MonoBehaviour
         if (context.performed && !equipped && dist.magnitude <= pickupRange)
         {
             equipped = true;
+
+            if (genPart)
+                transform.SetParent(genHolder);
+            else
+            {
+                transform.SetParent(holder);
+                _func.enabled = true;
+            }
             
-            transform.SetParent(holder);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.Euler(Vector3.zero);
             transform.localScale = new Vector3(0.01f,0.01f,0.01f);
             
             _rb.isKinematic = true;
             _col.isTrigger = true;
-            _func.enabled = true;
         }
     }
 
@@ -72,7 +84,8 @@ public class ItemPickup : MonoBehaviour
         {
             equipped = false;
             
-            transform.SetParent(null);
+            if (!genPart)
+                _func.enabled = false;
             
             _rb.isKinematic = false;
             _col.isTrigger = false;
@@ -81,8 +94,6 @@ public class ItemPickup : MonoBehaviour
             _rb.AddForce(orientation.up * dropForceUp, ForceMode.Impulse);
             float random = Random.Range(-1f, 1f);
             //_rb.AddTorque(new Vector3(random, random, random) * 10);
-
-            _func.enabled = false;
         }
     }
 }
