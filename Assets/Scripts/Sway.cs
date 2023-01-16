@@ -9,6 +9,7 @@ public class Sway : MonoBehaviour
     
     void Update()
     {
+        //TODO not necessary new input system
         float mouseX = Input.GetAxisRaw("Mouse X") * multiplier;
         float mouseY = Input.GetAxisRaw("Mouse Y") * multiplier;
         
