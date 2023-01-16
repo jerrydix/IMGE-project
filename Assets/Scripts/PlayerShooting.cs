@@ -22,17 +22,29 @@ public class PlayerShooting : MonoBehaviour
     private bool zForce = false;
     private bool xForce = false;
 
+    private float[] _force;
+    private int _pointer;
+
 
     private void Start()
     {
         input = new PlayerInput();
         input.Moving.Enable();
-        input.Moving.Fire.performed += Shoot;
+        
+        /*
         input.Moving.Scrolled.performed += ScrollToGravityValue;
         input.Moving.Scrolled.performed += x => mouseScrollY = x.ReadValue<float>();
         input.Moving.GunGravityX.performed += ChangeGravityDirToX;
         input.Moving.GunGravityY.performed += ChangeGravityDirToY;
         input.Moving.GunGravityZ.performed += ChangeGravityDirToZ;
+        */
+        input.GravityGun.Fire.performed += Shoot;
+        input.GravityGun.GravityDown.performed += ChangeNegativGravity;
+        input.GravityGun.GravityUp.performed += ChangePositivGravity;
+        input.GravityGun.ChangeGravityDirection.performed += GravDirChange;
+
+        _force = new float[] { -9.81f, -6.54f, -3.27f, 0, 3.27f, 6.54f, 9.81f };
+        _pointer = 3;
 
 
         gravity = 0f;
@@ -47,7 +59,8 @@ public class PlayerShooting : MonoBehaviour
             {
                 if (hit.transform.GameObject().GetComponent<Target>() != null)
                 {
-                    if(manipulatedObject != null) {
+                    if (manipulatedObject != null)
+                    {
                         manipulatedObject.GetComponent<Renderer>().material = noOutLine;
                     }
 
@@ -62,35 +75,29 @@ public class PlayerShooting : MonoBehaviour
                     {
                         manipulatedObject = hit.transform.GameObject();
                         manipulatedObject.GetComponent<Renderer>().material = outLine;
-                        
+
                         manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
-                        
+
                         gravity = 0f;
 
                         if (xForce)
                         {
-                            TrailRenderer trail = Instantiate(this.trail,
-                                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(-3f, 0f, 0f), Quaternion.identity);
-                            Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(3f, 0f, 0f);
-                            StartCoroutine(SpawnTrail(trail, targetPosition));
-                        }else if (zForce)
+                            xTrail();
+                        }
+                        else if (zForce)
                         {
-                            TrailRenderer trail = Instantiate(this.trail,
-                                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, -3f), Quaternion.identity);
-                            Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, 3f);
-                            StartCoroutine(SpawnTrail(trail, targetPosition));
-                        }else if (yForce)
+                            zTrail();
+                        }
+                        else if (yForce)
                         {
-                            TrailRenderer trail = Instantiate(this.trail,
-                                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f), Quaternion.identity);
-                            Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
-                            StartCoroutine(SpawnTrail(trail, targetPosition));
+                            yTrail();
                         }
 
-                        manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
-                    
-                        manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, gravity + 9.81f, 0);
-                        
+                        manipulatedObject.GetComponent<Rigidbody>().constraints =
+                            RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+
+                        //manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, gravity + 9.81f, 0);
+
                         Target target = manipulatedObject.GetComponent<Target>();
                         if (target != null)
                         {
@@ -141,7 +148,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void ChangeGravityDirToY(InputAction.CallbackContext context)
     {
-        if(manipulatedObject != null) {
+        if (manipulatedObject != null)
+        {
             xForce = false;
 
             zForce = false;
@@ -149,13 +157,14 @@ public class PlayerShooting : MonoBehaviour
             yForce = true;
 
             TrailRenderer trail = Instantiate(this.trail,
-                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f), Quaternion.identity);
+                manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f),
+                Quaternion.identity);
             Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
             StartCoroutine(SpawnTrail(trail, targetPosition));
-            
+
             gravity = 0;
             manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
-            
+
             StartCoroutine(GravityBrake());
         }
     }
@@ -198,7 +207,6 @@ public class PlayerShooting : MonoBehaviour
                 Quaternion.identity);
             Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, 3f);
             StartCoroutine(SpawnTrail(trail, targetPosition));
-
             gravity = 0;
             manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
 
@@ -207,9 +215,123 @@ public class PlayerShooting : MonoBehaviour
     }
 
 
+    private void ChangeNegativGravity(InputAction.CallbackContext context)
+    {
+        if (context.performed && _pointer > 0 && manipulatedObject != null)
+        {
+            _pointer--;
+            if (manipulatedObject.GetComponent<ConstantForce>() != null)
+            {
+                if (xForce)
+                {
+                    manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(_force[_pointer], 9.81f, 0);
+                }
+
+                if (yForce)
+                {
+                    manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, _force[_pointer] + 9.81f, 0);
+                }
+
+                if (zForce)
+                {
+                    manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, 9.81f, _force[_pointer]);
+                }
+            }
+        }
+    }
+
+    private void ChangePositivGravity(InputAction.CallbackContext context)
+    {
+        if (context.performed && _pointer < 7 && manipulatedObject != null)
+        {
+            _pointer++;
+            if (manipulatedObject.GetComponent<ConstantForce>() != null)
+            {
+                if (xForce)
+                {
+                    manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(_force[_pointer], 9.81f, 0);
+                }
+
+                if (yForce)
+                {
+                    manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, _force[_pointer] + 9.81f, 0);
+                }
+
+                if (zForce)
+                {
+                    manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, 9.81f, _force[_pointer]);
+                }
+            }
+        }
+    }
+
+    private void GravDirChange(InputAction.CallbackContext context)
+    {
+        if (context.performed && manipulatedObject != null)
+        {
+            // Change to Y Direction
+            if (xForce)
+            {
+                xForce = false;
+                yForce = true;
+
+                yTrail();
+                StartCoroutine(GravityBrake());
+            }
+            // Change to Z Direction
+            else if (yForce)
+            {
+                yForce = false;
+                zForce = true;
+
+                zTrail();
+                StartCoroutine(GravityBrake());
+            }
+            // Change to X Direction
+            else
+            {
+                zForce = false;
+                xForce = true;
+
+                xTrail();
+                StartCoroutine(GravityBrake());
+            }
+
+            _pointer = 3;
+        }
+    }
+
+
     /*
      * Spawns the trail
      */
+    private void zTrail()
+    {
+        TrailRenderer trail = Instantiate(this.trail,
+            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, -3f),
+            Quaternion.identity);
+        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, 3f);
+        StartCoroutine(SpawnTrail(trail, targetPosition));
+    }
+
+    private void yTrail()
+    {
+        TrailRenderer trail = Instantiate(this.trail,
+            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f),
+            Quaternion.identity);
+        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
+        StartCoroutine(SpawnTrail(trail, targetPosition));
+    }
+
+    private void xTrail()
+    {
+        TrailRenderer trail = Instantiate(this.trail,
+            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(-3f, 0f, 0f),
+            Quaternion.identity);
+        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(3f, 0f, 0f);
+        StartCoroutine(SpawnTrail(trail, targetPosition));
+    }
+
     private IEnumerator SpawnTrail(TrailRenderer trail, Vector3 targetPosition)
     {
         float time = 0;
@@ -222,13 +344,14 @@ public class PlayerShooting : MonoBehaviour
 
             yield return null;
         }
-        
+
         Destroy(trail.gameObject, trail.time);
     }
-    
+
     IEnumerator GravityBrake()
     {
-        manipulatedObject.GetComponent<Rigidbody>().drag = 100000;
+        manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
+        manipulatedObject.GetComponent<Rigidbody>().drag = 100;
         yield return new WaitForSeconds(0.5f);
         manipulatedObject.GetComponent<Rigidbody>().drag = 0;
     }
