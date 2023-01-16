@@ -30,6 +30,7 @@ public class PlayerShooting : MonoBehaviour
     {
         input = new PlayerInput();
         input.Moving.Enable();
+        input.GravityGun.Enable();
         
         /*
         input.Moving.Scrolled.performed += ScrollToGravityValue;
@@ -242,7 +243,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void ChangePositivGravity(InputAction.CallbackContext context)
     {
-        if (context.performed && _pointer < 7 && manipulatedObject != null)
+        if (context.performed && _pointer < 6 && manipulatedObject != null)
         {
             _pointer++;
             if (manipulatedObject.GetComponent<ConstantForce>() != null)
