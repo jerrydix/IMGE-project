@@ -229,6 +229,7 @@ public class PlayerShooting : MonoBehaviour
         if (context.performed && _pointer > 0 && manipulatedObject != null)
         {
             _pointer--;
+            gravity = _force[_pointer];
             if (manipulatedObject.GetComponent<ConstantForce>() != null)
             {
                 if (xForce)
@@ -254,6 +255,7 @@ public class PlayerShooting : MonoBehaviour
         if (context.performed && _pointer < 6 && manipulatedObject != null)
         {
             _pointer++;
+            gravity = _force[_pointer];
             if (manipulatedObject.GetComponent<ConstantForce>() != null)
             {
                 if (xForce)
