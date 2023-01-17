@@ -80,13 +80,11 @@ public class ItemPickup : MonoBehaviour
 
     private void Drop(InputAction.CallbackContext context)
     {
-        if (context.performed && equipped)
+        if (context.performed && equipped && genPart)
         {
             equipped = false;
-            
-            if (!genPart)
-                _func.enabled = false;
-            
+            transform.SetParent(null);
+
             _rb.isKinematic = false;
             _col.isTrigger = false;
            // _rb.velocity = player.GetComponent<Rigidbody>().velocity;
