@@ -22,6 +22,7 @@ public class PlayerShooting : MonoBehaviour
     private bool zForce = false;
     private bool xForce = false;
 
+    [SerializeField] private float _forceMultiplier = 0.5f;
     private float[] _force;
     private int _pointer;
 
@@ -43,8 +44,14 @@ public class PlayerShooting : MonoBehaviour
         input.GravityGun.GravityDown.performed += ChangeNegativGravity;
         input.GravityGun.GravityUp.performed += ChangePositivGravity;
         input.GravityGun.ChangeGravityDirection.performed += GravDirChange;
-
-        _force = new float[] { -9.81f, -6.54f, -3.27f, 0, 3.27f, 6.54f, 9.81f };
+        
+        _force = new float[] { _forceMultiplier * -9.81f, 
+                                _forceMultiplier * -6.54f,
+                                _forceMultiplier * -3.27f,
+                                0,
+                                _forceMultiplier * 3.27f, 
+                                _forceMultiplier * 6.54f,
+                                _forceMultiplier * 9.81f };
         _pointer = 3;
 
 
@@ -110,6 +117,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    /*
     private void ScrollToGravityValue(InputAction.CallbackContext context)
     {
         if (mouseScrollY > 0)
@@ -214,7 +222,7 @@ public class PlayerShooting : MonoBehaviour
             StartCoroutine(GravityBrake());
         }
     }
-
+*/
 
     private void ChangeNegativGravity(InputAction.CallbackContext context)
     {
