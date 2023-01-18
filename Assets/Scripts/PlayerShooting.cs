@@ -21,13 +21,14 @@ public class PlayerShooting : MonoBehaviour
     private bool yForce = true;
     private bool zForce = false;
     private bool xForce = false;
+    [HideInInspector] public float currentForce;
 
     [SerializeField] private float _forceMultiplier = 0.5f;
-    private float[] _force;
-    private int _pointer;
+    [HideInInspector] public float[] _force;
+    public int _pointer;
 
 
-    private void Start()
+    private void Awake()
     {
         input = new PlayerInput();
         input.Moving.Enable();
@@ -53,9 +54,14 @@ public class PlayerShooting : MonoBehaviour
                                 _forceMultiplier * 6.54f,
                                 _forceMultiplier * 9.81f };
         _pointer = 3;
-
+        currentForce = _force[_pointer];
 
         gravity = 0f;
+    }
+
+    private void Update()
+    {
+        currentForce = _force[_pointer];
     }
 
 

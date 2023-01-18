@@ -4,20 +4,47 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class UiManager : MonoBehaviour
 {
     [SerializeField] private GameObject gun;
-    TextMeshProUGUI objectGravity;
+    //TextMeshProUGUI objectGravity;
+    [HideInInspector] public float minVal;
+    private Slider _slider;
 
     private void Start()
     {
-        objectGravity = this.GetComponent<TextMeshProUGUI>();
+       
+        _slider = GetComponent<Slider>();
+        minVal = gun.GetComponent<PlayerShooting>()._force[0];
+
+        if (_slider.direction == Slider.Direction.LeftToRight)
+            _slider.maxValue = -gun.GetComponent<PlayerShooting>()._force[0];
+        else
+            _slider.maxValue = -gun.GetComponent<PlayerShooting>()._force[0];
+        //objectGravity = this.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
-        objectGravity.SetText((-(gun.GetComponent<PlayerShooting>().gravity / 9.81 )).ToString("0.00") + "g");
+        if (_slider.direction == Slider.Direction.RightToLeft && gun.GetComponent<PlayerShooting>().currentForce < 0)
+        {
+            _slider.value = -gun.GetComponent<PlayerShooting>().currentForce;
+        }
+        else if (_slider.direction == Slider.Direction.LeftToRight && gun.GetComponent<PlayerShooting>().currentForce > 0)
+        {
+            _slider.value = gun.GetComponent<PlayerShooting>().currentForce;
+        }
+        else
+        {
+            _slider.value = 0;
+        }
+        
+        
+        //print(gun.GetComponent<PlayerShooting>().currentForce);
+        //_slider.value = gun.GetComponent<PlayerShooting>().currentForce;
+        //objectGravity.SetText((-(gun.GetComponent<PlayerShooting>().currentForce )).ToString("0.00") + "g");
     }
 }
