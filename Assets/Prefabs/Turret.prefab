@@ -130,7 +130,7 @@ Transform:
   - {fileID: 6569449401303206262}
   - {fileID: 6569449401082242251}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6569449401293629072
 Animator:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8180631514363781304, guid: e1ac29b5725184e4f8182f92d37be55c, type: 3}
   firePoint: {fileID: 6569449402360672169}
-  fireRate: 8
+  fireRate: 6
 --- !u!1 &6569449401303110994
 GameObject:
   m_ObjectHideFlags: 0

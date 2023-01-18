@@ -19,7 +19,7 @@ public class TurretLogic : MonoBehaviour
         {
             while (fireTimer >= 1 / fireRate)
             {
-                //todo shoot only when aligned
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.TurretShoot);
                 SpawnProjectile();
                 fireTimer -= 1 / fireRate;
             }
