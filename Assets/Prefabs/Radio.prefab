@@ -33,11 +33,11 @@ Transform:
   m_GameObject: {fileID: 7239976598674168971}
   m_LocalRotation: {x: 0, y: 0.7697896, z: 0, w: 0.6382978}
   m_LocalPosition: {x: 6.5175676, y: -0.19999996, z: 7.533963}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 100.67, z: 0}
 --- !u!33 &7239976598675292299
 MeshFilter:
@@ -98,7 +98,7 @@ AudioSource:
   m_GameObject: {fileID: 7239976598674168971}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f115c82b7b3a51a4bb30e7cc5f0ea280, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -108,7 +108,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 2
   MaxDistance: 50
   Pan2D: 0
