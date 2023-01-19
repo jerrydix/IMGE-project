@@ -160,7 +160,7 @@ Transform:
   m_Children:
   - {fileID: 6907981888839720511}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6907981888872920152
 AudioSource:
@@ -270,5 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024bc85d5bee2024ba9328256c4dd2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: e541ca4a69fbba84d8bdb717358be2f2, type: 3}
   mixer: {fileID: 24100000, guid: f115c82b7b3a51a4bb30e7cc5f0ea280, type: 2}

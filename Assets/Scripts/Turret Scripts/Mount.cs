@@ -26,8 +26,8 @@ public class Mount : MonoBehaviour
         var point = transform;
         var from = Quaternion.AngleAxis(-limit / 2, point.up) * point.forward;
 
-        Handles.color = new Color(0, 0, 0, .2f);
-        Handles.DrawSolidArc(point.position, point.up, from, limit, range);
+        //Handles.color = new Color(0, 0, 0, .2f);
+        //Handles.DrawSolidArc(point.position, point.up, from, limit, range);
     }
     
     public bool Aim(Vector3 target)

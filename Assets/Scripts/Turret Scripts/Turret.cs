@@ -13,7 +13,6 @@ public class Turret : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        #if UNITY_EDITOR
         if (!target) return;
 
         var dashLineSize = 2f;
@@ -24,21 +23,21 @@ public class Turret : MonoBehaviour
             var projection = Vector3.ProjectOnPlane(target.position - hardpoint.position, hardpoint.up);
 
             // projection line
-            Handles.color = Color.white;
-            Handles.DrawDottedLine(target.position, hardpoint.position + projection, dashLineSize);
+            //Handles.color = Color.white;
+            //Handles.DrawDottedLine(target.position, hardpoint.position + projection, dashLineSize);
 
             // do not draw target indicator when out of angle
             if (Vector3.Angle(hardpoint.forward, projection) > mountPoint.limit / 2) return;
 
             // target line
-            Handles.color = Color.red;
-            Handles.DrawLine(hardpoint.position, hardpoint.position + projection);
+            //Handles.color = Color.red;
+            //Handles.DrawLine(hardpoint.position, hardpoint.position + projection);
 
             // range line
-            Handles.color = Color.green;
-            Handles.DrawWireArc(hardpoint.position, hardpoint.up, from, mountPoint.limit, projection.magnitude);
-            Handles.DrawSolidDisc(hardpoint.position + projection, hardpoint.up, .5f);
-#endif
+            //Handles.color = Color.green;
+            //Handles.DrawWireArc(hardpoint.position, hardpoint.up, from, mountPoint.limit, projection.magnitude);
+            //Handles.DrawSolidDisc(hardpoint.position + projection, hardpoint.up, .5f);
+
         }
     }
 
