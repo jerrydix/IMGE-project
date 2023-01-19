@@ -10,12 +10,14 @@ public class CameraMoveMenu : MonoBehaviour
     [SerializeField] private Transform optionsTransform;
     [SerializeField] private Transform quitTransform;
     [SerializeField] private Transform defaultTransform;
+    [SerializeField] private Transform levelsTransform;
     [SerializeField] private Transform cam;
     [SerializeField] private float positionTurnSpeed;
     [SerializeField] private float rotationTurnSpeed;
     private bool _inCredits;
     private bool _inOptions;
     private bool _inQuit;
+    private bool _inLevels;
 
     public void StartGame()
     {
@@ -27,6 +29,7 @@ public class CameraMoveMenu : MonoBehaviour
         _inCredits = false;
         _inOptions = false;
         _inQuit = false;
+        _inLevels = false;
     }
 
     public void CreditsMenu()
@@ -44,13 +47,19 @@ public class CameraMoveMenu : MonoBehaviour
         _inQuit = true;
     }
 
+    public void LevelSelection()
+    {
+        _inLevels = true;
+    }
+
     public void Return()
     {
         _inCredits = false;
         _inOptions = false;
         _inQuit = false;
+        _inLevels = false;
     }
-    
+
     private void Update()
     {
         if (_inQuit)
@@ -67,7 +76,11 @@ public class CameraMoveMenu : MonoBehaviour
         {
             cam.position = Vector3.Lerp(cam.position, creditsTransform.position, positionTurnSpeed);
             cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(creditsTransform.rotation.eulerAngles), rotationTurnSpeed * Time.deltaTime);
-
+        }
+        else if (_inLevels)
+        {
+            cam.position = Vector3.Lerp(cam.position, levelsTransform.position, positionTurnSpeed);
+            cam.rotation = Quaternion.Lerp(Quaternion.Euler(cam.rotation.eulerAngles), Quaternion.Euler(levelsTransform.rotation.eulerAngles), rotationTurnSpeed * Time.deltaTime);
         }
         else
         {
