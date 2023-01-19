@@ -155,9 +155,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && grounded && jump)
         {
-            //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, jumpSpeed, _rigidbody.velocity.z);
-            //_rigidbody.AddForce(upAxis * jumpSpeed, ForceMode.Impulse);
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
+            _rigidbody.AddForce(upAxis * jumpSpeed, ForceMode.Impulse);
             
             Invoke(nameof(ResetJump), jumpCooldown);
         }
