@@ -549,10 +549,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 874014760}
-    - target: {fileID: 7145766092266295043, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7145766092266295066, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -565,10 +561,6 @@ PrefabInstance:
       propertyPath: spawn
       value: 
       objectReference: {fileID: 250167251}
-    - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
-      propertyPath: jumpSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7145766092266295068, guid: fe0bb6dad056ef3408c578d24bf8455c, type: 3}
       propertyPath: cameraLookAt
       value: 

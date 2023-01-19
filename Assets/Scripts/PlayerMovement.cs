@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera")]
     [SerializeField] public CameraHolderMove cam;
     [SerializeField] private Transform cameraLookAt;
+    
+    private float runSoundTimer;
+    [SerializeField] private AudioClip[] clips;
+    private AudioSource audioSource;
+    private bool stepped;
 
     private Vector3 upAxis;
     
@@ -37,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         jumpSpeed = Mathf.Sqrt(Physics.gravity.magnitude * jumpSpeed);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        audioSource = GetComponent<AudioSource>();
         
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
@@ -50,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Moving.ChangeGravityZ.performed += ChangeGravityZ;
 
         transform.position = spawn.position;
+        stepped = false;
+        runSoundTimer = 0;
     }
 
     private void FixedUpdate()
@@ -95,9 +103,21 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics.Raycast(transform.position, -upAxis, height * 0.5f + 0.2f, ground);
         SpeedLimit();
         if (grounded)
+        {
             _rigidbody.drag = drag;
-        else
+        }
+        else {
             _rigidbody.drag = 0;
+        }
+        if (stepped)
+        {
+            runSoundTimer += Time.deltaTime;
+            if (runSoundTimer >= 0.5)
+            {
+                runSoundTimer = 0;
+                stepped = false;
+            }
+        }
     }
 
     private void ChangeGravityY(InputAction.CallbackContext context)
@@ -141,12 +161,16 @@ public class PlayerMovement : MonoBehaviour
     
     private void Move(Vector2 input)
     {
+        if (!stepped && input != new Vector2(0,0) && grounded) {
+            stepped = true;
+            audioSource.PlayOneShot(clips[UnityEngine.Random.Range(0, clips.Length)]);
+        }
         //todo cases for two axis
         Vector3 dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z).normalized * input.y + cameraLookAt.right.normalized * input.x;
 
         if(grounded)
             _rigidbody.AddForce(dir * moveSpeed * 10f, ForceMode.Force);
-            
+
         else if(!grounded)
             _rigidbody.AddForce(dir * 10f * airMult, ForceMode.Force);
     }
@@ -155,9 +179,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && grounded && jump)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Sounds.Jump);
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
             _rigidbody.AddForce(upAxis * jumpSpeed, ForceMode.Impulse);
-            
+
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }

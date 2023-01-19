@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public enum Sounds
     {
         TurretShoot,
+        Jump,
         Damage,
         Heal,
         //...
@@ -15,8 +17,6 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; set; }
     private AudioSource source;
     [SerializeField] private AudioClip[] audioClips;
-
-    [SerializeField] private AudioMixer mixer;
 
     void Start()
     {
@@ -32,10 +32,12 @@ public class SoundManager : MonoBehaviour
             case Sounds.TurretShoot:
                 source.volume = 0.1f;
                 source.PlayOneShot(audioClips[0]); break;
+            case Sounds.Jump:
+                source.PlayOneShot(audioClips[1]); break;
             case Sounds.Damage:
-            //{ source.PlayOneShot(audioClips[1]); break; }
-            case Sounds.Heal: break;
             //{ source.PlayOneShot(audioClips[2]); break; }
+            case Sounds.Heal: break;
+            //{ source.PlayOneShot(audioClips[3]); break; }
             //...
             default:
                 source.volume = 1f; break;
