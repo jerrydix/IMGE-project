@@ -32,13 +32,15 @@ public class ItemPickup : MonoBehaviour
 
         if (!equipped)
         {
-            _func.enabled = false;
+            if (!genPart)
+                _func.enabled = false;
             _rb.isKinematic = false;
             _col.isTrigger = false;
         }
         else
         {
-            _func.enabled = true;
+            if (!genPart)
+                _func.enabled = true;
             _rb.isKinematic = true;
             _col.isTrigger = true;
             //transform.localPosition = new Vector3(0, 0, 0);
@@ -51,6 +53,7 @@ public class ItemPickup : MonoBehaviour
         dist = player.position - transform.position;
         if (SceneManager.GetActiveScene().name == "BackedNikkiScene" && equipped)
         {
+            //todo transition
             SceneManager.LoadScene("Level 1");
         }
     }
@@ -71,7 +74,10 @@ public class ItemPickup : MonoBehaviour
             
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.Euler(Vector3.zero);
-            transform.localScale = new Vector3(0.01f,0.01f,0.01f);
+            if (genPart)
+                transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            else
+                transform.localScale = new Vector3(0.01f,0.01f,0.01f);
             
             _rb.isKinematic = true;
             _col.isTrigger = true;
@@ -84,7 +90,9 @@ public class ItemPickup : MonoBehaviour
         {
             equipped = false;
             transform.SetParent(null);
-
+            
+            if (genPart)
+                transform.localScale = new Vector3(1f, 1f, 1f);
             _rb.isKinematic = false;
             _col.isTrigger = false;
            // _rb.velocity = player.GetComponent<Rigidbody>().velocity;

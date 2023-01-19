@@ -6,11 +6,13 @@ using UnityEngine;
 public class LevelFinish : MonoBehaviour
 {
     [SerializeField] private ItemPickup genPart;
-    public bool finished;
+    [HideInInspector] public bool finished;
+    [HideInInspector] public bool successful;
 
     private void Awake()
     {
         finished = false;
+        successful = false;
     }
 
     // Update is called once per frame
@@ -19,6 +21,12 @@ public class LevelFinish : MonoBehaviour
         if (other.CompareTag("Player") && genPart.equipped)
         {
             finished = true;
+            successful = true;
+        } 
+        else if (other.CompareTag("Player") && !genPart.equipped)
+        {
+            finished = true;
+            successful = false;
         }
     }
 }
