@@ -18,6 +18,11 @@ public class SoundManager : MonoBehaviour
     private AudioSource source;
     [SerializeField] private AudioClip[] audioClips;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     void Start()
     {
         Instance = this;

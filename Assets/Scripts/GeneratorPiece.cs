@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneratorPiece : MonoBehaviour
 {
-    public enum GeneratorPart
+   /* public enum GeneratorPart
     {
         Battery,
         Motor,
@@ -39,5 +39,5 @@ public class GeneratorPiece : MonoBehaviour
                 GameManagement.Instance.cables = true;
                 break;
         }
-    }
+    }*/
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManagement : MonoBehaviour
 {
-    public static GameManagement Instance { get; set; }
+    /*public static GameManagement Instance { get; set; }
     public float currentVolume;
     public bool battery;
     public bool motor;
@@ -44,6 +44,6 @@ public class GameManagement : MonoBehaviour
         {
             completedGame = true;
         }
-    }
+    }*/
 }
 

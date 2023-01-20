@@ -13,7 +13,7 @@ public class OptionsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         mixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
-        GameManagement.Instance.ChangeVolume(Mathf.Log10(volume) * 20);
+        GameManager.Instance.ChangeVolume(Mathf.Log10(volume) * 20);
     }
 
     public void SetFullscreen(bool fullscreened)
