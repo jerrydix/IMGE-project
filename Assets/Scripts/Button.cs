@@ -9,6 +9,7 @@ public class Button : MonoBehaviour
     [SerializeField] private Material lit;
     [SerializeField] private Material normal;
     [SerializeField] private GameObject buttonSide;
+    [SerializeField] private GameObject buttonCable;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,7 @@ public class Button : MonoBehaviour
         if (pressed > 0)
         {
             buttonSide.GetComponent<Renderer>().material = lit;
+            buttonCable.GetComponent<Renderer>().material = lit;
         }
     }
 
@@ -32,6 +34,7 @@ public class Button : MonoBehaviour
         if (pressed == 0)
         {
             buttonSide.GetComponent<Renderer>().material = normal;
+            buttonCable.GetComponent<Renderer>().material = normal;
         }
     }
     
