@@ -12,8 +12,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool sucExtrLevel2;
     [HideInInspector] public bool sucExtrLevel3;
     [HideInInspector] public bool sucExtrLevel4;
-    private bool currentFinished;
-    private bool currentSuccessful;
+
+    private GameObject _genPart1;
+    private GameObject _genPart2;
+    private GameObject _genPart3;
+    private GameObject _genPart4;
+    private LevelFinish _levelFinish;
 
     private void Awake()
     {
@@ -35,38 +39,73 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
-            currentFinished = GameObject.Find("LevelFinish").GetComponent<LevelFinish>().finished;
-            currentSuccessful = GameObject.Find("LevelFinish").GetComponent<LevelFinish>().successful;
+            _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            _genPart1 = GameObject.Find("GenPart1");
+            _genPart2 = GameObject.Find("GenPart2");
+            _genPart3 = GameObject.Find("GenPart3");
+            _genPart4 = GameObject.Find("GenPart4");
         }
     }
 
     private void Update()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        if (currentFinished)
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
-            switch (index)
+            if (_levelFinish.finished)
             {
-                case 2: SceneManager.LoadScene(3); break;
-                case 3: SceneManager.LoadScene(4); break;
-                case 4: SceneManager.LoadScene(5); break;
-                case 5: SceneManager.LoadScene(0); break;
+                switch (index)
+                {
+                    case 2: SceneManager.LoadScene(3); break;
+                    case 3: SceneManager.LoadScene(4); break;
+                    case 4: SceneManager.LoadScene(5); break;
+                    case 5: SceneManager.LoadScene(0); break;
+                }
+            }
+
+            if (_levelFinish.finished && _levelFinish.successful)
+            {
+                switch (index)
+                {
+                    case 2: sucExtrLevel1 = true; break;
+                    case 3: sucExtrLevel2 = true; break; 
+                    case 4: sucExtrLevel3 = true; break; 
+                    case 5: sucExtrLevel4 = true; break; 
+                }    
             }
         }
 
-        if (currentFinished && currentSuccessful)
+        if (index == 0)
         {
-            switch (index)
+            if (sucExtrLevel1)
             {
-                case 2: sucExtrLevel1 = true; break;
-                case 3: sucExtrLevel1 = true; break; 
-                case 4: sucExtrLevel1 = true; break; 
-                case 5: sucExtrLevel1 = true; break; 
-            }    
+                _genPart1.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+            }
+            if (sucExtrLevel2)
+            {
+                _genPart2.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+            }
+            if (sucExtrLevel3)
+            {
+                _genPart3.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+            }
+            if (sucExtrLevel4)
+            {
+                _genPart4.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+            }
         }
     }
     

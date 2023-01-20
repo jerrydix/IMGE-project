@@ -29,4 +29,9 @@ public class LevelFinish : MonoBehaviour
             successful = false;
         }
     }
+
+    private void Update()
+    {
+        Debug.Log(successful);
+    }
 }
