@@ -49,6 +49,26 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("test");
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            _genPart1 = GameObject.Find("GenPart1");
+            _genPart2 = GameObject.Find("GenPart2");
+            _genPart3 = GameObject.Find("GenPart3");
+            _genPart4 = GameObject.Find("GenPart4");
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        print("test");
         if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
             _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
