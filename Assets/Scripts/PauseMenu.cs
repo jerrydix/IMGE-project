@@ -27,9 +27,10 @@ public class PauseMenu : MonoBehaviour
         if (!active)
         {
             Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
             pauseMenu.SetActive(true);
             active = true;
+            Time.timeScale = 0;
         }
         else
         {
@@ -37,6 +38,7 @@ public class PauseMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             pauseMenu.SetActive(false);
             active = false;
+            Time.timeScale = 1;
         }
     }
     
@@ -59,8 +61,8 @@ public class PauseMenu : MonoBehaviour
 
     public void SetSensitivity(float sensi)
     {
-        GameObject.Find("CameraHolder").GetComponent<CameraMove>().xSensi = sensi;
-        GameObject.Find("CameraHolder").GetComponent<CameraMove>().ySensi = sensi;
+        GameObject.Find("Main Camera").GetComponent<CameraMove>().xSensi = sensi;
+        GameObject.Find("Main Camera").GetComponent<CameraMove>().ySensi = sensi;
     }
     public void SetVolume(float volume)
     {
