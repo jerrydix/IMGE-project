@@ -26,13 +26,14 @@ public class PlayerShooting : MonoBehaviour
     [HideInInspector] public float[] _force;
     public int _pointer;
 
+    [SerializeField] private GameObject _particles;
 
     private void Awake()
     {
         input = new PlayerInput();
         input.Moving.Enable();
         input.GravityGun.Enable();
-        
+
         /*
         input.Moving.Scrolled.performed += ScrollToGravityValue;
         input.Moving.Scrolled.performed += x => mouseScrollY = x.ReadValue<float>();
@@ -80,6 +81,7 @@ public class PlayerShooting : MonoBehaviour
 
                     if (manipulatedObject == hit.transform.GameObject())
                     {
+                        _particles.SetActive(false);
                         manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                         manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
                         gravity = 0f;
@@ -87,6 +89,7 @@ public class PlayerShooting : MonoBehaviour
                     }
                     else
                     {
+                        _particles.SetActive(true);
                         manipulatedObject = hit.transform.GameObject();
                         manipulatedObject.GetComponent<Renderer>().material = outLine;
 
