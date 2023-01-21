@@ -68,21 +68,6 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print("test");
-        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
-        {
-            _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
-        }
-
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
-            _genPart1 = GameObject.Find("GenPart1");
-            _genPart2 = GameObject.Find("GenPart2");
-            _genPart3 = GameObject.Find("GenPart3");
-            _genPart4 = GameObject.Find("GenPart4");
-        }
     }
 
     private void Update()
@@ -90,17 +75,6 @@ public class GameManager : MonoBehaviour
         int index = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
-            if (_levelFinish.finished)
-            {
-                switch (index)
-                {
-                    case 2: SceneManager.LoadScene(3); break;
-                    case 3: SceneManager.LoadScene(4); break;
-                    case 4: SceneManager.LoadScene(5); break;
-                    case 5: SceneManager.LoadScene(0); break;
-                }
-            }
-
             if (_levelFinish.finished && _levelFinish.successful)
             {
                 switch (index)
@@ -111,25 +85,35 @@ public class GameManager : MonoBehaviour
                     case 5: sucExtrLevel4 = true; break; 
                 }    
             }
+            if (_levelFinish.finished)
+            {
+                switch (index)
+                {
+                    case 2: SceneManager.LoadScene(3); break;
+                    case 3: SceneManager.LoadScene(4); break;
+                    case 4: SceneManager.LoadScene(5); break;
+                    case 5: SceneManager.LoadScene(0); break;
+                }
+            }
         }
 
         if (index == 0)
         {
-            if (sucExtrLevel1)
+            if (sucExtrLevel1) 
             {
-                _genPart1.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+                _genPart1.transform.Find("Model").gameObject.SetActive(true);
             }
             if (sucExtrLevel2)
             {
-                _genPart2.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+                _genPart2.transform.Find("Model").gameObject.SetActive(true);
             }
             if (sucExtrLevel3)
             {
-                _genPart3.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+                _genPart3.transform.Find("Model").gameObject.SetActive(true);
             }
             if (sucExtrLevel4)
             {
-                _genPart4.GetComponentInChildren<Transform>().gameObject.SetActive(true);
+                _genPart4.transform.Find("Model").gameObject.SetActive(true);
             }
         }
     }
