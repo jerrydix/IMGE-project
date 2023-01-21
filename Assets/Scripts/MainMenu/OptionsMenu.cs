@@ -32,8 +32,6 @@ public class OptionsMenu : MonoBehaviour
     
     public void SetSensitivity(float sensi)
     {
-        GameObject.Find("Main Camera").GetComponent<CameraMove>().xSensi = sensi;
-        GameObject.Find("Main Camera").GetComponent<CameraMove>().ySensi = sensi;
         GameManager.Instance.currentSensitivity = sensi;
     }
 
