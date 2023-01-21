@@ -134,8 +134,4 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void ChangeVolume(float volume)
-    {
-        currentVolume = volume;
-    }
 }

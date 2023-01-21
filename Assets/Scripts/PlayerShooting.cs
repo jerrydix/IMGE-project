@@ -72,6 +72,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 if (hit.transform.GameObject().GetComponent<Target>() != null)
                 {
+                    SoundManager.Instance.PlaySound(SoundManager.Sounds.GunShoot);
                     if (manipulatedObject != null)
                     {
                         manipulatedObject.GetComponent<Renderer>().material = noOutLine;
