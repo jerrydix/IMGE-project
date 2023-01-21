@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PauseMenu : MonoBehaviour
     private PlayerInput inputActions;
 
     [SerializeField] private AudioMixer mixer;
+    
+    [SerializeField] private Slider volSlider;
+    [SerializeField] private Slider sensSlider;
+    private float _vol;
+    private float _sens;
+
     private void Awake()
     {
         inputActions = new PlayerInput();
@@ -27,7 +34,7 @@ public class PauseMenu : MonoBehaviour
         if (!active)
         {
             Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             pauseMenu.SetActive(true);
             active = true;
             Time.timeScale = 0;
@@ -45,6 +52,11 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         fullscreened = true;
+        
+        _vol = GameManager.Instance.currentVolume;
+        _sens = GameManager.Instance.currentSensitivity;
+        volSlider.value = _vol;
+        sensSlider.value = _sens;
     }
 
     public void Fullscreen()
@@ -63,11 +75,13 @@ public class PauseMenu : MonoBehaviour
     {
         GameObject.Find("Main Camera").GetComponent<CameraMove>().xSensi = sensi;
         GameObject.Find("Main Camera").GetComponent<CameraMove>().ySensi = sensi;
+        GameManager.Instance.currentSensitivity = sensi;
     }
+    
     public void SetVolume(float volume)
     {
         mixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
-        GameManager.Instance.ChangeVolume(Mathf.Log10(volume) * 20);
+        GameManager.Instance.currentVolume = volume;
     }
 
     public void MainMenu()

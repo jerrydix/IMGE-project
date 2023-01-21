@@ -17,8 +17,8 @@ public class CameraMove : MonoBehaviour
     private float xRotation;
     private float yRotation;
     
-    public float xSensi = 15f;
-    public float ySensi = 15f;
+    public float xSensi;
+    public float ySensi;
     [SerializeField] private float turnSpeed;
 
     private GameObject _pause;
@@ -30,6 +30,8 @@ public class CameraMove : MonoBehaviour
 
     private void Start()
     {
+        xSensi = GameManager.Instance.currentSensitivity;
+        ySensi = GameManager.Instance.currentSensitivity;
         status = GetComponentInParent<CameraHolderMove>().status;
         inputActions.Moving.Enable();
         Cursor.lockState = CursorLockMode.Locked;

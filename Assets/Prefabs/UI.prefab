@@ -4237,7 +4237,7 @@ RectTransform:
   - {fileID: 485448770245075233}
   - {fileID: 5643207589268064342}
   m_Father: {fileID: 0}
-  m_RootOrder: 86
+  m_RootOrder: 141
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4321,6 +4321,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 181969943}
   active: 0
   mixer: {fileID: 24100000, guid: f115c82b7b3a51a4bb30e7cc5f0ea280, type: 2}
+  volSlider: {fileID: 612935492}
+  sensSlider: {fileID: 235342885}
 --- !u!1 &485448771665249124
 GameObject:
   m_ObjectHideFlags: 0

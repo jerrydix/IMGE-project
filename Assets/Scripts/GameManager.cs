@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
     [HideInInspector] public float currentVolume;
+    [HideInInspector] public float currentSensitivity;
     [HideInInspector] public bool sucExtrLevel1;
     [HideInInspector] public bool sucExtrLevel2;
     [HideInInspector] public bool sucExtrLevel3;
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        currentVolume = 1;
+        currentSensitivity = 15;
         DontDestroyOnLoad(this);
         sucExtrLevel1 = false;
         sucExtrLevel2 = false;
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             _genPart1 = GameObject.Find("GenPart1");
             _genPart2 = GameObject.Find("GenPart2");
             _genPart3 = GameObject.Find("GenPart3");
