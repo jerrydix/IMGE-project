@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,13 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float range;
     [SerializeField] private Transform lookingPoint;
+    
+    private GameObject _pause;
+
+    private void Start()
+    {
+        _pause = GameObject.Find("UI");
+    }
 
     void OnDrawGizmos()
     {
@@ -59,7 +67,7 @@ public class Turret : MonoBehaviour
             }
         }
         
-        if (aimed)
+        if (!_pause.GetComponent<PauseMenu>().active && aimed)
             logic.Shoot();
     }
     

@@ -32,14 +32,14 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3075055015583702173}
   - {fileID: 3075055017368758981}
   - {fileID: 3075055016753938085}
   - {fileID: 3075055017238391740}
   - {fileID: 3075055016527144828}
   - {fileID: 3075055016651828487}
+  - {fileID: 3075055015583702173}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1741395895115793238}
+  active: 0
+  mixer: {fileID: 0}
 --- !u!1 &3075055015449268180
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,36 +55,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Scrolled"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""fc571462-4914-4f51-8c49-b5ccde7e9ff8"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""ChangeGravityY"",
                     ""type"": ""Button"",
                     ""id"": ""e20ffecd-3deb-44d3-b46b-fc471f8177fd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChangeGravityX"",
-                    ""type"": ""Button"",
-                    ""id"": ""bee9ea95-b895-4d9b-9f4c-14c61ac2d318"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChangeGravityZ"",
-                    ""type"": ""Button"",
-                    ""id"": ""4cec3ba1-bf32-45b0-9d76-1caffb2e297e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -103,33 +76,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""name"": ""Drop"",
                     ""type"": ""Button"",
                     ""id"": ""b6a5496d-c468-43ec-96cc-00a11d4a90b6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""GunGravity"",
-                    ""type"": ""Button"",
-                    ""id"": ""cceec949-0932-496a-bb0a-521807b5af2a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""GunGravityX"",
-                    ""type"": ""Button"",
-                    ""id"": ""6cf574c3-0037-4f48-a339-88a27f96e4b7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""GunGravityZ"",
-                    ""type"": ""Button"",
-                    ""id"": ""992874ef-361a-4892-a15e-87296839f3f1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -293,17 +239,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5981b4bb-3cea-4aad-a8d2-518b257c7f36"",
-                    ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Scrolled"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""23273e48-8a6c-4978-b5a4-19e79945c108"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -360,33 +295,11 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e1db1b9f-83ea-4464-b2d7-4f043b990c5f"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f1c91c3a-1100-400f-9eb8-5e7264579109"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GunGravity"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b5e2e7fc-959a-4e9b-8b89-feb2d4fe61b3"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GunGravity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -448,7 +361,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7510f9ac-e097-451a-9268-7d9bf9c28a2e"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -470,7 +383,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9a24a123-b87b-42d6-aa17-010c1299ac9a"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -523,6 +436,45 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""870443cf-9d19-49b2-ba2e-aac73261e032"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0bf3788-bbd9-4433-9ae9-24b81eb0e095"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5a70c91b-6bcc-4218-9e0d-b31ba0b14f8c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""145ffb2f-cd5a-4c1b-a5f0-040900eddfd3"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -532,21 +484,18 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Moving_Move = m_Moving.FindAction("Move", throwIfNotFound: true);
         m_Moving_Jump = m_Moving.FindAction("Jump", throwIfNotFound: true);
         m_Moving_Look = m_Moving.FindAction("Look", throwIfNotFound: true);
-        m_Moving_Scrolled = m_Moving.FindAction("Scrolled", throwIfNotFound: true);
         m_Moving_ChangeGravityY = m_Moving.FindAction("ChangeGravityY", throwIfNotFound: true);
-        m_Moving_ChangeGravityX = m_Moving.FindAction("ChangeGravityX", throwIfNotFound: true);
-        m_Moving_ChangeGravityZ = m_Moving.FindAction("ChangeGravityZ", throwIfNotFound: true);
         m_Moving_Equip = m_Moving.FindAction("Equip", throwIfNotFound: true);
         m_Moving_Drop = m_Moving.FindAction("Drop", throwIfNotFound: true);
-        m_Moving_GunGravity = m_Moving.FindAction("GunGravity", throwIfNotFound: true);
-        m_Moving_GunGravityX = m_Moving.FindAction("GunGravityX", throwIfNotFound: true);
-        m_Moving_GunGravityZ = m_Moving.FindAction("GunGravityZ", throwIfNotFound: true);
         // GravityGun
         m_GravityGun = asset.FindActionMap("GravityGun", throwIfNotFound: true);
         m_GravityGun_GravityUp = m_GravityGun.FindAction("GravityUp", throwIfNotFound: true);
         m_GravityGun_GravityDown = m_GravityGun.FindAction("GravityDown", throwIfNotFound: true);
         m_GravityGun_ChangeGravityDirection = m_GravityGun.FindAction("ChangeGravityDirection", throwIfNotFound: true);
         m_GravityGun_Fire = m_GravityGun.FindAction("Fire", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -609,15 +558,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Moving_Move;
     private readonly InputAction m_Moving_Jump;
     private readonly InputAction m_Moving_Look;
-    private readonly InputAction m_Moving_Scrolled;
     private readonly InputAction m_Moving_ChangeGravityY;
-    private readonly InputAction m_Moving_ChangeGravityX;
-    private readonly InputAction m_Moving_ChangeGravityZ;
     private readonly InputAction m_Moving_Equip;
     private readonly InputAction m_Moving_Drop;
-    private readonly InputAction m_Moving_GunGravity;
-    private readonly InputAction m_Moving_GunGravityX;
-    private readonly InputAction m_Moving_GunGravityZ;
     public struct MovingActions
     {
         private @PlayerInput m_Wrapper;
@@ -625,15 +568,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Moving_Move;
         public InputAction @Jump => m_Wrapper.m_Moving_Jump;
         public InputAction @Look => m_Wrapper.m_Moving_Look;
-        public InputAction @Scrolled => m_Wrapper.m_Moving_Scrolled;
         public InputAction @ChangeGravityY => m_Wrapper.m_Moving_ChangeGravityY;
-        public InputAction @ChangeGravityX => m_Wrapper.m_Moving_ChangeGravityX;
-        public InputAction @ChangeGravityZ => m_Wrapper.m_Moving_ChangeGravityZ;
         public InputAction @Equip => m_Wrapper.m_Moving_Equip;
         public InputAction @Drop => m_Wrapper.m_Moving_Drop;
-        public InputAction @GunGravity => m_Wrapper.m_Moving_GunGravity;
-        public InputAction @GunGravityX => m_Wrapper.m_Moving_GunGravityX;
-        public InputAction @GunGravityZ => m_Wrapper.m_Moving_GunGravityZ;
         public InputActionMap Get() { return m_Wrapper.m_Moving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -652,33 +589,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnLook;
-                @Scrolled.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
-                @Scrolled.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
-                @Scrolled.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnScrolled;
                 @ChangeGravityY.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityY;
                 @ChangeGravityY.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityY;
                 @ChangeGravityY.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityY;
-                @ChangeGravityX.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityX;
-                @ChangeGravityX.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityX;
-                @ChangeGravityX.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityX;
-                @ChangeGravityZ.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
-                @ChangeGravityZ.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
-                @ChangeGravityZ.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnChangeGravityZ;
                 @Equip.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnEquip;
                 @Equip.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnEquip;
                 @Equip.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnEquip;
                 @Drop.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnDrop;
-                @GunGravity.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravity;
-                @GunGravity.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravity;
-                @GunGravity.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravity;
-                @GunGravityX.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityX;
-                @GunGravityX.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityX;
-                @GunGravityX.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityX;
-                @GunGravityZ.started -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityZ;
-                @GunGravityZ.performed -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityZ;
-                @GunGravityZ.canceled -= m_Wrapper.m_MovingActionsCallbackInterface.OnGunGravityZ;
             }
             m_Wrapper.m_MovingActionsCallbackInterface = instance;
             if (instance != null)
@@ -692,33 +611,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Scrolled.started += instance.OnScrolled;
-                @Scrolled.performed += instance.OnScrolled;
-                @Scrolled.canceled += instance.OnScrolled;
                 @ChangeGravityY.started += instance.OnChangeGravityY;
                 @ChangeGravityY.performed += instance.OnChangeGravityY;
                 @ChangeGravityY.canceled += instance.OnChangeGravityY;
-                @ChangeGravityX.started += instance.OnChangeGravityX;
-                @ChangeGravityX.performed += instance.OnChangeGravityX;
-                @ChangeGravityX.canceled += instance.OnChangeGravityX;
-                @ChangeGravityZ.started += instance.OnChangeGravityZ;
-                @ChangeGravityZ.performed += instance.OnChangeGravityZ;
-                @ChangeGravityZ.canceled += instance.OnChangeGravityZ;
                 @Equip.started += instance.OnEquip;
                 @Equip.performed += instance.OnEquip;
                 @Equip.canceled += instance.OnEquip;
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
-                @GunGravity.started += instance.OnGunGravity;
-                @GunGravity.performed += instance.OnGunGravity;
-                @GunGravity.canceled += instance.OnGunGravity;
-                @GunGravityX.started += instance.OnGunGravityX;
-                @GunGravityX.performed += instance.OnGunGravityX;
-                @GunGravityX.canceled += instance.OnGunGravityX;
-                @GunGravityZ.started += instance.OnGunGravityZ;
-                @GunGravityZ.performed += instance.OnGunGravityZ;
-                @GunGravityZ.canceled += instance.OnGunGravityZ;
             }
         }
     }
@@ -780,20 +681,47 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public GravityGunActions @GravityGun => new GravityGunActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Escape;
+    public struct UIActions
+    {
+        private @PlayerInput m_Wrapper;
+        public UIActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_UI_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Escape.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IMovingActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnScrolled(InputAction.CallbackContext context);
         void OnChangeGravityY(InputAction.CallbackContext context);
-        void OnChangeGravityX(InputAction.CallbackContext context);
-        void OnChangeGravityZ(InputAction.CallbackContext context);
         void OnEquip(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
-        void OnGunGravity(InputAction.CallbackContext context);
-        void OnGunGravityX(InputAction.CallbackContext context);
-        void OnGunGravityZ(InputAction.CallbackContext context);
     }
     public interface IGravityGunActions
     {
@@ -801,5 +729,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnGravityDown(InputAction.CallbackContext context);
         void OnChangeGravityDirection(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

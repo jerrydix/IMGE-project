@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    private Slider volumeSlider;
     private Toggle fullscreenToggle;
     [SerializeField] private AudioMixer mixer;
 

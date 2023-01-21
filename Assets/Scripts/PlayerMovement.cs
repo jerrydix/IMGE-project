@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private bool stepped;
 
     private Vector3 upAxis;
+    private GameObject _pause;
     
     void Awake()
     {
@@ -52,12 +53,17 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Moving.Enable();
         inputActions.Moving.Jump.performed += Jump;
         inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
-        inputActions.Moving.ChangeGravityX.performed += ChangeGravityX;
-        inputActions.Moving.ChangeGravityZ.performed += ChangeGravityZ;
+        //inputActions.Moving.ChangeGravityX.performed += ChangeGravityX;
+        //inputActions.Moving.ChangeGravityZ.performed += ChangeGravityZ;
 
         transform.position = spawn.position;
         stepped = false;
         runSoundTimer = 0;
+    }
+
+    private void Start()
+    {
+        _pause = GameObject.Find("UI");
     }
 
     private void FixedUpdate()
@@ -100,6 +106,15 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        if (_pause.GetComponent<PauseMenu>().active)
+        {
+            inputActions.Moving.Disable();
+        }
+        else
+        {
+            inputActions.Moving.Enable();
+        }
+        
         grounded = Physics.Raycast(transform.position, -upAxis, height * 0.5f + 0.2f, ground);
         SpeedLimit();
         if (grounded)
@@ -133,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ChangeGravityX(InputAction.CallbackContext context)
+    /*private void ChangeGravityX(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -157,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
             } else
                 localGravity = new Vector3(0, 0, -gravity);
         }
-    }
+    }*/
     
     private void Move(Vector2 input)
     {

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMove : MonoBehaviour
 {
@@ -12,27 +14,43 @@ public class CameraMove : MonoBehaviour
     [HideInInspector] public bool flippedX;
     [HideInInspector] public bool flippedZ;
     
-    private float xRotation = 0;
-    private float yRotation = 0;
+    private float xRotation;
+    private float yRotation;
     
-    [SerializeField] private float xSensi = 15f;
-    [SerializeField] private float ySensi = 15f;
+    public float xSensi = 15f;
+    public float ySensi = 15f;
     [SerializeField] private float turnSpeed;
+
+    private GameObject _pause;
+
+    private void Awake()
+    {
+        inputActions = new PlayerInput();
+    }
 
     private void Start()
     {
         status = GetComponentInParent<CameraHolderMove>().status;
-        inputActions = inputActions = new PlayerInput();
         inputActions.Moving.Enable();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         flippedY = GetComponentInParent<CameraHolderMove>().flippedY;
         flippedX = GetComponentInParent<CameraHolderMove>().flippedX;
         flippedZ = GetComponentInParent<CameraHolderMove>().flippedZ;
+
+        _pause = GameObject.Find("UI");
     }
 
     void Update()
     {
+        if (_pause.GetComponent<PauseMenu>().active)
+        {
+            inputActions.Moving.Disable();
+        }
+        else
+        {
+            inputActions.Moving.Enable();
+        }
         float x = 0;
         float y = 0;
         float rotZ = GetComponentInParent<CameraHolderMove>().zRotation;
