@@ -10,13 +10,16 @@ public class SoundManager : MonoBehaviour
     {
         TurretShoot,
         Jump,
+        GunShoot,
+        HatchOpen,
+        HatchClose,
         Damage,
         Heal,
         //...
     }
     public static SoundManager Instance { get; set; }
     private AudioSource source;
-    [SerializeField] private AudioClip[] audioClips;
+    public AudioClip[] audioClips;
 
     private void Awake()
     {
@@ -47,6 +50,12 @@ public class SoundManager : MonoBehaviour
                 source.PlayOneShot(audioClips[0]); break;
             case Sounds.Jump:
                 source.PlayOneShot(audioClips[1]); break;
+            case Sounds.GunShoot:
+                source.PlayOneShot(audioClips[2]); break;
+            case Sounds.HatchOpen:
+                source.PlayOneShot(audioClips[3]); break;
+            case Sounds.HatchClose:
+                source.PlayOneShot(audioClips[4]); break;
             case Sounds.Damage:
             //{ source.PlayOneShot(audioClips[2]); break; }
             case Sounds.Heal: break;
