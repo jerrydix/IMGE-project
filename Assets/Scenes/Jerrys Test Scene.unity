@@ -28950,18 +28950,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1980571479098240061, guid: 8e3ae01dbc98cf842be52c20a60efc5d, type: 3}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980571479098240061, guid: 8e3ae01dbc98cf842be52c20a60efc5d, type: 3}
-      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980571479098240061, guid: 8e3ae01dbc98cf842be52c20a60efc5d, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6780336638964236878, guid: 8e3ae01dbc98cf842be52c20a60efc5d, type: 3}
       propertyPath: m_Name
       value: ElectroTrap
