@@ -30,8 +30,5 @@ public class LevelFinish : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Debug.Log(successful);
-    }
+    
 }

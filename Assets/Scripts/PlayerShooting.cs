@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 
@@ -61,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
-        currentForce = _force[_pointer];
+        
     }
 
 

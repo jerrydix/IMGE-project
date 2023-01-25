@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("test");
+        
         if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
             _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
@@ -84,16 +84,6 @@ public class GameManager : MonoBehaviour
                     case 4: sucExtrLevel3 = true; break; 
                     case 5: sucExtrLevel4 = true; break; 
                 }    
-            }
-            if (_levelFinish.finished)
-            {
-                switch (index)
-                {
-                    case 2: SceneManager.LoadScene(3); break;
-                    case 3: SceneManager.LoadScene(4); break;
-                    case 4: SceneManager.LoadScene(5); break;
-                    case 5: SceneManager.LoadScene(0); break;
-                }
             }
         }
 

@@ -53,8 +53,7 @@ public class ItemPickup : MonoBehaviour
         dist = player.position - transform.position;
         if (SceneManager.GetActiveScene().name == "BackedNikkiScene" && equipped)
         {
-            //todo transition
-            SceneManager.LoadScene("Level 1");
+            GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade();
         }
     }
 
