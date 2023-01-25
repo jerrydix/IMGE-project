@@ -10,10 +10,13 @@ public class Target : MonoBehaviour
     private ConstantForce constantForce;
     private bool modifying;
 
+    private Transform _originalTransform;
+
     private void Start()
     {
         constantForce = GetComponent<ConstantForce>();
         constantForce.enabled = false;
+        _originalTransform = transform;
     }
     public void ChangeGravity()
     {
@@ -29,5 +32,13 @@ public class Target : MonoBehaviour
         //     antiGravityBool = false;
         //     constantForce.enabled = antiGravityBool;
         // }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("OutOfMapCollider"))
+        {
+            transform.position = _originalTransform.position;
+        }
     }
 }
