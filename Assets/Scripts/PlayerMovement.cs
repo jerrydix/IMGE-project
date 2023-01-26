@@ -248,4 +248,9 @@ public class PlayerMovement : MonoBehaviour
             tutorialSource.PlayOneShot(tutorialClips[2]);
         }
     }
+    
+    private void OnDestroy()
+    {
+        inputActions.Disable();
+    }
 }
