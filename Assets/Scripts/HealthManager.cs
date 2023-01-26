@@ -20,6 +20,9 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Slider armorSlider;
 
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip[] hurtSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,10 @@ public class HealthManager : MonoBehaviour
 
     public void Damage(int amount, DamageType type)
     {
+        if (health > 0)
+        {
+            source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
+        }
         switch (type)
         {
             case DamageType.Armor:

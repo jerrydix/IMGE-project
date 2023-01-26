@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
         jump = true;
         
         inputActions = new PlayerInput();
+        inputActions.Moving.Jump.performed += Jump;
+        inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
         //transform.position = spawn.position;
     }
     
@@ -63,10 +65,7 @@ public class PlayerMovement : MonoBehaviour
         {
             yield return null;
         }
-        
         inputActions.Moving.Enable();
-        inputActions.Moving.Jump.performed += Jump;
-        inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
     }
 
     private void Start()
@@ -77,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
             tutorialSource.PlayOneShot(tutorialClips[0]);
             StartCoroutine(SoundWaiter());
         }
+        else
+            inputActions.Moving.Enable();
     }
 
     private void FixedUpdate()

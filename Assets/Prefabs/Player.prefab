@@ -196,6 +196,14 @@ MonoBehaviour:
   dead: 0
   healthSlider: {fileID: 0}
   armorSlider: {fileID: 0}
+  source: {fileID: 1228130801}
+  hurtSounds:
+  - {fileID: 8300000, guid: b2aab562bcbef1c4bb3534ee425290a6, type: 3}
+  - {fileID: 8300000, guid: f83e08f7d5082a5458d6eb8f80b963a7, type: 3}
+  - {fileID: 8300000, guid: 3246f26cff306544e9dcbd80d537b9fa, type: 3}
+  - {fileID: 8300000, guid: b074577eda217ea4a97704ed19c0c53b, type: 3}
+  - {fileID: 8300000, guid: 7315819574c2f0846978b3a23f88ecda, type: 3}
+  - {fileID: 8300000, guid: 1aa8beefde9fb9149a717778e07e9e5f, type: 3}
 --- !u!82 &1228130801
 AudioSource:
   m_ObjectHideFlags: 0
