@@ -32,8 +32,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Awake()
     {
-        input = new PlayerInput();
-        input.Moving.Enable();
+        input = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
         input.GravityGun.Enable();
 
         /*
@@ -86,7 +85,8 @@ public class PlayerShooting : MonoBehaviour
                         _particles.SetActive(false);
                         manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                         manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
-                        gravity = 0f;
+                        currentForce = _force[3];
+                        _pointer = 3;
                         manipulatedObject = null;
                     }
                     else

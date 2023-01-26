@@ -23,17 +23,12 @@ public class CameraMove : MonoBehaviour
 
     private GameObject _pause;
 
-    private void Awake()
-    {
-        inputActions = new PlayerInput();
-    }
-
     private void Start()
     {
+        inputActions = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
         xSensi = GameManager.Instance.currentSensitivity;
         ySensi = GameManager.Instance.currentSensitivity;
         status = GetComponentInParent<CameraHolderMove>().status;
-        inputActions.Moving.Enable();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         flippedY = GetComponentInParent<CameraHolderMove>().flippedY;
@@ -45,14 +40,14 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
-        if (_pause.GetComponent<PauseMenu>().active)
+        /*if (_pause.GetComponent<PauseMenu>().active)
         {
             inputActions.Moving.Disable();
         }
         else
         {
             inputActions.Moving.Enable();
-        }
+        }*/
         float x = 0;
         float y = 0;
         float rotZ = GetComponentInParent<CameraHolderMove>().zRotation;

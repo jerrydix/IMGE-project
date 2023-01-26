@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
     
     private float runSoundTimer;
     [SerializeField] private AudioClip[] clips;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource stepsSource;
+    [SerializeField] private AudioClip[] tutorialClips;
+    [SerializeField] private AudioSource tutorialSource;
     private bool stepped;
 
     private Vector3 upAxis;
@@ -39,31 +42,41 @@ public class PlayerMovement : MonoBehaviour
     
     void Awake()
     {
+        stepped = false;
+        runSoundTimer = 0;
         localGravity = new Vector3(0, -gravity, 0);
         jumpSpeed = Mathf.Sqrt(Physics.gravity.magnitude * jumpSpeed);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        audioSource = GetComponent<AudioSource>();
-        
+
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.freezeRotation = true;
         jump = true;
         
         inputActions = new PlayerInput();
+        //transform.position = spawn.position;
+    }
+    
+    IEnumerator SoundWaiter()
+    {
+        while (tutorialSource.isPlaying)
+        {
+            yield return null;
+        }
+        
         inputActions.Moving.Enable();
         inputActions.Moving.Jump.performed += Jump;
         inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
-        //inputActions.Moving.ChangeGravityX.performed += ChangeGravityX;
-        //inputActions.Moving.ChangeGravityZ.performed += ChangeGravityZ;
-
-        transform.position = spawn.position;
-        stepped = false;
-        runSoundTimer = 0;
     }
 
     private void Start()
     {
         _pause = GameObject.Find("UI");
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            tutorialSource.PlayOneShot(tutorialClips[0]);
+            StartCoroutine(SoundWaiter());
+        }
     }
 
     private void FixedUpdate()
@@ -106,14 +119,14 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
-        if (_pause.GetComponent<PauseMenu>().active)
+        /*(if (_pause.GetComponent<PauseMenu>().active)
         {
             inputActions.Moving.Disable();
         }
         else
         {
             inputActions.Moving.Enable();
-        }
+        }*/
         
         grounded = Physics.Raycast(transform.position, -upAxis, height * 0.5f + 0.2f, ground);
         SpeedLimit();
@@ -178,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!stepped && input != new Vector2(0,0) && grounded) {
             stepped = true;
-            audioSource.PlayOneShot(clips[UnityEngine.Random.Range(0, clips.Length)]);
+            stepsSource.PlayOneShot(clips[UnityEngine.Random.Range(0, clips.Length)]);
         }
         //todo cases for two axis
         Vector3 dir = new Vector3(cameraLookAt.forward.x, 0, cameraLookAt.forward.z).normalized * input.y + cameraLookAt.right.normalized * input.x;
@@ -215,6 +228,23 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 lim = vel.normalized * moveSpeed;
             _rigidbody.velocity = new Vector3(lim.x, _rigidbody.velocity.y, lim.z);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.Equals("TutorialCol1"))
+        {
+            other.gameObject.SetActive(false);
+            tutorialSource.Stop();
+            tutorialSource.PlayOneShot(tutorialClips[1]);
+        }
+        
+        if (other.gameObject.name.Equals("TutorialCol2"))
+        {
+            other.gameObject.SetActive(false);
+            tutorialSource.Stop();
+            tutorialSource.PlayOneShot(tutorialClips[2]);
         }
     }
 }
