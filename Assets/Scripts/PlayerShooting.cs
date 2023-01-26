@@ -26,6 +26,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float _forceMultiplier = 0.5f;
     [HideInInspector] public float[] _force;
     public int _pointer;
+    private Material _startMaterial;
 
     [SerializeField] private GameObject _particles;
 
@@ -77,7 +78,7 @@ public class PlayerShooting : MonoBehaviour
                     SoundManager.Instance.PlaySound(SoundManager.Sounds.GunShoot);
                     if (manipulatedObject != null)
                     {
-                        manipulatedObject.GetComponent<Renderer>().material = noOutLine;
+                        manipulatedObject.GetComponent<Renderer>().material = _startMaterial;
                     }
 
                     if (manipulatedObject == hit.transform.GameObject())
@@ -92,6 +93,7 @@ public class PlayerShooting : MonoBehaviour
                     {
                         _particles.SetActive(true);
                         manipulatedObject = hit.transform.GameObject();
+                        _startMaterial = manipulatedObject.GetComponent<Renderer>().material;
                         manipulatedObject.GetComponent<Renderer>().material = outLine;
 
                         manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
