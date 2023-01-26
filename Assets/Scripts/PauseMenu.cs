@@ -23,10 +23,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        inputActions = new PlayerInput();
-        inputActions.UI.Enable();
-        inputActions.UI.Escape.performed += Escape;
         active = false;
+        fullscreened = true;
     }
 
     private void Escape(InputAction.CallbackContext context)
@@ -51,8 +49,9 @@ public class PauseMenu : MonoBehaviour
     
     private void Start()
     {
-        fullscreened = true;
-        
+        inputActions = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
+        inputActions.UI.Enable();
+        inputActions.UI.Escape.performed += Escape;
         _vol = GameManager.Instance.currentVolume;
         _sens = GameManager.Instance.currentSensitivity;
         volSlider.value = _vol;

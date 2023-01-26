@@ -32,6 +32,21 @@ public class PlayerShooting : MonoBehaviour
 
     private void Awake()
     {
+        _force = new float[] { _forceMultiplier * -9.81f, 
+            _forceMultiplier * -6.54f,
+            _forceMultiplier * -3.27f,
+            0,
+            _forceMultiplier * 3.27f, 
+            _forceMultiplier * 6.54f,
+            _forceMultiplier * 9.81f };
+        _pointer = 3;
+        currentForce = _force[_pointer];
+
+        gravity = 0f;
+    }
+
+    private void Start()
+    {
         input = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
         input.GravityGun.Enable();
 
@@ -46,18 +61,6 @@ public class PlayerShooting : MonoBehaviour
         input.GravityGun.GravityDown.performed += ChangeNegativGravity;
         input.GravityGun.GravityUp.performed += ChangePositivGravity;
         input.GravityGun.ChangeGravityDirection.performed += GravDirChange;
-        
-        _force = new float[] { _forceMultiplier * -9.81f, 
-                                _forceMultiplier * -6.54f,
-                                _forceMultiplier * -3.27f,
-                                0,
-                                _forceMultiplier * 3.27f, 
-                                _forceMultiplier * 6.54f,
-                                _forceMultiplier * 9.81f };
-        _pointer = 3;
-        currentForce = _force[_pointer];
-
-        gravity = 0f;
     }
 
     private void Update()
