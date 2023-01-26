@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private float runSoundTimer;
     [SerializeField] private AudioClip[] clips;
     [SerializeField] private AudioSource stepsSource;
-    [SerializeField] private AudioClip[] tutorialClips;
-    [SerializeField] private AudioSource tutorialSource;
+    [SerializeField] public AudioClip[] tutorialClips;
+    [SerializeField] public AudioSource tutorialSource;
     private bool stepped;
 
     private Vector3 upAxis;
@@ -78,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             inputActions.Moving.Enable();
+
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            tutorialSource.PlayOneShot(tutorialClips[3]);
+        }
     }
 
     private void FixedUpdate()

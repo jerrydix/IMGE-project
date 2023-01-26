@@ -28,6 +28,8 @@ public class PlayerShooting : MonoBehaviour
     public int _pointer;
     private Material _startMaterial;
 
+    private bool _playTutorial4;
+    [SerializeField] private PlayerMovement movement;
     [SerializeField] private GameObject _particles;
 
     private void Awake()
@@ -41,8 +43,8 @@ public class PlayerShooting : MonoBehaviour
             _forceMultiplier * 9.81f };
         _pointer = 3;
         currentForce = _force[_pointer];
-
         gravity = 0f;
+        
     }
 
     private void Start()
@@ -61,6 +63,11 @@ public class PlayerShooting : MonoBehaviour
         input.GravityGun.GravityDown.performed += ChangeNegativGravity;
         input.GravityGun.GravityUp.performed += ChangePositivGravity;
         input.GravityGun.ChangeGravityDirection.performed += GravDirChange;
+        _playTutorial4 = false;
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            _playTutorial4 = true;
+        }
     }
 
     private void Update()
@@ -78,11 +85,15 @@ public class PlayerShooting : MonoBehaviour
                 if (hit.transform.GameObject().GetComponent<Target>() != null)
                 {
                     SoundManager.Instance.PlaySound(SoundManager.Sounds.GunShoot);
-                    if (manipulatedObject != null)
+                    if (_playTutorial4)
                     {
-                        manipulatedObject.GetComponent<Renderer>().material = _startMaterial;
+                        _playTutorial4 = false;
+                        movement.tutorialSource.PlayOneShot(movement.tutorialClips[4]);
                     }
 
+                    if (manipulatedObject != null)
+                        manipulatedObject.GetComponent<Renderer>().material = _startMaterial;
+                    
                     if (manipulatedObject == hit.transform.GameObject())
                     {
                         _particles.SetActive(false);

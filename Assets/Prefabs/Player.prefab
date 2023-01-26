@@ -40,7 +40,7 @@ Transform:
   - {fileID: 7145766092556403706}
   - {fileID: 7145766092567688590}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7145766092266295065
 MeshFilter:
@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 77b55083644a77b4fb364b0ee808baa8, type: 3}
   - {fileID: 8300000, guid: 66404723c8bc8bd4d93e272bb65ac489, type: 3}
   - {fileID: 8300000, guid: 34d7dcadd6a470f43974c9f2c23cad7e, type: 3}
+  - {fileID: 8300000, guid: df60333ba940302429d63f6be3d23279, type: 3}
   tutorialSource: {fileID: 9203132825531854387}
 --- !u!54 &7145766092266295043
 Rigidbody:
