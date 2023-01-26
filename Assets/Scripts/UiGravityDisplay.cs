@@ -13,27 +13,24 @@ public class UiManager : MonoBehaviour
     //TextMeshProUGUI objectGravity;
     [HideInInspector] public float minVal;
     private Slider _slider;
+    [SerializeField] private bool inverted;
 
     private void Start()
     {
        
         _slider = GetComponent<Slider>();
-        minVal = gun.GetComponent<PlayerShooting>()._force[0];
-
-        if (_slider.direction == Slider.Direction.LeftToRight)
-            _slider.maxValue = -gun.GetComponent<PlayerShooting>()._force[0];
-        else
-            _slider.maxValue = -gun.GetComponent<PlayerShooting>()._force[0];
-        //objectGravity = this.GetComponent<TextMeshProUGUI>();
+        _slider.maxValue = -gun.GetComponent<PlayerShooting>()._force[0];
+       
     }
 
     void Update()
     {
-        if (_slider.direction == Slider.Direction.RightToLeft && gun.GetComponent<PlayerShooting>().currentForce < 0)
+        Debug.Log(gun.GetComponent<PlayerShooting>().currentForce);
+        if (inverted && gun.GetComponent<PlayerShooting>().currentForce < 0)
         {
             _slider.value = -gun.GetComponent<PlayerShooting>().currentForce;
         }
-        else if (_slider.direction == Slider.Direction.LeftToRight && gun.GetComponent<PlayerShooting>().currentForce > 0)
+        else if (!inverted && gun.GetComponent<PlayerShooting>().currentForce > 0)
         {
             _slider.value = gun.GetComponent<PlayerShooting>().currentForce;
         }

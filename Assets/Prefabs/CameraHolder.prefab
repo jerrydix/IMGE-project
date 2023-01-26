@@ -5143,6 +5143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1885547965}
   minVal: 0
+  inverted: 0
 --- !u!1 &1123447047
 GameObject:
   m_ObjectHideFlags: 0
@@ -10224,6 +10225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1885547965}
   minVal: 0
+  inverted: 1
 --- !u!1 &1788758604
 GameObject:
   m_ObjectHideFlags: 0

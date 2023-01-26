@@ -560,14 +560,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3440264535089472029, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.065
-      objectReference: {fileID: 0}
-    - target: {fileID: 3440264535089472029, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 15.373
-      objectReference: {fileID: 0}
     - target: {fileID: 8483018645411138201, guid: 237065b11f35b3b4180abd6082e3fbc4, type: 3}
       propertyPath: player
       value: 
@@ -29069,6 +29061,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1578110669}
     m_Modifications:
+    - target: {fileID: 557122632, guid: c6cf8061ebe7dc143a8812cc6bd0ed7a, type: 3}
+      propertyPath: buttons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557122632, guid: c6cf8061ebe7dc143a8812cc6bd0ed7a, type: 3}
+      propertyPath: buttons.Array.data[0]
+      value: 
+      objectReference: {fileID: 608538254}
     - target: {fileID: 8432897706446889461, guid: c6cf8061ebe7dc143a8812cc6bd0ed7a, type: 3}
       propertyPath: m_RootOrder
       value: -1

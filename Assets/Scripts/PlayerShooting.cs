@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
-        
+        currentForce = _force[_pointer];
     }
 
 
