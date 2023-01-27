@@ -36,7 +36,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Awake()
     {
-        _force = new float[] { _forceMultiplier * -9.81f, 
+        _force = new[] { _forceMultiplier * -9.81f, 
             _forceMultiplier * -6.54f,
             _forceMultiplier * -3.27f,
             0,
@@ -90,6 +90,7 @@ public class PlayerShooting : MonoBehaviour
                     if (_playTutorial4)
                     {
                         _playTutorial4 = false;
+                        movement.tutorialSource.Stop();
                         movement.tutorialSource.PlayOneShot(movement.tutorialClips[4]);
                     }
                     

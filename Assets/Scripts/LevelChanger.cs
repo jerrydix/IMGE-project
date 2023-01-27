@@ -20,22 +20,26 @@ public class LevelChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_index != 0 && _index != 1 && _levelFinish.finished)
+        if (_index != 0 && _index != 1 && _index != -1 && _levelFinish.finished)
         {
-            Fade();
+            Fade(true, 0);
         }
     }
 
-    public void Fade()
+    public void Fade(bool normal, int index)
     {
+        if (!normal)
+        {
+            _index = index;
+        }
         anim.SetTrigger("FadeOut");
     }
     public void FadeComplete()
     {
-        Debug.Log("testload");
         switch (_index)
         {
-            //case 0: SceneManager.LoadScene(1)
+            case -1: SceneManager.LoadScene(0); break;
+            case 0: SceneManager.LoadScene(1); break;
             case 1: SceneManager.LoadScene(2); break;
             case 2: SceneManager.LoadScene(3); break;
             case 3: SceneManager.LoadScene(4); break;

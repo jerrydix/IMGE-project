@@ -5,27 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
+    public void Load0()
+    {
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 0);
+    }
+    
     public void Load1()
     {
-        LoadLevel(2);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 1);
     }
     
     public void Load2()
     {
-        LoadLevel(3);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 2);
     }
     
     public void Load3()
     {
-        LoadLevel(4);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 3);
     }
     
     public void Load4()
     {
-        LoadLevel(5);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 4);
     }
     
-    private void LoadLevel(int sceneIndex)
+    /*private void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadingAsync(sceneIndex));
     }
@@ -38,7 +43,7 @@ public class LevelSelection : MonoBehaviour
         {
             yield return null;
         }
-    }
+    }*/
     
 }
 

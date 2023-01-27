@@ -86,16 +86,12 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, -1);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    private void OnDestroy()
-    {
-        Time.timeScale = 1;
     }
 }
