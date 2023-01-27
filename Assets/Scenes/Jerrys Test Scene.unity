@@ -6970,32 +6970,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1620327778, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: MinDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620327778, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449401103810267, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
     - target: {fileID: 6569449401293629079, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1228130800}
     - target: {fileID: 6569449401303110992, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
       propertyPath: m_Name
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449401303110994, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449401303110996, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
     - target: {fileID: 6569449401303206256, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
@@ -7041,22 +7021,6 @@ PrefabInstance:
     - target: {fileID: 6569449401303206256, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449401537143850, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449402328179341, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449402360672170, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569449402927375662, guid: b1ac5d96b2ab1f5438957f9ba4cbda48, type: 3}
-      propertyPath: m_TagString
-      value: Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

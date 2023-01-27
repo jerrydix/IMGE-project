@@ -11,7 +11,7 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private float pickupRange, dropForceFront, dropForceUp;
     private Rigidbody _rb;
     [SerializeField] private PlayerShooting _func;
-    [SerializeField] private BoxCollider _col;
+    [SerializeField] private Collider _col;
 
     private PlayerInput _input;
     public bool equipped;
