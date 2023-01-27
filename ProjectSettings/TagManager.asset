@@ -8,6 +8,7 @@ TagManager:
   - OutOfMapCollider
   - Checkpoint
   - ButtonTrigger
+  - Turret
   layers:
   - Default
   - TransparentFX

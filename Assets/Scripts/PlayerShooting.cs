@@ -32,6 +32,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private GameObject _particles;
 
+    private Renderer _currentRenderer;
+
     private void Awake()
     {
         _force = new float[] { _forceMultiplier * -9.81f, 
@@ -90,10 +92,8 @@ public class PlayerShooting : MonoBehaviour
                         _playTutorial4 = false;
                         movement.tutorialSource.PlayOneShot(movement.tutorialClips[4]);
                     }
-
-                    if (manipulatedObject != null)
-                        manipulatedObject.GetComponent<Renderer>().material = _startMaterial;
                     
+                    //Debug.Log(_currentRenderer);
                     if (manipulatedObject == hit.transform.GameObject())
                     {
                         _particles.SetActive(false);
@@ -107,8 +107,21 @@ public class PlayerShooting : MonoBehaviour
                     {
                         _particles.SetActive(true);
                         manipulatedObject = hit.transform.GameObject();
-                        _startMaterial = manipulatedObject.GetComponent<Renderer>().material;
-                        manipulatedObject.GetComponent<Renderer>().material = outLine;
+                        if (manipulatedObject.CompareTag("Turret"))
+                        {
+                            _currentRenderer = manipulatedObject.GetComponentInChildren<Renderer>();
+                        }
+                        else
+                        {
+                            _currentRenderer = manipulatedObject.GetComponent<Renderer>();
+                            _currentRenderer.material = _startMaterial;
+                        }
+                        
+                        if (!manipulatedObject.CompareTag("Turret"))
+                        {
+                            _startMaterial = _currentRenderer.material;
+                            _currentRenderer.material = outLine;
+                        }
 
                         manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
 
@@ -345,27 +358,27 @@ public class PlayerShooting : MonoBehaviour
     private void zTrail()
     {
         TrailRenderer trail = Instantiate(this.trail,
-            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, -3f),
+            _currentRenderer.bounds.center - new Vector3(0f, 0f, -3f),
             Quaternion.identity);
-        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 0f, 3f);
+        Vector3 targetPosition = _currentRenderer.bounds.center - new Vector3(0f, 0f, 3f);
         StartCoroutine(SpawnTrail(trail, targetPosition));
     }
 
     private void yTrail()
     {
         TrailRenderer trail = Instantiate(this.trail,
-            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, -3f, 0f),
+            _currentRenderer.bounds.center - new Vector3(0f, -3f, 0f),
             Quaternion.identity);
-        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(0f, 3f, 0f);
+        Vector3 targetPosition = _currentRenderer.bounds.center - new Vector3(0f, 3f, 0f);
         StartCoroutine(SpawnTrail(trail, targetPosition));
     }
 
     private void xTrail()
     {
         TrailRenderer trail = Instantiate(this.trail,
-            manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(-3f, 0f, 0f),
+            _currentRenderer.bounds.center - new Vector3(-3f, 0f, 0f),
             Quaternion.identity);
-        Vector3 targetPosition = manipulatedObject.GetComponent<Renderer>().bounds.center - new Vector3(3f, 0f, 0f);
+        Vector3 targetPosition = _currentRenderer.bounds.center - new Vector3(3f, 0f, 0f);
         StartCoroutine(SpawnTrail(trail, targetPosition));
     }
 

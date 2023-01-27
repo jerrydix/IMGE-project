@@ -25,7 +25,6 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(gun.GetComponent<PlayerShooting>().currentForce);
         if (inverted && gun.GetComponent<PlayerShooting>().currentForce < 0)
         {
             _slider.value = -gun.GetComponent<PlayerShooting>().currentForce;

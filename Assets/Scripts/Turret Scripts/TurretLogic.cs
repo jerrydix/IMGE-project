@@ -7,6 +7,7 @@ public class TurretLogic : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate;
+    [SerializeField] private AudioClip fireClip;
 
     bool firing;
     float fireTimer;
@@ -19,7 +20,7 @@ public class TurretLogic : MonoBehaviour
         {
             while (fireTimer >= 1 / fireRate)
             {
-                SoundManager.Instance.PlaySound(SoundManager.Sounds.TurretShoot);
+                GetComponent<AudioSource>().PlayOneShot(fireClip);
                 SpawnProjectile();
                 fireTimer -= 1 / fireRate;
             }
