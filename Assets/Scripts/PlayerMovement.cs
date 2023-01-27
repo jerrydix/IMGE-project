@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _pause = GameObject.Find("UI");
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && GameManager.Instance.playTutorial)
         {
             tutorialSource.PlayOneShot(tutorialClips[0]);
             StartCoroutine(SoundWaiter());
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         else
             inputActions.Moving.Enable();
 
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2 && GameManager.Instance.playTutorial)
         {
             tutorialSource.PlayOneShot(tutorialClips[3]);
         }
@@ -282,14 +282,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.Equals("TutorialCol1"))
+        if (other.gameObject.name.Equals("TutorialCol1") && GameManager.Instance.playTutorial)
         {
             other.gameObject.SetActive(false);
             tutorialSource.Stop();
             tutorialSource.PlayOneShot(tutorialClips[1]);
         }
         
-        if (other.gameObject.name.Equals("TutorialCol2"))
+        if (other.gameObject.name.Equals("TutorialCol2") && GameManager.Instance.playTutorial)
         {
             other.gameObject.SetActive(false);
             tutorialSource.Stop();

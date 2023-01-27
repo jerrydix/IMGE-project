@@ -87,7 +87,7 @@ public class PlayerShooting : MonoBehaviour
                 if (hit.transform.GameObject().GetComponent<Target>() != null)
                 {
                     SoundManager.Instance.PlaySound(SoundManager.Sounds.GunShoot);
-                    if (_playTutorial4)
+                    if (_playTutorial4 && GameManager.Instance.playTutorial)
                     {
                         _playTutorial4 = false;
                         movement.tutorialSource.Stop();

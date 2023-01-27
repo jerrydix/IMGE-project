@@ -20,8 +20,11 @@ public class GameManager : MonoBehaviour
     private GameObject _genPart4;
     private LevelFinish _levelFinish;
 
+    [HideInInspector] public bool playTutorial;
+
     private void Awake()
     {
+        playTutorial = true;
         currentVolume = 1;
         currentSensitivity = 15;
         DontDestroyOnLoad(this);
@@ -106,6 +109,12 @@ public class GameManager : MonoBehaviour
                 _genPart4.transform.Find("Model").gameObject.SetActive(true);
             }
         }
+    }
+
+    public void TutorialSwitcher(bool active)
+    {
+        Debug.Log(active);
+        playTutorial = active;
     }
     
 }
