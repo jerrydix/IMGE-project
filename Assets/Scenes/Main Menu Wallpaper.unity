@@ -46262,7 +46262,7 @@ MonoBehaviour:
   defaultTransform: {fileID: 1906568582}
   levelsTransform: {fileID: 1447770777}
   cam: {fileID: 1751842945}
-  positionTurnSpeed: 0.01
+  positionTurnSpeed: 2
   rotationTurnSpeed: 2.5
 --- !u!43 &1900003177
 Mesh:
