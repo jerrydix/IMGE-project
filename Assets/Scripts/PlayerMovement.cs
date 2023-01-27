@@ -40,6 +40,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 upAxis;
     private GameObject _pause;
     
+    [Header("Steps")]
+    [SerializeField] GameObject stepsUpper;
+    [SerializeField] GameObject stepsLower;
+    [SerializeField] float stepHeight = 0.3f;
+    [SerializeField] float stepSmooth = 2f;
+    
     void Awake()
     {
         stepped = false;
@@ -57,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Moving.Jump.performed += Jump;
         inputActions.Moving.ChangeGravityY.performed += ChangeGravityY;
         //transform.position = spawn.position;
+        stepsUpper.transform.position = new Vector3(stepsUpper.transform.position.x, stepHeight, stepsUpper.transform.position.z);
     }
     
     IEnumerator SoundWaiter()
@@ -120,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(-90,0,0);
             cam.flippedZ = true;
         }
+        Steps();
         Move(moveInput);
     }
     
@@ -234,6 +242,41 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 lim = vel.normalized * moveSpeed;
             _rigidbody.velocity = new Vector3(lim.x, _rigidbody.velocity.y, lim.z);
+        }
+    }
+
+    private void Steps()
+    {
+        RaycastHit hitLower;
+        if (Physics.Raycast(stepsLower.transform.position, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if (!Physics.Raycast(stepsUpper.transform.position, transform.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            }
+        }
+
+        RaycastHit hitLower45;
+        if (Physics.Raycast(stepsLower.transform.position, transform.TransformDirection(1.5f,0,1), out hitLower45, 0.1f))
+        {
+
+            RaycastHit hitUpper45;
+            if (!Physics.Raycast(stepsUpper.transform.position, transform.TransformDirection(1.5f,0,1), out hitUpper45, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            }
+        }
+
+        RaycastHit hitLowerMinus45;
+        if (Physics.Raycast(stepsLower.transform.position, transform.TransformDirection(-1.5f,0,1), out hitLowerMinus45, 0.1f))
+        {
+
+            RaycastHit hitUpperMinus45;
+            if (!Physics.Raycast(stepsUpper.transform.position, transform.TransformDirection(-1.5f,0,1), out hitUpperMinus45, 0.2f))
+            {
+                _rigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            }
         }
     }
 
