@@ -40,6 +40,7 @@ public class Target : MonoBehaviour
         {
             Debug.Log("test2");
             transform.position = _originalTransform;
+            GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
         }
     }
 }

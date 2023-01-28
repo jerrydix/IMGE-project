@@ -406,4 +406,14 @@ public class PlayerShooting : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         manipulatedObject.GetComponent<Rigidbody>().drag = 0;
     }
+
+    public void Deselect()
+    {
+        _particles.SetActive(false);
+        manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
+        currentForce = _force[3];
+        _pointer = 3;
+        manipulatedObject = null;
+    }
 }
