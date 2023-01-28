@@ -42,7 +42,9 @@ public class HealthManager : MonoBehaviour
     {
         if (health > 0)
         {
+            source.volume = 0.2f;
             source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
+            source.volume = 1;
         }
         switch (type)
         {

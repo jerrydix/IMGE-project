@@ -447,7 +447,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 321580858}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 50
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 15
   m_OnValueChanged:
@@ -4011,7 +4011,7 @@ RectTransform:
   - {fileID: 1397678189}
   - {fileID: 181969944}
   m_Father: {fileID: 0}
-  m_RootOrder: 86
+  m_RootOrder: 186
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
