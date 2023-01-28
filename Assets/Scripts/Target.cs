@@ -10,13 +10,13 @@ public class Target : MonoBehaviour
     private ConstantForce constantForce;
     private bool modifying;
 
-    private Transform _originalTransform;
+    private Vector3 _originalTransform;
 
     private void Start()
     {
         constantForce = GetComponent<ConstantForce>();
         constantForce.enabled = false;
-        _originalTransform = transform;
+        _originalTransform = transform.position;
     }
     public void ChangeGravity()
     {
@@ -38,7 +38,8 @@ public class Target : MonoBehaviour
     {
         if (other.CompareTag("OutOfMapCollider"))
         {
-            transform.position = _originalTransform.position;
+            Debug.Log("test2");
+            transform.position = _originalTransform;
         }
     }
 }
