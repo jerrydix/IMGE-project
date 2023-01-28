@@ -13,9 +13,14 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("OutOfMapCollider"))
         {
             transform.position = checkpoint;
-        }else if (other.CompareTag("Checkpoint"))
+        } else if (other.CompareTag("Checkpoint"))
         {
             checkpoint = other.transform.position;
         }
+    }
+
+    public void Respawn()
+    {
+        transform.position = checkpoint;
     }
 }

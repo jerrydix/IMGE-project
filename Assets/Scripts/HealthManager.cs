@@ -36,6 +36,13 @@ public class HealthManager : MonoBehaviour
     {
         healthSlider.value = health;
         armorSlider.value = armor;
+
+        if (dead)
+        {
+            GetComponent<Checkpoint>().Respawn();
+            dead = false;
+            health = 100;
+        }
     }
 
     public void Damage(int amount, DamageType type)
@@ -46,24 +53,24 @@ public class HealthManager : MonoBehaviour
             source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
             source.volume = 1;
         }
-        switch (type)
-        {
-            case DamageType.Armor:
-            {
-                armor -= amount;
-                if (armor < 0)
-                {
-                    health += armor;
-                    armor = 0;
-                }
-                break;
-            }
-            case DamageType.Normal:
-            {
+        //switch (type)
+        //{
+            //case DamageType.Armor:
+            //{
+               // armor -= amount;
+                //if (armor < 0)
+                //{
+                //    health += armor;
+                //    armor = 0;
+                //}
+                //break;
+            //}
+            //case DamageType.Normal:
+            //{
                 health -= amount;
-                break;
-            }
-        }
+                //break;
+            //}
+       // }
         if (health > 0) return;
         dead = true;
         health = 0;

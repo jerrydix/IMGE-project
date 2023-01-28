@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &101444744500240404
 MonoBehaviour:
@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentVolume: 0
+  currentSensitivity: 0
   sucExtrLevel1: 0
   sucExtrLevel2: 0
   sucExtrLevel3: 0
   sucExtrLevel4: 0
+  playTutorial: 0
