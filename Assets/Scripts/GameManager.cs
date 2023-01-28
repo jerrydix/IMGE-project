@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(playTutorial);
         int index = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {

@@ -221,7 +221,7 @@ Transform:
   - {fileID: 7624441560794750909}
   - {fileID: 7624441560794750905}
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2073142305
 Rigidbody:
@@ -271,5 +271,7 @@ MonoBehaviour:
   dropForceUp: 0
   _func: {fileID: 0}
   _col: {fileID: 61061800}
+  originalSize: {x: 1, y: 1, z: 1}
+  inHandSize: {x: 0.1, y: 0.1, z: 0.1}
   equipped: 0
   genPart: 1

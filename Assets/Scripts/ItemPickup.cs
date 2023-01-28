@@ -13,6 +13,9 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private PlayerShooting _func;
     [SerializeField] private Collider _col;
 
+    [SerializeField] private Vector3 originalSize;
+    [SerializeField] private Vector3 inHandSize;
+
     private PlayerInput _input;
     public bool equipped;
     public bool genPart;
@@ -74,7 +77,7 @@ public class ItemPickup : MonoBehaviour
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.Euler(Vector3.zero);
             if (genPart)
-                transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                transform.localScale = inHandSize;
             else
                 transform.localScale = new Vector3(0.01f,0.01f,0.01f);
             
@@ -91,7 +94,7 @@ public class ItemPickup : MonoBehaviour
             transform.SetParent(null);
             
             if (genPart)
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                transform.localScale = originalSize;
             _rb.isKinematic = false;
             _col.isTrigger = false;
            // _rb.velocity = player.GetComponent<Rigidbody>().velocity;

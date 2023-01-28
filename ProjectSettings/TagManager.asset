@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - ButtonTrigger
   - Turret
+  - Motor
   layers:
   - Default
   - TransparentFX
