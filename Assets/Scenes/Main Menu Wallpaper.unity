@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &5495574 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 101444744500240404, guid: 42951aa2e9c575043a05e830eb0fec72, type: 3}
-  m_PrefabInstance: {fileID: 413882743}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17865d261ba3763458d021050f95ea38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &13930347
 GameObject:
   m_ObjectHideFlags: 0
@@ -47668,6 +47657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032879066}
   - component: {fileID: 2032879067}
+  - component: {fileID: 2032879068}
   m_Layer: 5
   m_Name: TutorialToggle
   m_TagString: Untagged
@@ -47743,9 +47733,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5495574}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TutorialSwitcher
+      - m_Target: {fileID: 2032879068}
+        m_TargetAssemblyTypeName: TutorialToggle, Assembly-CSharp
+        m_MethodName: Switch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -47756,6 +47746,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &2032879068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032879065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efec360cf11d2c42ab2f8cfeea02c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055881893
 GameObject:
   m_ObjectHideFlags: 0

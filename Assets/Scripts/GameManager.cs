@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(playTutorial);
         int index = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
         {
@@ -113,7 +114,6 @@ public class GameManager : MonoBehaviour
 
     public void TutorialSwitcher(bool active)
     {
-        Debug.Log(active);
         playTutorial = active;
     }
     
