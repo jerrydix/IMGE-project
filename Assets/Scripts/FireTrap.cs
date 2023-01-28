@@ -15,7 +15,6 @@ public class FireTrap : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(_attack);
         if (other.CompareTag("Player") && _attack)
         {
             StartCoroutine(Attack());
