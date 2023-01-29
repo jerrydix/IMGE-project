@@ -102,10 +102,18 @@ public class PlayerShooting : MonoBehaviour
                         manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
                         currentForce = _force[3];
                         _pointer = 3;
+                        if (!manipulatedObject.CompareTag("Turret"))
+                        {
+                            _currentRenderer.material = _startMaterial;
+                        }
                         manipulatedObject = null;
                     }
                     else
                     {
+                        if (manipulatedObject != null)
+                        {
+                            Deselect();
+                        }
                         _particles.SetActive(true);
                         manipulatedObject = hit.transform.GameObject();
                         if (manipulatedObject.CompareTag("Turret"))
@@ -115,7 +123,6 @@ public class PlayerShooting : MonoBehaviour
                         else
                         {
                             _currentRenderer = manipulatedObject.GetComponent<Renderer>();
-                            _currentRenderer.material = _startMaterial;
                         }
                         
                         if (!manipulatedObject.CompareTag("Turret"))
@@ -124,7 +131,7 @@ public class PlayerShooting : MonoBehaviour
                             _currentRenderer.material = outLine;
                         }
 
-                        manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
+                        //manipulatedObject.GetComponent<Rigidbody>().useGravity = true;
 
                         gravity = 0f;
 
@@ -144,7 +151,7 @@ public class PlayerShooting : MonoBehaviour
                         manipulatedObject.GetComponent<Rigidbody>().constraints =
                             RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
 
-                        //manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, gravity + 9.81f, 0);
+                        manipulatedObject.GetComponent<ConstantForce>().force = new Vector3(0, gravity + 9.81f, 0);
 
                         Target target = manipulatedObject.GetComponent<Target>();
                         if (target != null)
@@ -414,6 +421,10 @@ public class PlayerShooting : MonoBehaviour
         manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
         currentForce = _force[3];
         _pointer = 3;
+        if (!manipulatedObject.CompareTag("Turret"))
+        {
+            _currentRenderer.material = _startMaterial;
+        }
         manipulatedObject = null;
     }
 }
