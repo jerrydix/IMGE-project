@@ -212,7 +212,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && grounded && jump)
         {
-            SoundManager.Instance.PlaySound(SoundManager.Sounds.Jump);
+            if (!_pause.GetComponent<PauseMenu>().active)
+                SoundManager.Instance.PlaySound(SoundManager.Sounds.Jump);
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
             _rigidbody.AddForce(upAxis * jumpSpeed, ForceMode.Impulse);
 

@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField] private Slider volSlider;
     [SerializeField] private Slider sensSlider;
+    [SerializeField] private GameObject gameCursor;
     private float _vol;
     private float _sens;
 
@@ -32,6 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!active)
         {
+            gameCursor.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             pauseMenu.SetActive(true);
@@ -40,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
+            gameCursor.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             pauseMenu.SetActive(false);

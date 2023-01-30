@@ -13,14 +13,11 @@ public class GamepadMouse : MonoBehaviour
     [SerializeField] private RectTransform cursorTransform;
     [SerializeField] private float sensi = 1000f;
     [SerializeField] private RectTransform canvasTransform;
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private float padding = 15f;
 
     private bool _previousState;
-
-    private void Start()
-    {
-        _playerInput= GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
-    }
+    private const string gamepadScheme = "Gamepad";
+    private const string mouseScheme = "Keyboard&Mouse";
 
     private void OnEnable()
     {
@@ -46,7 +43,9 @@ public class GamepadMouse : MonoBehaviour
 
     private void OnDisable()
     {
+        InputSystem.RemoveDevice(_mouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
+        
     }
 
     private void UpdateMotion()
@@ -62,8 +61,8 @@ public class GamepadMouse : MonoBehaviour
         Vector2 curPos = _mouse.position.ReadValue();
         Vector2 newPos = curPos + deltaValue;
 
-        newPos.x = Mathf.Clamp(newPos.x, 0, Screen.width);
-        newPos.y = Mathf.Clamp(newPos.y, 0, Screen.height);
+        newPos.x = Mathf.Clamp(newPos.x, 0, Screen.width - padding);
+        newPos.y = Mathf.Clamp(newPos.y, 0, Screen.height - padding);
 
         InputState.Change(_mouse.position, newPos);
         InputState.Change(_mouse.delta, deltaValue);
@@ -85,5 +84,10 @@ public class GamepadMouse : MonoBehaviour
         Vector2 anchoredPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasTransform, pos, null, out anchoredPos);
         cursorTransform.anchoredPosition = anchoredPos;
+    }
+
+    private void OnControlsChanged(PlayerInput input)
+    {
+        //if (_playerInput)
     }
 }    
