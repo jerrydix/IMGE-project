@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private GameObject _genPart4;
     private LevelFinish _levelFinish;
 
+    public int genCounter = 0; 
+
     [HideInInspector] public bool playTutorial;
 
     private void Awake()
@@ -52,13 +54,13 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
-        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if (index != 0 && index != 1)
         {
             _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (index == 0)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
@@ -67,16 +69,37 @@ public class GameManager : MonoBehaviour
             _genPart3 = GameObject.Find("GenPart3");
             _genPart4 = GameObject.Find("GenPart4");
         }
-    }
-
-    private void FixedUpdate()
-    {
+        
+        if (index == 0)
+        {
+            genCounter = 0;
+            if (sucExtrLevel1) 
+            {
+                _genPart1.transform.Find("Model").gameObject.SetActive(true);
+                genCounter++;
+            }
+            if (sucExtrLevel2)
+            {
+                _genPart2.transform.Find("Model").gameObject.SetActive(true);
+                genCounter++;
+            }
+            if (sucExtrLevel3)
+            {
+                _genPart3.transform.Find("Model").gameObject.SetActive(true);
+                genCounter++;
+            }
+            if (sucExtrLevel4)
+            {
+                _genPart4.transform.Find("Model").gameObject.SetActive(true);
+                genCounter++;
+            }
+        }
     }
 
     private void Update()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
+        if (index != 0 && index != 1)
         {
             if (_levelFinish.finished && _levelFinish.successful)
             {
@@ -90,7 +113,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (index == 0)
+        /*if (index == 0)
         {
             if (sucExtrLevel1) 
             {
@@ -108,7 +131,7 @@ public class GameManager : MonoBehaviour
             {
                 _genPart4.transform.Find("Model").gameObject.SetActive(true);
             }
-        }
+        }*/
     }
 
     public void TutorialSwitcher(bool active)
