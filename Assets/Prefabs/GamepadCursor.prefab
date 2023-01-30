@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5678975689596614280
 Transform:
   m_ObjectHideFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5678975689596614282
 MonoBehaviour:
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d74c0f11abdb163498a9763c0216f492, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -88,88 +88,84 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: d2879192-fcc0-47d1-87ff-879507ab9ea5
-    m_ActionName: Moving/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/SwitchProControllerHID/leftStick/up,/SwitchProControllerHID/leftStick/down,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/leftStick/right]
+    m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
+    m_ActionName: UI/Navigate[/SwitchProControllerHID/leftStick/up,/SwitchProControllerHID/rightStick/up,/SwitchProControllerHID/leftStick/down,/SwitchProControllerHID/rightStick/down,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/rightStick/left,/SwitchProControllerHID/leftStick/right,/SwitchProControllerHID/rightStick/right,/SwitchProControllerHID/dpad,/1532-208/stick/up,/1532-208/stick/down,/1532-208/stick/left,/1532-208/stick/right,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 13364884-9c75-4dd6-a267-9ba5b3d02a77
-    m_ActionName: Moving/Jump[/Keyboard/space,/SwitchProControllerHID/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c23d6657-5da0-4744-ba52-9dcf5f12d270
-    m_ActionName: Moving/Look[/Mouse/delta,/SwitchProControllerHID/rightStick]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e20ffecd-3deb-44d3-b46b-fc471f8177fd
-    m_ActionName: Moving/ChangeGravityY[/Keyboard/r,/SwitchProControllerHID/leftShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 566a2ff0-0214-4a80-992c-055261427ddd
-    m_ActionName: Moving/Equip[/Keyboard/f,/SwitchProControllerHID/buttonNorth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b6a5496d-c468-43ec-96cc-00a11d4a90b6
-    m_ActionName: Moving/Drop[/Keyboard/g,/SwitchProControllerHID/rightStickPress]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c45d892d-5abe-43c9-b526-95f59c27f72d
-    m_ActionName: GravityGun/GravityUp[/Keyboard/e,/SwitchProControllerHID/dpad/up]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9d960480-ba36-4e12-8ea8-1517368cade3
-    m_ActionName: GravityGun/GravityDown[/Keyboard/q,/SwitchProControllerHID/dpad/down]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b5c03b7e-7a89-4e62-ae60-c898319242ab
-    m_ActionName: GravityGun/ChangeGravityDirection[/Mouse/rightButton,/SwitchProControllerHID/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3ad18adc-f066-4e3c-ad39-1b29ab57c445
-    m_ActionName: GravityGun/Fire[/Mouse/leftButton,/SwitchProControllerHID/rightShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e0bf3788-bbd9-4433-9ae9-24b81eb0e095
-    m_ActionName: UI/Escape[/Keyboard/escape,/SwitchProControllerHID/start]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ebc5931e-ee36-4d7a-9f30-39e37f6a3940
-    m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e32785f3-9c0a-4978-b93a-1e9d7b4ad628
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7adea902-27d0-481b-9502-f887c1a6cde7
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1e6b4e29-3735-4011-a9f6-ca1743d6d5da
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2c3c98e7-4dae-40e6-b7a1-231631afedd5
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f82a5be6-e0c1-40c2-a0fa-4c27f43ba727
-    m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b21cf11e-86f0-4ca3-b0b4-d1ccab90e593
+    m_ActionId: 7607c7b6-cd76-4816-beef-bd0341cfe950
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6e8b9d75-d0ef-4571-8c62-80bbe3f9c12c
-    m_ActionName: UI/Navigate
+    m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
+    m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 832c5a7f-7f57-491b-b9cf-d826e9e65d2d
+    m_ActionId: 32b35790-4ed0-4e9a-aa41-69ac6d629449
     m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 83e8e838-f027-4e4d-8ac9-d142e3bbe76f
-    m_ActionName: UI/Click[/SwitchProControllerHID/buttonSouth,/Mouse/leftButton]
+    m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0489e84a-4833-4c40-bfae-cea84b696689
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44b200b1-1557-4083-816c-b22cbdf77ddf
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24908448-c609-4bc3-a128-ea258674378a
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3850a938-4a61-4635-8f56-b72e54b69901
+    m_ActionName: Moving/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/SwitchProControllerHID/leftStick/up,/SwitchProControllerHID/leftStick/down,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a4f4f7f5-4cd1-480f-93c7-a3badf2f97fd
+    m_ActionName: Moving/Jump[/Keyboard/space,/SwitchProControllerHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e85c03a-4e8b-4f52-b3e3-c128297f6545
+    m_ActionName: Moving/Look[/Mouse/delta,/SwitchProControllerHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: feff438d-6efb-4066-9e21-3ef71b652b58
+    m_ActionName: Moving/ChangeGravityY[/Keyboard/r,/SwitchProControllerHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6566812c-a40e-4249-ba09-6971e0153f64
+    m_ActionName: Moving/Equip[/Keyboard/f,/SwitchProControllerHID/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8747cde8-9675-4c71-9198-064162096534
+    m_ActionName: Moving/Drop[/Keyboard/g,/SwitchProControllerHID/rightStickPress]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f3a5c93-d51f-48dc-b57d-b206f9c62cba
+    m_ActionName: GravityGun/GravityUp[/Keyboard/e,/SwitchProControllerHID/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5c39ff31-1f7b-4aeb-b59e-0d183c73980e
+    m_ActionName: GravityGun/GravityDown[/Keyboard/q,/SwitchProControllerHID/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d32997d-4b3e-4463-8e56-e721ee09abc4
+    m_ActionName: GravityGun/ChangeGravityDirection[/Mouse/rightButton,/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2ae2e21d-8ef8-408b-8d08-3618c4a89aa0
+    m_ActionName: GravityGun/Fire[/Mouse/leftButton,/SwitchProControllerHID/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Moving

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
+using UnityEngine.SceneManagement;
 
 public class GamepadMouse : MonoBehaviour
 {
@@ -18,6 +19,18 @@ public class GamepadMouse : MonoBehaviour
     private bool _previousState;
     private const string gamepadScheme = "Gamepad";
     private const string mouseScheme = "Keyboard&Mouse";
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+           // _playerInput = new PlayerInput();
+        }
+        else
+        {
+           // _playerInput = GameObject.Find("Player").GetComponent<PlayerMovement>().inputActions;
+        }
+    }
 
     private void OnEnable()
     {
@@ -37,8 +50,8 @@ public class GamepadMouse : MonoBehaviour
             Vector2 pos = cursorTransform.anchoredPosition;
             InputState.Change(_mouse.position, pos);
         }
-
         InputSystem.onAfterUpdate += UpdateMotion;
+        //InputSystem.onDeviceChange += OnDeviceChanged;
     }
 
     private void OnDisable()
@@ -86,8 +99,12 @@ public class GamepadMouse : MonoBehaviour
         cursorTransform.anchoredPosition = anchoredPos;
     }
 
-    private void OnControlsChanged(PlayerInput input)
+    private void OnDeviceChanged(InputDevice device, InputDeviceChange change)
     {
-        //if (_playerInput)
+        Debug.Log("hoiuhoihu");
+        if (device.name.Equals("Gamepad"))
+        {
+            Debug.Log("device changed");
+        }
     }
 }    

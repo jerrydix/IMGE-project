@@ -1779,6 +1779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamepadCursor
       objectReference: {fileID: 0}
+    - target: {fileID: 5678975689596614281, guid: 028b1b1dd23db734b920d033557fb35e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5678975689596614282, guid: 028b1b1dd23db734b920d033557fb35e, type: 3}
       propertyPath: canvasTransform
       value: 
@@ -1787,10 +1791,6 @@ PrefabInstance:
       propertyPath: cursorTransform
       value: 
       objectReference: {fileID: 773776438}
-    - target: {fileID: 5678975689596614283, guid: 028b1b1dd23db734b920d033557fb35e, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
