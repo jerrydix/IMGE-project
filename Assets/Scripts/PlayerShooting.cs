@@ -366,27 +366,27 @@ public class PlayerShooting : MonoBehaviour
     private void zTrail()
     {
         TrailRenderer trail = Instantiate(this.trail,
-            _currentRenderer.bounds.center - new Vector3(0f, 0f, -3f),
+            _currentRenderer.bounds.center + new Vector3(0f, 0f, -3f),
             Quaternion.identity);
-        Vector3 targetPosition = _currentRenderer.bounds.center - new Vector3(0f, 0f, 3f);
+        Vector3 targetPosition = _currentRenderer.bounds.center + new Vector3(0f, 0f, 3f);
         StartCoroutine(SpawnTrail(trail, targetPosition));
     }
 
     private void yTrail()
     {
         TrailRenderer trail = Instantiate(this.trail,
-            _currentRenderer.bounds.center - new Vector3(0f, -3f, 0f),
+            _currentRenderer.bounds.center + new Vector3(0f, -3f, 0f),
             Quaternion.identity);
-        Vector3 targetPosition = _currentRenderer.bounds.center - new Vector3(0f, 3f, 0f);
+        Vector3 targetPosition = _currentRenderer.bounds.center + new Vector3(0f, 3f, 0f);
         StartCoroutine(SpawnTrail(trail, targetPosition));
     }
 
     private void xTrail()
     {
         TrailRenderer trail = Instantiate(this.trail,
-            _currentRenderer.bounds.center - new Vector3(-3f, 0f, 0f),
+            _currentRenderer.bounds.center + new Vector3(-3f, 0f, 0f),
             Quaternion.identity);
-        Vector3 targetPosition = _currentRenderer.bounds.center - new Vector3(3f, 0f, 0f);
+        Vector3 targetPosition = _currentRenderer.bounds.center + new Vector3(3f, 0f, 0f);
         StartCoroutine(SpawnTrail(trail, targetPosition));
     }
 
