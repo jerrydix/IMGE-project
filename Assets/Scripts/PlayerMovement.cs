@@ -133,15 +133,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
-        /*(if (_pause.GetComponent<PauseMenu>().active)
-        {
-            inputActions.Moving.Disable();
-        }
-        else
-        {
-            inputActions.Moving.Enable();
-        }*/
-        
         grounded = Physics.Raycast(transform.position, -upAxis, height * 0.5f + 0.2f, ground);
         SpeedLimit();
         if (grounded)
