@@ -25,13 +25,13 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
-        if (inverted && gun.GetComponent<PlayerShooting>().currentForce < 0)
-        {
-            _slider.value = -gun.GetComponent<PlayerShooting>().currentForce;
-        }
-        else if (!inverted && gun.GetComponent<PlayerShooting>().currentForce > 0)
+        if (inverted && gun.GetComponent<PlayerShooting>().currentForce > 0)
         {
             _slider.value = gun.GetComponent<PlayerShooting>().currentForce;
+        }
+        else if (!inverted && gun.GetComponent<PlayerShooting>().currentForce < 0)
+        {
+            _slider.value = -gun.GetComponent<PlayerShooting>().currentForce;
         }
         else
         {
