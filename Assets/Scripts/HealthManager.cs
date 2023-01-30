@@ -39,10 +39,12 @@ public class HealthManager : MonoBehaviour
 
         if (dead)
         {
+            source.Stop();
             source.volume = 0.1f;
             source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
             source.volume = 1;
             GetComponent<Checkpoint>().Respawn();
+            //GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
             dead = false;
             health = 100;
         }
