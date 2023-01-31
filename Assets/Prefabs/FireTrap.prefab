@@ -24272,8 +24272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed284ebe31469584db27b173dfef2725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  timeInterval: 0.075
+  damage: 6
+  timeInterval: 0.05
 --- !u!82 &3292357342322226350
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24286,7 +24286,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: f115c82b7b3a51a4bb30e7cc5f0ea280, type: 2}
   m_audioClip: {fileID: 8300000, guid: d1a455003a7a71845a69d9bd93f98ede, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24295,7 +24295,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
