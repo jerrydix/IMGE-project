@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2034562653440173632}
   - component: {fileID: 2034562653441468000}
   - component: {fileID: 2034562653442466976}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Corridor Floor Wide002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2034562653440173634}
   - component: {fileID: 2034562653441468002}
   - component: {fileID: 2034562653442466978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Piipes Wide003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2034562653440173636}
   - component: {fileID: 2034562653441468004}
   - component: {fileID: 2034562653442466980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Beams Wide003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 2034562653441468006}
   - component: {fileID: 2034562653442466982}
   - component: {fileID: 4816189525001695156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Ceiling Wide003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 2034562653440173640}
   - component: {fileID: 2034562653441468014}
   - component: {fileID: 2034562653442466990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lights004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 2034562653441468012}
   - component: {fileID: 2034562653442466988}
   - component: {fileID: 113422632699509359}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Walls Wide002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2034562653440173646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Funnel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,5 +579,5 @@ Transform:
   - {fileID: 2034562653440173644}
   - {fileID: 2034562653440173640}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

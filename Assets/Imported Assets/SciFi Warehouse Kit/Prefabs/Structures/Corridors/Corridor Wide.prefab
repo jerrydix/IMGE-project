@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5928300009178751905}
   - component: {fileID: 5928300009182143361}
   - component: {fileID: 5928300009181045057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Beams Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5928300009182143363}
   - component: {fileID: 5928300009181045059}
   - component: {fileID: 1454772777587143804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Ceiling Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 5928300009178751909}
   - component: {fileID: 5928300009182143365}
   - component: {fileID: 5928300009181045061}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Corridor Floor Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 5928300009178751911}
   - component: {fileID: 5928300009182143367}
   - component: {fileID: 5928300009181045063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Piipes Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 5928300009181045065}
   - component: {fileID: 1325675181631285722}
   - component: {fileID: 318588748888946886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Walls Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5928300009178751915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corridor Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ Transform:
   m_GameObject: {fileID: 5928300009178857355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9, y: 0, z: -18}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5928300009178751905}
@@ -516,7 +516,7 @@ Transform:
   - {fileID: 5928300009178751913}
   - {fileID: 5928300009178751917}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5928300009178857357
 GameObject:
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 5928300009178751917}
   - component: {fileID: 5928300009182143371}
   - component: {fileID: 5928300009181045067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lights001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
