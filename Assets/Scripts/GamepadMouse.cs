@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.SceneManagement;
+using MouseButton = UnityEngine.InputSystem.LowLevel.MouseButton;
 
 public class GamepadMouse : MonoBehaviour
 {
@@ -52,6 +54,8 @@ public class GamepadMouse : MonoBehaviour
         }
         InputSystem.onAfterUpdate += UpdateMotion;
         //InputSystem.onDeviceChange += OnDeviceChanged;
+        //InputSystem.onDeviceChange += OnDeviceChanged;
+        InputUser.onChange += OnDeviceChanged;
     }
 
     private void OnDisable()
@@ -99,12 +103,27 @@ public class GamepadMouse : MonoBehaviour
         cursorTransform.anchoredPosition = anchoredPos;
     }
 
-    private void OnDeviceChanged(InputDevice device, InputDeviceChange change)
+    private void OnDeviceChanged(InputUser user, InputUserChange change, InputDevice device)
     {
-        Debug.Log("hoiuhoihu");
-        if (device.name.Equals("Gamepad"))
+        if(device != null)
         {
-            Debug.Log("device changed");
+            bool found = false;
+            foreach (var alias in device.allControls)
+            {
+                if (alias.ToString().Contains("Stick"))
+                {
+                    Debug.Log(alias.name);
+                    found = true;
+                }
+            }
+
+            if (found)
+            {
+                //TODO
+            }else
+            {
+                //TODO
+            }
         }
     }
 }    
