@@ -86,7 +86,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            GameObject.Find("Darkness").SetActive(false);
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+                GameObject.Find("Darkness").SetActive(false);
             inputActions.Moving.Enable();
         }
 
