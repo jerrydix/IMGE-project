@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limit: 360
   tolerance: 360
-  turnSpeed: 52
+  turnSpeed: 55
 --- !u!1 &6569449401103810267
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limit: 90
   tolerance: 1
-  turnSpeed: 45
+  turnSpeed: 50
 --- !u!1 &6569449401303110992
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8180631514363781304, guid: e1ac29b5725184e4f8182f92d37be55c, type: 3}
   firePoint: {fileID: 6569449402360672169}
-  fireRate: 6
+  fireRate: 5
   fireClip: {fileID: 8300000, guid: 57adb7ad64cfdcf45b0d43e986ab0eec, type: 3}
 --- !u!65 &1620327773
 BoxCollider:
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adee2a5570fd5414e8120afb70b60818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 0}
 --- !u!82 &1620327778
 AudioSource:
   m_ObjectHideFlags: 0

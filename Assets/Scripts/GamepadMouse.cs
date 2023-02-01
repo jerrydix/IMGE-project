@@ -62,9 +62,9 @@ public class GamepadMouse : MonoBehaviour
 
     private void OnDisable()
     {
-        InputSystem.RemoveDevice(_mouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
         InputUser.onChange -= OnDeviceChanged;
+        InputSystem.RemoveDevice(_mouse);
     }
 
     private void UpdateMotion()
