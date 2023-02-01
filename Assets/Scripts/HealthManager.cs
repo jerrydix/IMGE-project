@@ -37,7 +37,7 @@ public class HealthManager : MonoBehaviour
         healthSlider.value = health;
         armorSlider.value = armor;
         //Debug.Log(health);
-        if (dead)
+        /*if (dead)
         {
             source.Stop();
             source.volume = 0.1f;
@@ -48,7 +48,7 @@ public class HealthManager : MonoBehaviour
             //GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
             dead = false;
             health = 100;
-        }
+        }*/
     }
 
     public void Damage(int amount, DamageType type)
@@ -81,6 +81,18 @@ public class HealthManager : MonoBehaviour
         else
         {
             dead = true;
+        }
+        
+        if (dead)
+        {
+            source.Stop();
+            source.volume = 0.1f;
+            source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
+            source.volume = 1;
+            GetComponent<Checkpoint>().Respawn();
+            //GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
+            dead = false;
+            health = 100;
         }
     }
 
