@@ -114,7 +114,6 @@ public class GamepadMouse : MonoBehaviour
             {
                 if (alias.ToString().Contains("Stick"))
                 {
-                    Debug.Log(alias.name);
                     found = true;
                 }
             }
@@ -122,9 +121,11 @@ public class GamepadMouse : MonoBehaviour
             if (found)
             {
                 cursor.SetActive(true);
-            }else
+                Cursor.visible = false;
+            } else
             {
                 cursor.SetActive(false);
+                Cursor.visible = SceneManager.GetActiveScene().buildIndex == 0 || cursor.GetComponentInParent<Transform>().GetComponentInParent<PauseMenu>().active;
             }
         }
     }

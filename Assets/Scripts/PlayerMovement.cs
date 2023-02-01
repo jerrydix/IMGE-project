@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         inputActions.Moving.Enable();
+        GameObject.Find("Darkness").SetActive(false);
     }
 
     private void Start()
@@ -84,7 +85,10 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(SoundWaiter());
         }
         else
+        {
+            GameObject.Find("Darkness").SetActive(false);
             inputActions.Moving.Enable();
+        }
 
         if (SceneManager.GetActiveScene().buildIndex == 2 && GameManager.Instance.playTutorial)
         {
