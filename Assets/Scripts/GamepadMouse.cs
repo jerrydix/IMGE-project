@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -15,6 +16,8 @@ public class GamepadMouse : MonoBehaviour
     [SerializeField] private float sensi = 1000f;
     [SerializeField] private RectTransform canvasTransform;
     [SerializeField] private float padding = 15f;
+
+    [SerializeField] private GameObject cursor;
 
     private bool _previousState;
     private const string gamepadScheme = "Gamepad";
@@ -51,13 +54,14 @@ public class GamepadMouse : MonoBehaviour
             InputState.Change(_mouse.position, pos);
         }
         InputSystem.onAfterUpdate += UpdateMotion;
-        //InputSystem.onDeviceChange += OnDeviceChanged;
+        InputUser.onChange += OnDeviceChanged;
     }
 
     private void OnDisable()
     {
         InputSystem.RemoveDevice(_mouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
+        InputUser.onChange -= OnDeviceChanged;
         
     }
 
@@ -99,12 +103,32 @@ public class GamepadMouse : MonoBehaviour
         cursorTransform.anchoredPosition = anchoredPos;
     }
 
-    private void OnDeviceChanged(InputDevice device, InputDeviceChange change)
+    private InputControl control;
+    private void OnDeviceChanged(InputUser user, InputUserChange change, InputDevice device)
     {
-        Debug.Log("hoiuhoihu");
-        if (device.name.Equals("Gamepad"))
+        /*bool found = false;
+        Debug.Log(device);
+        if (device != null)
         {
-            Debug.Log("device changed");
+            foreach (var devControl in device.allControls)
+            {
+                Debug.Log(devControl);
+                if (devControl != null && devControl.name != null)
+                {
+                    Debug.Log(devControl.name);
+                    if (devControl.name.Equals("leftStick"))
+                    {
+                        cursor.SetActive(true);
+                        found = true;
+                    }
+                }
+            }
         }
+        if (!found)
+        {
+            cursor.SetActive(false);
+        }
+        */
+        
     }
 }    

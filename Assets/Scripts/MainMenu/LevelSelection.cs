@@ -5,31 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
-    [SerializeField] private LevelChanger changer;
     public void Load0()
     {
-        changer.Fade(false, 0);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 0);
     }
     
     public void Load1()
     {
-        changer.Fade(false, 1);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 1);
     }
     
     public void Load2()
     {
-        changer.Fade(false, 2);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 2);
     }
     
     public void Load3()
     {
-        changer.Fade(false, 3);
+        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 3);
     }
     
-    public void Load4()
-    {
-        changer.Fade(false, 4);
-    }
+    //public void Load4()
+    //{
+    //    changer.Fade(false, 4);
+    //}
     
     /*private void LoadLevel(int sceneIndex)
     {
