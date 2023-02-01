@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +9,18 @@ public class LevelChanger : MonoBehaviour
     private LevelFinish _levelFinish;
     private float _index;
     [SerializeField] private Animator anim;
-    void Start()
-    {
-        _index = SceneManager.GetActiveScene().buildIndex;
-        if (_index != 0 && _index != 1)
-        {
-            _levelFinish = GameObject.Find("LevelFinish").GetComponent<LevelFinish>();
-        }
-    }
+    [SerializeField] private LevelFinish finish;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        _index = SceneManager.GetActiveScene().buildIndex;
+    }
+
     void Update()
     {
-        if (_index != 0 && _index != 1 && _index != -1 && _levelFinish.finished)
+        if (_index != 0 && _index != 1 && _index != -1 && finish != null && finish.finished)
         {
             Fade(true, 0);
         }
