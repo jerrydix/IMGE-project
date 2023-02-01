@@ -38,7 +38,6 @@ public class Target : MonoBehaviour
     {
         if (other.CompareTag("OutOfMapCollider") && !this.CompareTag("Turret"))
         {
-            Debug.Log("test2");
             transform.position = _originalTransform;
             GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
         }

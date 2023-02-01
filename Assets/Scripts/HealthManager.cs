@@ -23,6 +23,8 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip[] hurtSounds;
 
+    [SerializeField] private PlayerShooting shooting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +92,7 @@ public class HealthManager : MonoBehaviour
             //source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
             //source.volume = 1;
             GetComponent<Checkpoint>().Respawn();
-            //GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
+            shooting.Deselect();
             dead = false;
             health = 100;
         }
