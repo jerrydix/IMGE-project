@@ -18,7 +18,8 @@ public class FireTrap : MonoBehaviour
         if (other.CompareTag("Player") && _attack)
         {
             StartCoroutine(Attack());
-            other.GetComponent<HealthManager>().Damage(damage, HealthManager.DamageType.Normal);
+            if (!other.GetComponent<HealthManager>().dead)
+                other.GetComponent<HealthManager>().Damage(damage, HealthManager.DamageType.Normal);
         }
     }
 

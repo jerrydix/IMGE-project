@@ -36,7 +36,7 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("OutOfMapCollider"))
+        if (other.CompareTag("OutOfMapCollider") && !this.CompareTag("Turret"))
         {
             Debug.Log("test2");
             transform.position = _originalTransform;

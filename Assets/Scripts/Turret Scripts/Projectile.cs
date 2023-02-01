@@ -35,7 +35,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<HealthManager>().Damage(5, HealthManager.DamageType.Armor);
+            if (!collision.gameObject.GetComponent<HealthManager>().dead)
+                collision.gameObject.GetComponent<HealthManager>().Damage(5, HealthManager.DamageType.Armor);
         }
         Destroy(gameObject);
     }

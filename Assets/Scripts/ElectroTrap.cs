@@ -16,11 +16,11 @@ public class ElectroTrap : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(_attack);
         if (other.CompareTag("Player") && _attack)
         {
             StartCoroutine(Attack());
-            other.GetComponent<HealthManager>().Damage(damage, HealthManager.DamageType.Normal);
+            if (!other.GetComponent<HealthManager>().dead)
+                other.GetComponent<HealthManager>().Damage(damage, HealthManager.DamageType.Normal);
         }
     }
 

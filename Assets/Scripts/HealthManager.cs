@@ -36,13 +36,14 @@ public class HealthManager : MonoBehaviour
     {
         healthSlider.value = health;
         armorSlider.value = armor;
-
+        //Debug.Log(health);
         if (dead)
         {
             source.Stop();
             source.volume = 0.1f;
             source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
             source.volume = 1;
+            Debug.Log(GetComponent<Checkpoint>());
             GetComponent<Checkpoint>().Respawn();
             //GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
             dead = false;
@@ -54,6 +55,7 @@ public class HealthManager : MonoBehaviour
     {
         if (health > 0)
         {
+            health -= amount;
             //source.volume = 0.1f;
             //source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
             //source.volume = 1;
@@ -72,13 +74,14 @@ public class HealthManager : MonoBehaviour
             //}
             //case DamageType.Normal:
             //{
-                health -= amount;
+        
                 //break;
             //}
        // }
-        if (health > 0) return;
-        dead = true;
-        health = 0;
+        else
+        {
+            dead = true;
+        }
     }
 
     public void Heal(int amount, DamageType type)
