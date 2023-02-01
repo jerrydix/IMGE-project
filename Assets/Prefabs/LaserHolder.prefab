@@ -602,7 +602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPrefab: {fileID: 0}
   muzzlePrefab: {fileID: 0}
-  speed: 35
+  speed: 40
 --- !u!54 &7514676952750340776
 Rigidbody:
   m_ObjectHideFlags: 0
