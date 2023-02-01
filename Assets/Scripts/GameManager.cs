@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool playTutorial;
 
+    private bool level1Done, level2Done, level3Done, level4Done;
+
     private void Awake()
     {
         playTutorial = true;
@@ -34,6 +36,12 @@ public class GameManager : MonoBehaviour
         sucExtrLevel2 = false;
         sucExtrLevel3 = false;
         sucExtrLevel4 = false;
+
+        level1Done = false;
+        level2Done = false;
+        level3Done = false;
+        level4Done = false;
+        
         currentVolume = 100;
         
         if (Instance == null)
@@ -73,25 +81,41 @@ public class GameManager : MonoBehaviour
         if (index == 0)
         {
             genCounter = 0;
-            if (sucExtrLevel1) 
+            if (sucExtrLevel1 || level1Done) 
             {
                 _genPart1.transform.Find("Model").gameObject.SetActive(true);
-                genCounter++;
+                if (!level1Done)
+                {
+                    genCounter++;
+                    level1Done = true;
+                }
             }
-            if (sucExtrLevel2)
+            if (sucExtrLevel2 || level2Done)
             {
                 _genPart2.transform.Find("Model").gameObject.SetActive(true);
-                genCounter++;
+                if (!level2Done)
+                {
+                    genCounter++;
+                    level2Done = true;
+                }
             }
-            if (sucExtrLevel3)
+            if (sucExtrLevel3 || level3Done)
             {
                 _genPart3.transform.Find("Model").gameObject.SetActive(true);
-                genCounter++;
+                if (!level3Done)
+                {
+                    genCounter++;
+                    level3Done = true;
+                }
             }
-            if (sucExtrLevel4)
+            if (sucExtrLevel4 || level4Done)
             {
                 _genPart4.transform.Find("Model").gameObject.SetActive(true);
-                genCounter++;
+                if (!level4Done)
+                {
+                    genCounter++;
+                    level4Done = true;
+                }
             }
         }
     }
