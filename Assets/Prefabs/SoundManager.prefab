@@ -160,7 +160,7 @@ Transform:
   m_Children:
   - {fileID: 6907981888839720511}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6907981888872920152
 AudioSource:
@@ -276,3 +276,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57adb7ad64cfdcf45b0d43e986ab0eec, type: 3}
   - {fileID: 8300000, guid: 0bcc89c1a88b7b24cbc5cc1d772f6792, type: 3}
   - {fileID: 8300000, guid: 440cbbd9df112934384bd390b65fb0c5, type: 3}
+  hurtSounds:
+  - {fileID: 8300000, guid: b2aab562bcbef1c4bb3534ee425290a6, type: 3}
+  - {fileID: 8300000, guid: f83e08f7d5082a5458d6eb8f80b963a7, type: 3}
+  - {fileID: 8300000, guid: 3246f26cff306544e9dcbd80d537b9fa, type: 3}
+  - {fileID: 8300000, guid: b074577eda217ea4a97704ed19c0c53b, type: 3}
+  - {fileID: 8300000, guid: 7315819574c2f0846978b3a23f88ecda, type: 3}
+  - {fileID: 8300000, guid: 1aa8beefde9fb9149a717778e07e9e5f, type: 3}

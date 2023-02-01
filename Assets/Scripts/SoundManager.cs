@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 public class SoundManager : MonoBehaviour
 {
@@ -13,13 +14,14 @@ public class SoundManager : MonoBehaviour
         GunShoot,
         HatchOpen,
         HatchClose,
-        Damage,
-        Heal,
+        Damage
+        //Heal,
         //...
     }
     public static SoundManager Instance { get; set; }
     private AudioSource source;
     public AudioClip[] audioClips;
+    [SerializeField] private AudioClip[] hurtSounds;
 
     private void Awake()
     {
@@ -57,8 +59,13 @@ public class SoundManager : MonoBehaviour
             case Sounds.HatchClose:
                 source.PlayOneShot(audioClips[4]); break;
             case Sounds.Damage:
-            //{ source.PlayOneShot(audioClips[2]); break; }
-            case Sounds.Heal: break;
+            {
+                source.volume = 0.1f; //sound in respawn methode
+                source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
+                source.volume = 1;
+                break;
+            }
+            // case Sounds.Heal: break;
             //{ source.PlayOneShot(audioClips[3]); break; }
             //...
             default:

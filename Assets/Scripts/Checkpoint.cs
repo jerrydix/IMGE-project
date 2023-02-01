@@ -22,5 +22,6 @@ public class Checkpoint : MonoBehaviour
     public void Respawn()
     {
         transform.position = checkpoint;
+        SoundManager.Instance.PlaySound(SoundManager.Sounds.Damage);
     }
 }
