@@ -25,10 +25,10 @@ public class LevelSelection : MonoBehaviour
         GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 3);
     }
     
-    public void Load4()
-    {
-        GameObject.Find("LevelChanger").GetComponent<LevelChanger>().Fade(false, 4);
-    }
+    //public void Load4()
+    //{
+    //    changer.Fade(false, 4);
+    //}
     
     /*private void LoadLevel(int sceneIndex)
     {

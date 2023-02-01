@@ -43,8 +43,8 @@ public class LevelChanger : MonoBehaviour
             case 1: SceneManager.LoadScene(2); break;
             case 2: SceneManager.LoadScene(3); break;
             case 3: SceneManager.LoadScene(4); break;
-            case 4: SceneManager.LoadScene(5); break;
-            case 5: SceneManager.LoadScene(0); break;
+            case 4: SceneManager.LoadScene(0); break;
+            //case 5: SceneManager.LoadScene(0); break;
         }
     }
 }

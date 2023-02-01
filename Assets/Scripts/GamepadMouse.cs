@@ -18,6 +18,8 @@ public class GamepadMouse : MonoBehaviour
     [SerializeField] private RectTransform canvasTransform;
     [SerializeField] private float padding = 15f;
 
+    [SerializeField] private GameObject cursor;
+
     private bool _previousState;
     private const string gamepadScheme = "Gamepad";
     private const string mouseScheme = "Keyboard&Mouse";

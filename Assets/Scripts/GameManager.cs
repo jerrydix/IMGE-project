@@ -12,19 +12,19 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool sucExtrLevel1;
     [HideInInspector] public bool sucExtrLevel2;
     [HideInInspector] public bool sucExtrLevel3;
-    [HideInInspector] public bool sucExtrLevel4;
+    //[HideInInspector] public bool sucExtrLevel4;
 
     private GameObject _genPart1;
     private GameObject _genPart2;
     private GameObject _genPart3;
-    private GameObject _genPart4;
+    //private GameObject _genPart4;
     private LevelFinish _levelFinish;
 
     public int genCounter = 0; 
 
     [HideInInspector] public bool playTutorial;
 
-    private bool level1Done, level2Done, level3Done, level4Done;
+    private bool level1Done, level2Done, level3Done;// level4Done;
 
     private void Awake()
     {
@@ -35,12 +35,12 @@ public class GameManager : MonoBehaviour
         sucExtrLevel1 = false;
         sucExtrLevel2 = false;
         sucExtrLevel3 = false;
-        sucExtrLevel4 = false;
+        //sucExtrLevel4 = false;
 
         level1Done = false;
         level2Done = false;
         level3Done = false;
-        level4Done = false;
+        //level4Done = false;
         
         currentVolume = 100;
         
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             _genPart1 = GameObject.Find("GenPart1");
             _genPart2 = GameObject.Find("GenPart2");
             _genPart3 = GameObject.Find("GenPart3");
-            _genPart4 = GameObject.Find("GenPart4");
+            //_genPart4 = GameObject.Find("GenPart4");
         }
         
         if (index == 0)
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
                     level3Done = true;
                 }
             }
-            if (sucExtrLevel4 || level4Done)
+            /*if (sucExtrLevel4 || level4Done)
             {
                 _genPart4.transform.Find("Model").gameObject.SetActive(true);
                 if (!level4Done)
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
                     genCounter++;
                     level4Done = true;
                 }
-            }
+            }*/
         }
     }
 
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
                     case 2: sucExtrLevel1 = true; break;
                     case 3: sucExtrLevel2 = true; break; 
                     case 4: sucExtrLevel3 = true; break; 
-                    case 5: sucExtrLevel4 = true; break; 
+                    //case 5: sucExtrLevel4 = true; break; 
                 }    
             }
         }

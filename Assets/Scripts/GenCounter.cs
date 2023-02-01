@@ -13,15 +13,15 @@ public class GenCounter : MonoBehaviour
     void Start()
     {
         _counter = GameManager.Instance.genCounter;
-        mainText.text = _counter + "/ 4 generator parts collected";
-        levelSelectText.text = _counter + "/ 4 generator parts collected";
+        mainText.text = _counter + "/ 3 generator parts collected";
+        levelSelectText.text = _counter + "/ 3 generator parts collected";
     }
 
     // Update is called once per frame
     void Update()
     {
         _counter = GameManager.Instance.genCounter;
-        mainText.text = _counter + "/ 4 generator parts collected";
-        levelSelectText.text = _counter + "/ 4 generator parts collected";
+        mainText.text = _counter + "/ 3 generator parts collected";
+        levelSelectText.text = _counter + "/ 3 generator parts collected";
     }
 }
