@@ -416,15 +416,18 @@ public class PlayerShooting : MonoBehaviour
 
     public void Deselect()
     {
-        _particles.SetActive(false);
-        manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
-        currentForce = _force[3];
-        _pointer = 3;
-        if (!manipulatedObject.CompareTag("Turret"))
+        if (manipulatedObject != null)
         {
-            _currentRenderer.material = _startMaterial;
+            _particles.SetActive(false);
+            manipulatedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            manipulatedObject.GetComponent<ConstantForce>().force = Vector3.zero;
+            currentForce = _force[3];
+            _pointer = 3;
+            if (!manipulatedObject.CompareTag("Turret"))
+            {
+                _currentRenderer.material = _startMaterial;
+            }
+            manipulatedObject = null;
         }
-        manipulatedObject = null;
     }
 }

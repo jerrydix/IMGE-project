@@ -92,9 +92,9 @@ public class HealthManager : MonoBehaviour
             //source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
             //source.volume = 1;
             GetComponent<Checkpoint>().Respawn();
-            shooting.Deselect();
             dead = false;
             health = 100;
+            shooting.Deselect();
         }
     }
 
