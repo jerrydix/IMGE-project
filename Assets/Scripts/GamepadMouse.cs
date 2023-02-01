@@ -64,7 +64,7 @@ public class GamepadMouse : MonoBehaviour
     {
         InputSystem.RemoveDevice(_mouse);
         InputSystem.onAfterUpdate -= UpdateMotion;
-        
+        InputUser.onChange -= OnDeviceChanged;
     }
 
     private void UpdateMotion()
@@ -121,10 +121,10 @@ public class GamepadMouse : MonoBehaviour
 
             if (found)
             {
-                //TODO
+                cursor.SetActive(true);
             }else
             {
-                //TODO
+                cursor.SetActive(false);
             }
         }
     }
