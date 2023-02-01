@@ -61,7 +61,6 @@ public class SoundManager : MonoBehaviour
             case Sounds.Damage:
             {
                 source.volume = 0.1f; //sound in respawn methode
-                Debug.Log("test");
                 source.PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
                 source.volume = 1;
                 break;

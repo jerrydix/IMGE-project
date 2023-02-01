@@ -12,6 +12,8 @@ public class Target : MonoBehaviour
 
     private Vector3 _originalTransform;
 
+    [SerializeField] private PlayerShooting gun;
+
     private void Start()
     {
         constantForce = GetComponent<ConstantForce>();
@@ -36,10 +38,10 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("OutOfMapCollider") && !this.CompareTag("Turret"))
+        if (other.CompareTag("OutOfMapCollider") && this.CompareTag("ButtonTrigger"))
         {
             transform.position = _originalTransform;
-            GameObject.Find("Gun").GetComponent<PlayerShooting>().Deselect();
+            gun.Deselect();
         }
     }
 }

@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
         
         if (index == 0)
         {
-            genCounter = 0;
             if (sucExtrLevel1 || level1Done) 
             {
                 _genPart1.transform.Find("Model").gameObject.SetActive(true);
